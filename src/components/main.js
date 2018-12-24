@@ -17,10 +17,12 @@ class Main extends Component {
             <p><Link to="/calendar" >Visit Calendar</Link></p>
             <p><Link to='/patient' >Add/Edit new Family Member/pet</Link></p>
             <p><Link to="/medicine" >Add/Edit custom Medicine</Link></p>
-            <p><Link to="/userinfo" >Edit Account Details/Info</Link></p>
+            <p><Link to="/userinfo" >View/Edit Account Details</Link></p>
             </div>)
      }
-       else return (<div>hello, please Log in..</div>);
+       else return (<div>Hi!
+           <p><Link to='/login'>Please Log-in!</Link></p>
+           </div>);
     }
 }
 const mapStateToProps = state => ({

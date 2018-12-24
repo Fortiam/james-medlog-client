@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 
 class Userinfo extends Component {
     render(){
+        const info = ["First Name: ", "Last Name: ", "Email Address: ", "MedLog will sync schedule with email account: "];
+        const userInfo = [this.props.firstName, this.props.lastName, this.props.email, this.props.useEmailForApi];
+        const displayInfo = info.map((field, index) => userInfo[index]? (<li key={index}>{field.concat(userInfo[index])}</li>) : (<li key={index}>{field.concat("Optional field is blank..")}</li>));
         if(this.props.loggedId){
             return (<div>
-                <p>User Account info details go here...</p>
+                <p>Account details for {this.props.username}:</p>
+                <ul>{displayInfo}</ul>
                 <p><Link to="/main" >Return to homepage</Link></p>
             </div>);
         }
@@ -19,9 +23,12 @@ class Userinfo extends Component {
 }
 
 const mapStateToProps = (state)=>({
-    events : state.events,
-    timeIsNow : state.timeIsNow,
-    whereTo: state.whereTo,
-    loggedId : state.auth.currentUser !== null
-  });
+    loggedId : state.auth.currentUser !== null,
+    username: state.auth.currentUser.username,
+    firstName: state.auth.currentUser.firstName,
+    lastName: state.auth.currentUser.lastName,
+    email : state.auth.currentUser.email,
+    useEmailForApi: state.auth.currentUser.useEmailForApi
+});
+
 export default connect(mapStateToProps)(Userinfo);
