@@ -27,6 +27,7 @@ class Calendar extends Component {
             eventLimit= {true} // allow "more" link when too many events
             events = {this.props.events}
             ></FullCalendar>
+            <p><Link to="/main" >Return to homepage</Link></p>
             </div>
         );
         } else {

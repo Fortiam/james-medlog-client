@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 class Userinfo extends Component {
     render(){
         if(this.props.loggedId){
-            return (<div>User Account info details go here...</div>);
+            return (<div>
+                <p>User Account info details go here...</p>
+                <p><Link to="/main" >Return to homepage</Link></p>
+            </div>);
         }
         else {
             return (<div>Hello there, 

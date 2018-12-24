@@ -20,7 +20,7 @@ class Login extends Component{
 
         }
         let successMessage;
-        if (this.props.submitSucceeded) {
+        if (this.props.submitSucceeded && !this.props.loggedIn) {
             successMessage = (
                 <p className="message message-success">
                     Message submitted successfully

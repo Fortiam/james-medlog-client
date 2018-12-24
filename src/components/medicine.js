@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 class Medicine extends Component {
     render(){
         if(this.props.loggedId){
-            return (<div>Meds info goes here...</div>);
+            return (<div>
+                <p>Meds info goes here...</p>
+                <p><Link to="/main" >Return to homepage</Link></p>
+                </div>);
         }
         else {
             return (<div>Hello there, 
