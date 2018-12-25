@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config';
 import {SubmissionError} from 'redux-form';
+import {authSuccess, authError} from './auth';
 /*
 'REGISTER_SUCCESS'
     username: action.username,
@@ -54,4 +55,20 @@ export const registerMe = user => dispatch=> {
        );
         //dispatch(registerError(err))
     });
+};
+export const editUserInfo = edits => dispatch => {
+    dispatch(registerRequest());
+    return fetch(`${API_BASE_URL}/api/users/update/${edits.id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization' : `Bearer ${edits.token}`
+        },
+        body: JSON.stringify(edits)
+    })
+    .then(badData=> badData.json())
+    .then(goodData=> {
+        dispatch(authSuccess(goodData))
+    })
+    .catch(err=> dispatch(authError(null)));
 };
