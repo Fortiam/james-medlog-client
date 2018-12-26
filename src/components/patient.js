@@ -2,21 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PatientSingle from './patient_single';
+import { createNewPatient } from '../actions/patients';
 
 class Patient extends Component {
+    AddOne(){
+        let newbie = {"token": this.props.token, "name" : "New Family Member!"};
+        this.props.dispatch(createNewPatient(newbie));
+    }
     render(){
+        const common = (
+            <div><button onClick={()=>this.AddOne()}>Add New Family member/pet!</button>
+            <p><Link to="/main" >Return to homepage</Link></p>
+            </div>
+            );
         if(this.props.loggedIn){
             if(this.props.listOfOwnedByUser.length > 0) {
                 const whoToShow = this.props.listOfOwnedByUser.map((person, index)=>{
-                    return (<li key={index}><PatientSingle patient={person}/></li>);
+                    return (<li key={index}><PatientSingle patientNumber={index}/></li>);
                 });
                 return (<div><ul>{whoToShow}</ul>
-                    <p><Link to="/main" >Return to homepage</Link></p>
+                    {common}
                     </div>);
             }//here .length is 0
             else {
                 return (<div className="person"><p>Nobody has been added to your Family yet!</p>
-                    <p><Link to="/main" >Return to homepage</Link></p></div>);
+                    {common}</div>);
             }
         }//here they aren't logged in somehow
         else {

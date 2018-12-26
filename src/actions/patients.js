@@ -13,7 +13,7 @@ export const PatientInfoError = err => ({
 });
 export const getPatientInfo = user => dispatch => {
     dispatch(PatientInfoRequest());
-    return fetch(`${API_BASE_URL}/api/patients/:${user.id.toString()}`, {
+    return fetch(`${API_BASE_URL}/api/patients/${user.id.toString()}`, {
         method : 'GET',
         headers : {
             'content-type': 'application/json',
@@ -81,7 +81,7 @@ export const createNewPatientSuccess = payload => ({
 export const editPatient = user => dispatch => {
     //put api call here
     dispatch(PatientInfoRequest());
-    return fetch(`${API_BASE_URL}/api/patients/:${user.patientId}`, {
+    return fetch(`${API_BASE_URL}/api/patients/${user.patientId}`, {
         method: 'PUT',
         headers : {
             'content-type': 'application/json',
@@ -106,23 +106,23 @@ export const editPatientSuccess = payload => ({
 export const removePatientInfo = user => dispatch => {
     //delete api call here
     dispatch(PatientInfoRequest());
-    return fetch(`${API_BASE_URL}/api/patients/:${user.patientId}`, {
+    return fetch(`${API_BASE_URL}/api/patients/${user.patientId}`, {
         method: 'DELETE',
         headers : {
             'content-type': 'application/json',
             'Authorization' : `Bearer ${user.token}`
         }
     })
-    .then(() => {
-        return dispatch(removePatientInfoSuccess());
+    .then(unJsonifiedData => unJsonifiedData.json())
+    .then(data => {
+        return dispatch(removePatientInfoSuccess(data));
     })
     .catch(err=> {
         return dispatch(PatientInfoError(err));
     });
 };
 
-export const removePatientInfoSuccess = () => ({
+export const removePatientInfoSuccess = payload => ({
     type : 'REMOVE_PATIENT_INFO_SUCCESS',
+    "data" : payload
 });
-
-

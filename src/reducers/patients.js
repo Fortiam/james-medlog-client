@@ -44,8 +44,7 @@ export function patienceReducer (state = initalState, action){
             const newState = Object.assign({}, state, {loading : false, error: null, listOfOwnedByUser : [...action.data]});
             return newState;
         case('CREATE_NEW_PATIENT_SUCCESS'):
-        console.log("the goods: ", action.data);
-            const newpostState = Object.assign({}, state, {loading : false, error: null, listOfOwnedByUser : [...state.listOfOwnedByUser, action.data]});//test the stuff here--------------------
+            const newpostState = Object.assign({}, state, {loading : false, error: null, listOfOwnedByUser : [...state.listOfOwnedByUser, action.data]});
             return newpostState;
         case('EDIT_PATIENT_SUCCESS'):
         console.log("the goods: ", action.data);//<<--- test tis ---------------------
@@ -58,8 +57,7 @@ export function patienceReducer (state = initalState, action){
             });
             return Object.assign({}, state, {loading: false, error: null, listOfOwnedByUser : [...neweditState]});
         case('REMOVE_PATIENT_INFO_SUCCESS'):
-        console.log("the goods: ", action.data);
-            const newdeleteState = Object.assign({}, state, {loading: false, error: null, listOfOwnedByUser: [...action.data]});//test the stuff here--------------------
+            const newdeleteState = Object.assign({}, state, {loading: false, error: null, listOfOwnedByUser: [...action.data]});
             return newdeleteState;
     default : return state;
     }
