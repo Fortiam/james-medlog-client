@@ -23,14 +23,14 @@ class Userinfo extends Component {
    
     render(){
         let info, userInfo, displayInfo;
-        if(this.props.loggedId){
+        if(this.props.loggedIn){
         info = ["First Name: ", "Last Name: ", "Email Address: "/*, "MedLog will sync schedule with email account: "*/];
         userInfo = [this.props.firstName, this.props.lastName, this.props.email, this.props.useEmailForApi];
         displayInfo = info.map((field, index) => userInfo[index]?
             (<div key={index}><label htmlFor={info[index]}>{info[index]}</label><input id={info[index]} placeholder={userInfo[index].toString()} type="text" /></div>)
           : (<div key={index}>{field.concat("Optional field is blank..")}</div>));
         }
-        if(this.props.loggedId){
+        if(this.props.loggedIn){
             return (<div>
                 <p>Account details for {this.props.username}:</p>
                 <form onSubmit={values=>{
@@ -58,20 +58,27 @@ class Userinfo extends Component {
         else {
             return (<div>Hello there, 
                 <Link to='/login'>please Log-in!</Link>
-                </div>)
+                </div>);
         }   
     }
 }
 
-const mapStateToProps = (state)=>({
-    loggedId : state.auth.currentUser !== null,
-    username: state.auth.currentUser.username,
-    firstName: state.auth.currentUser.firstName,
-    lastName: state.auth.currentUser.lastName,
-    email : state.auth.currentUser.email,
-    useEmailForApi: state.auth.currentUser.useEmailForApi,
-    id : state.auth.currentUser.id,
-    token : state.auth.authToken
-});
+const mapStateToProps = (state)=>{
+    if(state.auth.currentUser){
+        return {
+            loggedIn : state.auth.currentUser !== null,
+            username: state.auth.currentUser.username,
+            firstName: state.auth.currentUser.firstName,
+            lastName: state.auth.currentUser.lastName,
+            email : state.auth.currentUser.email,
+            useEmailForApi: state.auth.currentUser.useEmailForApi,
+            id : state.auth.currentUser.id,
+            token : state.auth.authToken
+        };
+    }
+    else {
+        return {loggedIn : null};
+    }
+}
 
 export default connect(mapStateToProps)(Userinfo);

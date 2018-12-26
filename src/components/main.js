@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { reduxForm, destroy } from 'redux-form';
+import { getAllPatientsInfo } from '../actions/patients';
 
 class Main extends Component {
     componentDidMount(){
-        console.log("reset did go");
        this.props.dispatch(destroy())
-       
+       this.props.dispatch(getAllPatientsInfo({"token": this.props.token}));
     }
 
     render(){
@@ -28,7 +28,8 @@ class Main extends Component {
 const mapStateToProps = state => ({
     loggedIn : state.auth.currentUser !== null,
     whereTo : state.events.whereTo,
-    didReset: state.form
+    didReset: state.form,
+    token : state.auth.authToken,
 });
 //export default connect(mapStateToProps)(Main);
 export default reduxForm({
