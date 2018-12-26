@@ -5,8 +5,8 @@ const initalState = {
     gender : null,
     height : null,
     weight : null,
-    doctor : { name : null, email : null},
-    allergies : []
+    doctor : ["Dr. Name goes here", "Dr. contact info goes here"],
+    allergies : null,
     }],
     loading : false,
     error : null

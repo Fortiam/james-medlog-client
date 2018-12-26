@@ -30,6 +30,7 @@ const mapStateToProps = state => ({
     whereTo : state.events.whereTo,
     didReset: state.form,
     token : state.auth.authToken,
+    listOfOwnedByUser : [...state.patients.listOfOwnedByUser]
 });
 //export default connect(mapStateToProps)(Main);
 export default reduxForm({

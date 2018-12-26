@@ -4,24 +4,26 @@ import { removePatientInfo, editPatient } from '../actions/patients';
 
 class PatientSingle extends Component{
     sayGoodbye(){
-        let goner = {"token": this.props.token, "patientId": this.props.theList[this.props.patientNumber].id}
+        let goner = {"token": this.props.token, "patientId": this.props.listOfOwnedByUser[this.props.patientNumber].id}
         this.props.dispatch(removePatientInfo(goner));
     }
     editMe(familyValues){
-        let edited = Object.assign({}, familyValues, {"token": this.props.token, "patientId": this.props.theList[this.props.patientNumber].id});
+        let edited = Object.assign({}, familyValues, {"token": this.props.token, "patientId": this.props.listOfOwnedByUser[this.props.patientNumber].id});
         this.props.dispatch(editPatient(edited));
     }
     render(){
+        
     if(this.props.patientNumber != null){
         const monkeySauce = [];
-        const fieldArray = ["name", "age", "gender", "height", "weight"/*, "doctor", "allergies"*/];
-        const personArray = [this.props.theList[this.props.patientNumber].name,
-                             this.props.theList[this.props.patientNumber].age,
-                             this.props.theList[this.props.patientNumber].gender,
-                             this.props.theList[this.props.patientNumber].height,
-                             this.props.theList[this.props.patientNumber].weight,
-                             this.props.theList[this.props.patientNumber].doctor,
-                             this.props.theList[this.props.patientNumber].allergies
+        const fieldArray = ["name", "age", "gender", "height", "weight", "doctor's name","doctor's contact info", "allergies"];
+        const personArray = [this.props.listOfOwnedByUser[this.props.patientNumber].name,
+                             this.props.listOfOwnedByUser[this.props.patientNumber].age,
+                             this.props.listOfOwnedByUser[this.props.patientNumber].gender,
+                             this.props.listOfOwnedByUser[this.props.patientNumber].height,
+                             this.props.listOfOwnedByUser[this.props.patientNumber].weight,
+                             this.props.listOfOwnedByUser[this.props.patientNumber].doctor[0].name,
+                             this.props.listOfOwnedByUser[this.props.patientNumber].doctor[0].contact,
+                             this.props.listOfOwnedByUser[this.props.patientNumber].allergies
                             ];
         const validArray = personArray.map(f=> f? f: 'optional field not entered yet..');
         const displayArray = fieldArray.map((field, index)=>{
@@ -33,6 +35,16 @@ class PatientSingle extends Component{
                     values[field] = monkeySauce[index].value.toString();
                     if(values.age){
                         values.age = parseInt(values.age);
+                    }
+                    if(values["doctor's name"]){
+                        values.doctor = [{}];
+                        values.doctor[0].name = values["doctor's name"];
+                        delete values["doctor's name"];
+                    }
+                    if(values["doctor's contact info"]){
+                        values.doctor = [{}];
+                        values.doctor[0].contact = values["doctor's contact info"];
+                        delete values["doctor's contact info"];
                     }
                     this.editMe(values);
                     }}>Change!</button>
@@ -50,7 +62,7 @@ class PatientSingle extends Component{
 }
 
 const mapStateToProps = state => ({
-    theList : [...state.patients.listOfOwnedByUser],
+    listOfOwnedByUser : [...state.patients.listOfOwnedByUser],
     userId : state.auth.currentUser.id,
     token : state.auth.authToken,
 });
