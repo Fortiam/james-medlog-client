@@ -24,7 +24,6 @@ export function patienceReducer (state = initalState, action){
         case('GET_PATIENT_INFO_SUCCESS'):
         const newArrayData = state.listOfOwnedByUser.map(object=> {
             if(object.name === action.data.name){
-                console.log("here test is: ", action.data);//<-- test?
                 return action.data;
             } else {
                 return object;
@@ -47,7 +46,6 @@ export function patienceReducer (state = initalState, action){
             const newpostState = Object.assign({}, state, {loading : false, error: null, listOfOwnedByUser : [...state.listOfOwnedByUser, action.data]});
             return newpostState;
         case('EDIT_PATIENT_SUCCESS'):
-        console.log("the goods: ", action.data);//<<--- test tis ---------------------
             const neweditState = state.listOfOwnedByUser.map(object=> {
                 if(object.name === action.data.name){
                     return action.data;

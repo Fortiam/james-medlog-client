@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removePatientInfo } from '../actions/patients';
-// need patientId 
+import { removePatientInfo, editPatient } from '../actions/patients';
+
 class PatientSingle extends Component{
-//step 1 change to input fields,
-//step 2 changes to inputs dispatches edits action  editPatient
     sayGoodbye(){
         let goner = {"token": this.props.token, "patientId": this.props.theList[this.props.patientNumber].id}
         this.props.dispatch(removePatientInfo(goner));
     }
+    editMe(familyValues){
+        let edited = Object.assign({}, familyValues, {"token": this.props.token, "patientId": this.props.theList[this.props.patientNumber].id});
+        this.props.dispatch(editPatient(edited));
+    }
     render(){
     if(this.props.patientNumber != null){
-        const fieldArray = ["name: ", "age: ", "gender: ", "height: ", "weight: ", "doctor: ", "allergies: "];
+        const monkeySauce = [];
+        const fieldArray = ["name", "age", "gender", "height", "weight"/*, "doctor", "allergies"*/];
         const personArray = [this.props.theList[this.props.patientNumber].name,
                              this.props.theList[this.props.patientNumber].age,
                              this.props.theList[this.props.patientNumber].gender,
@@ -23,7 +26,16 @@ class PatientSingle extends Component{
         const validArray = personArray.map(f=> f? f: 'optional field not entered yet..');
         const displayArray = fieldArray.map((field, index)=>{
             return (<div key={index} className="person">
-                <p>{field.concat(validArray[index])}</p>
+                <label htmlFor={field}>{field}: </label>
+                <input id={field} type="text" placeholder={validArray[index]} ref={input => monkeySauce[index] = input} />
+                <button type="click" onClick={()=>{
+                    let values = {};
+                    values[field] = monkeySauce[index].value.toString();
+                    if(values.age){
+                        values.age = parseInt(values.age);
+                    }
+                    this.editMe(values);
+                    }}>Change!</button>
                 </div>);
         });
         return (<div className="person header">
@@ -36,17 +48,10 @@ class PatientSingle extends Component{
         }
     }
 }
-// this.props.patientNumber is the index of the array to use for this comp.
+
 const mapStateToProps = state => ({
     theList : [...state.patients.listOfOwnedByUser],
     userId : state.auth.currentUser.id,
     token : state.auth.authToken,
-    // name : state.patients.name,
-    // age : state.patents.age,
-    // gender : state.patents.gender,
-    // height : state.patents.height,
-    // weight : state.patents.weight,
-    // doctor : state.patients.doctor,
-    // allergies : state.patients.allergies,
 });
 export default connect(mapStateToProps)(PatientSingle);
