@@ -13,7 +13,7 @@ class Medicine extends Component {
         if(this.props.loggedId){
             const common = (<p><button type="click" onClick={()=>this.makeAMeds()}>New Medicine</button></p>);
             const displayMeds = this.props.manyMeds.map((eachMed, index) => {
-                return (<div key={index}><MedsSingle oneMed={eachMed} whichMed={index}/></div>);
+                return (<div key={index}><MedsSingle form={eachMed.id} formKey={eachMed.id} oneMed={eachMed} whichMed={index}/></div>);
             });
             if(this.props.manyMeds.length > 0){
             return (<div>

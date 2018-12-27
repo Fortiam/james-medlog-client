@@ -21,7 +21,7 @@ class MedsSingle extends Component {
     render(){
        return (<div>Medication:
              {this.props.oneMed.name}
-            <form id="medsForm" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+            <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="Medicine Name: " type="text" component={Input} name="name" placeholder={this.props.oneMed.name} />
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />
             <Field label="To be taken every X hours: " type="text" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
@@ -35,7 +35,8 @@ class MedsSingle extends Component {
 }
 const mapStateToProps = state => ({
     manyMeds : state.meds.manyMeds,
-    token : state.auth.authToken
+    token : state.auth.authToken,
+
 })
 export default reduxForm({
     form: 'medsForm',
