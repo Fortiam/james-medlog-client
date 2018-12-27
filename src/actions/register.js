@@ -1,14 +1,7 @@
 import {API_BASE_URL} from '../config';
 import {SubmissionError} from 'redux-form';
-import {authSuccess, authError} from './auth';
-/*
-'REGISTER_SUCCESS'
-    username: action.username,
-    firstName : action.firstName,
-    lastName : action.lastName,
-    email : action.email, 
-    useEmailForApi: action.useEmailForApi,
-*/
+import {authSuccess, authError, clearAuth} from './auth';
+
 export const registerRequest = () =>({
     type: 'REGISTER_REQUEST'
 });
@@ -70,5 +63,19 @@ export const editUserInfo = edits => dispatch => {
     .then(goodData=> {
         dispatch(authSuccess(goodData))
     })
-    .catch(err=> dispatch(authError(null)));
+    .catch(err=> dispatch(authError(err)));
 };
+
+export const deleteUser = user => dispatch => {
+    dispatch(registerRequest());
+    return fetch(`${API_BASE_URL}/api/users/deleteMe/${user.id}`, {
+        method : 'DELETE',
+        headers : {
+            'content-type': 'application/json',
+            'Authorization' : `Bearer ${user.token}`
+        }
+    })
+    .then(() => dispatch(clearAuth()))
+    .catch(err=>dispatch(authError(err)));
+};
+

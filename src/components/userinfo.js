@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { editUserInfo } from '../actions/register';
+import { editUserInfo, deleteUser } from '../actions/register';
 class Userinfo extends Component {
     onSubmit(values){
         const editedKeys = ["firstName", "lastName", "email"/*, "useEmailForApi"*/];
@@ -19,6 +19,11 @@ class Userinfo extends Component {
         }
         this.props.dispatch(editUserInfo(updateObj));
         this.props.history.push('/main');
+    }
+    removeThisUser(){
+        const user = {"token": this.props.token, "id": this.props.id};
+        this.props.dispatch(deleteUser(user));
+        this.props.history.push('/');
     }
    
     render(){
@@ -52,6 +57,7 @@ class Userinfo extends Component {
                 <button type="submit">Update!</button>
                 </form>
                 <button type="click" onClick={()=>this.props.history.push('/main')}>Cancel all changes</button>
+                <p><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} >REMOVE THIS ACCOUNT</button></p>
                 <p><Link to="/main" >Return to homepage</Link></p>
             </div>);
         }
