@@ -96,7 +96,7 @@ export const editMeds = user => dispatch => {
     });
 };
 
-export const removePatientInfo = user => dispatch => {
+export const removeMeds = user => dispatch => {
     //delete api call here
     dispatch(MedsRequest());
     return fetch(`${API_BASE_URL}/api/meds/${user.medsId}`, {

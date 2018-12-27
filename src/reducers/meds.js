@@ -3,9 +3,9 @@ const initalState = {
         name : null,
         dosage : null,
         rateAmount : null,
-        rateInterval : null,
+        // rateInterval : null,
         howLongAmount : null,
-        howLongForDays : null
+        // howLongForDays : null
     }],
     loading : false,
     error : null
@@ -43,7 +43,7 @@ export function medsReducer (state = initalState, action){
             return newpostState;
         case('EDIT_MEDS_SUCCESS'):
             const neweditState = state.manyMeds.map(object=> {
-                if(object.name === action.data.name){
+                if(object.id === action.data.id){
                     return action.data;
                 } else {
                     return object;
