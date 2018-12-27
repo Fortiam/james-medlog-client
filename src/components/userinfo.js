@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { editUserInfo, deleteUser } from '../actions/register';
+import { medsLogout } from '../actions/meds';
+import { patientLogout } from '../actions/patients';
+import { clearAuth } from '../actions/auth';
+
 class Userinfo extends Component {
     onSubmit(values){
         const editedKeys = ["firstName", "lastName", "email"/*, "useEmailForApi"*/];
@@ -23,6 +27,9 @@ class Userinfo extends Component {
     removeThisUser(){
         const user = {"token": this.props.token, "id": this.props.id};
         this.props.dispatch(deleteUser(user));
+        this.props.dispatch(medsLogout());
+        this.props.dispatch(patientLogout());
+        this.props.dispatch(clearAuth());
         this.props.history.push('/');
     }
    

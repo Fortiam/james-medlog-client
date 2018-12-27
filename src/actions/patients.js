@@ -11,6 +11,10 @@ export const PatientInfoError = err => ({
     type : 'PATIENT_INFO_ERROR',
     "error": err
 });
+export const patientLogout = () => ({
+    type : 'PATIENT_LOGOUT'
+});
+
 export const getPatientInfo = user => dispatch => {
     dispatch(PatientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/${user.id.toString()}`, {

@@ -3,9 +3,7 @@ const initalState = {
         name : null,
         dosage : null,
         rateAmount : null,
-        // rateInterval : null,
         howLongAmount : null,
-        // howLongForDays : null
     }],
     loading : false,
     error : null
@@ -53,6 +51,13 @@ export function medsReducer (state = initalState, action){
         case('REMOVE_MEDS_SUCCESS'):
             const newdeleteState = Object.assign({}, state, {loading: false, error: null, manyMeds: [...action.data]});
             return newdeleteState;
+        case('MEDS_LOGOUT'):
+            const logoutState = Object.assign({}, state, {loading: false, error: null, manyMeds : [{ "name" : null,
+                "dosage" : null,
+                "rateAmount" : null,
+                "howLongAmount" : null,
+                }]});
+            return logoutState;
     default : return state;
     }
 };

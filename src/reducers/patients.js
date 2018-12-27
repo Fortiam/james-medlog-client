@@ -57,6 +57,17 @@ export function patienceReducer (state = initalState, action){
         case('REMOVE_PATIENT_INFO_SUCCESS'):
             const newdeleteState = Object.assign({}, state, {loading: false, error: null, listOfOwnedByUser: [...action.data]});
             return newdeleteState;
+        case('PATIENT_LOGOUT'):
+            const logOutState = Object.assign({}, state, {listOfOwnedByUser : [{
+                name : null,
+                age : null,
+                gender : null,
+                height : null,
+                weight : null,
+                doctor : ["Dr. Name goes here", "Dr. contact info goes here"],
+                allergies : null
+            }]});
+            return logOutState;
     default : return state;
     }
 };

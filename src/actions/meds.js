@@ -11,6 +11,10 @@ export const MedsError = err => ({
     type : 'MEDS_ERROR',
     "error": err
 });
+export const medsLogout = () => ({
+    type : 'MEDS_LOGOUT'
+});
+
 export const getMeds = user => dispatch => {
     dispatch(MedsRequest());
     return fetch(`${API_BASE_URL}/api/meds/${user.id.toString()}`,{
