@@ -9,8 +9,9 @@ class MedsSingle extends Component {
     onSubmit(values){
         values.token = this.props.token;
         values.medsId = this.props.oneMed.id;
-        values.rateAmount = Number(values.rateAmount);
-        values.howLongAmount = Number(values.howLongAmount);
+        (values.rateAmount)? values.rateAmount = Number(values.rateAmount) : delete values.rateAmount;
+        (values.howLongAmount)? values.howLongAmount = Number(values.howLongAmount) : delete values.howLongAmount;
+        
         //need to validate the values and remove the empty inputs before dispatch
         this.props.dispatch(editMeds(values));
     }
@@ -19,13 +20,13 @@ class MedsSingle extends Component {
         this.props.dispatch(removeMeds(thisMed));
     }
     render(){
-       return (<div>Medication:
+       return (<div>Medication: 
              {this.props.oneMed.name}
             <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="Medicine Name: " type="text" component={Input} name="name" placeholder={this.props.oneMed.name} />
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />
-            <Field label="To be taken every X hours: " type="text" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
-            <Field label={`How many days to take ${this.props.oneMed.name}: `} type="text" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
+            <Field label="To be taken every X hours: " type="number" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
+            <Field label={`How many days to take ${this.props.oneMed.name}: `} type="number" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
             <button type="submit">Update</button>
             </form>
             <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck} Correct?</p>
