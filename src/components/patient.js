@@ -32,7 +32,7 @@ class Patient extends Component {
         else {
             return (<div>Hello there, 
                 <Link to='/login'>please Log-in!</Link>
-                </div>)
+                </div>);
         }
     }
 }

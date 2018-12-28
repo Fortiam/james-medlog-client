@@ -5,12 +5,14 @@ import { clearAuth } from '../actions/auth';
 import { medsLogout } from '../actions/meds';
 import { patientLogout } from '../actions/patients';
 import { registerLogout } from '../actions/register';
+import { eventsLogout } from '../actions/events';
 
 class Header extends Component {
     handleLogOut(){
         this.props.dispatch(medsLogout());
         this.props.dispatch(patientLogout());
         this.props.dispatch(registerLogout());
+        this.props.dispatch(eventsLogout());
         this.props.dispatch(clearAuth());
     }
     render(){

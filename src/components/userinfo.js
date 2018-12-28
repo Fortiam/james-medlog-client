@@ -5,6 +5,7 @@ import { editUserInfo, deleteUser } from '../actions/register';
 import { medsLogout } from '../actions/meds';
 import { patientLogout } from '../actions/patients';
 import { clearAuth } from '../actions/auth';
+import { eventsLogout } from '../actions/events';
 
 class Userinfo extends Component {
     onSubmit(values){
@@ -29,6 +30,7 @@ class Userinfo extends Component {
         this.props.dispatch(deleteUser(user));
         this.props.dispatch(medsLogout());
         this.props.dispatch(patientLogout());
+        this.props.dispatch(eventsLogout());
         this.props.dispatch(clearAuth());
         this.props.history.push('/');
     }

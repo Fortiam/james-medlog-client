@@ -10,6 +10,7 @@ import Calendar from './calendar';
 import Patient from './patient';
 import Medicine from './medicine';
 import Userinfo from './userinfo';
+import Begin from './begin';
 
 class Home extends Component {
     render(){
@@ -25,6 +26,7 @@ class Home extends Component {
                     <Route exact path='/patient' component={Patient} />
                     <Route exact path='/medicine' component={Medicine} />
                     <Route exact path='/userinfo' component={Userinfo} />
+                    <Route exact path='/begin' component={Begin} />
                     </div>
                 </Router>
                 </div>

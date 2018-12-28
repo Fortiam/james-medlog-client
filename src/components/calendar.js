@@ -39,7 +39,7 @@ class Calendar extends Component {
 }
 
 const mapStateToProps = (state)=>({
-    events : state.events,
+    events : [...state.events.allOfTheEvents],
     timeIsNow : state.timeIsNow,
     whereTo: state.whereTo,
     loggedId : state.auth.currentUser !== null

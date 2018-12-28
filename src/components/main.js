@@ -5,6 +5,7 @@ import { reduxForm, destroy } from 'redux-form';
 import { getAllPatientsInfo } from '../actions/patients';
 import { getAllMeds } from '../actions/meds';
 import { registerLogout } from '../actions/register';
+import { fetchAllEvents } from '../actions/events';
 
 class Main extends Component {
     componentDidMount(){
@@ -12,6 +13,7 @@ class Main extends Component {
        this.props.dispatch(registerLogout());
        this.props.dispatch(getAllPatientsInfo({"token": this.props.token}));
        this.props.dispatch(getAllMeds({"token": this.props.token}));
+       this.props.dispatch(fetchAllEvents({"token": this.props.token}));
     }
 
     render(){
@@ -22,7 +24,7 @@ class Main extends Component {
             <p><Link to='/patient' >Add/Edit/Remove a Family Member or pet</Link></p>
             <p><Link to="/medicine" >Add/Edit custom Medicine</Link></p>
             <p><Link to="/userinfo" >View/Edit Account Details</Link></p>
-
+            <p><Link to='/begin' >Begin Treatment</Link></p>
             </div>)
      }
        else return (<div>Hi!
