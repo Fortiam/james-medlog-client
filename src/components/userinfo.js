@@ -34,13 +34,14 @@ class Userinfo extends Component {
     }
    
     render(){
-        let info, userInfo, displayInfo;
+        let info, userInfo, displayInfo, defaultInfo;
         if(this.props.loggedIn){
         info = ["First Name: ", "Last Name: ", "Email Address: "/*, "MedLog will sync schedule with email account: "*/];
         userInfo = [this.props.firstName, this.props.lastName, this.props.email, this.props.useEmailForApi];
+        defaultInfo = ["Enter first name", "Enter last name", "Enter email address"];
         displayInfo = info.map((field, index) => userInfo[index]?
             (<div key={index}><label htmlFor={info[index]}>{info[index]}</label><input id={info[index]} placeholder={userInfo[index].toString()} type="text" /></div>)
-          : (<div key={index}>{field.concat("Optional field is blank..")}</div>));
+          : (<div key={index}><label htmlFor={info[index]}>{info[index]}</label><input id={info[index]} placeholder={defaultInfo[index]} type="text" /></div>));
         }
         if(this.props.loggedIn){
             return (<div>

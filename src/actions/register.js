@@ -18,6 +18,9 @@ export const submitAction = values => ({
     type : 'SUBMIT_ACTION',
     values
 });
+export const registerLogout = () => ({
+    type: 'REGISTER_LOGOUT'
+});
 
 export const registerMe = user => dispatch=> {
     dispatch(registerRequest());
@@ -28,9 +31,16 @@ export const registerMe = user => dispatch=> {
         },
         body: JSON.stringify(user)
     })
-    .then(badData=> badData.json())
+    .then(badData=> {
+        return badData.json();
+     })
     .then(goodData=> {
-        dispatch(registerSuccess(goodData))
+        if(goodData.error.status === 401){
+            dispatch(registerError(goodData));
+        }
+        else {
+            dispatch(registerSuccess(goodData))
+        }
     })
     .catch(err=> {
         const {message, reason, location} = err;
@@ -46,7 +56,6 @@ export const registerMe = user => dispatch=> {
                 _error: 'Error submitting message'
           })
        );
-        //dispatch(registerError(err))
     });
 };
 export const editUserInfo = edits => dispatch => {

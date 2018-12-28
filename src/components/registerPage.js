@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 //define actions
-import { submitAction, registerError, registerMe } from '../actions/register';
+import { /*submitAction,*/ registerError, registerMe } from '../actions/register';
 import { login } from '../actions/auth';
 //define components and functions
 import { Input } from './input';
@@ -12,12 +12,15 @@ import { required, nonEmpty, legitPassword, stringy } from '../utils/localChecks
 class RegisterPage extends Component{
     onSubmit(values){
         let scopeValues = values;
-        this.props.dispatch(submitAction(values));
+        // this.props.dispatch(submitAction(values));
         this.props.dispatch(registerMe(values))
+        .catch(err=>this.props.dispatch(registerError(err)))
         .then(()=>{
-            this.props.dispatch(login(scopeValues.username,scopeValues.password))
+            if(this.props.error===null && this.props.error2.status !==401){
+              this.props.dispatch(login(scopeValues.username,scopeValues.password))
+              .catch(err=>this.props.dispatch(registerError(err)));
+            }
         })
-        .catch(err=>this.props.dispatch(registerError(err)));
     }
     render(){
         if(this.props.loggedIn){
@@ -33,10 +36,8 @@ class RegisterPage extends Component{
             );
         }
         let errorMessage;
-        if (this.props.error) {
-            errorMessage = (
-                <p className="message message-error">{this.props.error}</p>
-            );
+        if (this.props.error2) {
+            errorMessage = (<p className="message message-error">{this.props.error2.reason}</p>);
         }
         return (
             <div>
@@ -91,7 +92,9 @@ class RegisterPage extends Component{
     }
 }
 const mapStateToProps = state => ({
-    loggedIn : state.auth.currentUser
+    loggedIn : state.auth.currentUser,
+    error : state.auth.error,
+    error2 : state.signUp.error
 });
 export default reduxForm({
     form: 'register',

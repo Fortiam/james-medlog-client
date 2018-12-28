@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 class Login extends Component{
     onSubmit(values){
         this.props.dispatch(submitAction(values));
-        return this.props.dispatch(login(values.username, values.password));
+        return this.props.dispatch(login(values.username, values.password))
+        .catch(err=>{this.props.dispatch(registerError(err))});
     }
     
     render(){
@@ -30,7 +31,8 @@ class Login extends Component{
         let errorMessage;
         if (this.props.error) {
             errorMessage = (
-                <p className="message message-error">{this.props.error}</p>
+                <div><p className="message message-error">{this.props.error.error}</p>
+                <p className="message message-error">{this.props.error.message}</p></div>
             );
         }
         return (
@@ -60,7 +62,8 @@ class Login extends Component{
     }
 }
 const mapStateToProps = state=> ({
-    loggedIn : state.auth.currentUser
+    loggedIn : state.auth.currentUser,
+    error : state.auth.error
 });
 export default reduxForm({
     form: 'login',

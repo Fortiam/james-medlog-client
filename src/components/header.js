@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { medsLogout } from '../actions/meds';
 import { patientLogout } from '../actions/patients';
+import { registerLogout } from '../actions/register';
 
 class Header extends Component {
     handleLogOut(){
         this.props.dispatch(medsLogout());
         this.props.dispatch(patientLogout());
+        this.props.dispatch(registerLogout());
         this.props.dispatch(clearAuth());
     }
     render(){

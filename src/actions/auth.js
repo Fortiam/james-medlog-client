@@ -44,15 +44,27 @@ export const login = (username, password) => dispatch => {
                 password
             })
         })
-        .then(res => res.json())
-        .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+        .then(res => {
+            if(res.status === 401){
+                dispatch(authError({"error": "Incorrect username or password"}));
+            
+            }
+            // console.log("?",res);
+            return res.json()})
+        .then(({authToken}) => {
+            if(authToken){
+                storeAuthInfo(authToken, dispatch)
+            }
+            else return true;
+        })
         .catch(err => {
-            const {code} = err;
+            console.log("bloody", err);
+            const {status} = err;
             const message =
-                code === 401
+                status === 401
                     ? 'Incorrect username or password'
                     : 'Unable to login, please try again';
-            dispatch(authError(err));
+            dispatch(authError({"error": message}));
             // Could not authenticate, so return a SubmissionError for Redux
             // Form
             return Promise.reject(
