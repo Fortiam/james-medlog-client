@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removePatientInfo, editPatient } from '../actions/patients';
+import './person.css';
 
 class PatientSingle extends Component{
     sayGoodbye(){
@@ -47,7 +48,7 @@ class PatientSingle extends Component{
                         delete values["doctor's contact info"];
                     }
                     this.editMe(values);
-                    }}>Change!</button>
+                    }}>Update</button>
                 </div>);
         });
         return (<div className="person header">

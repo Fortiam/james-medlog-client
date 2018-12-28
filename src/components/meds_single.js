@@ -21,12 +21,11 @@ class MedsSingle extends Component {
     }
     render(){
        return (<div>Medication: 
-             {this.props.oneMed.name}
             <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="Medicine Name: " type="text" component={Input} name="name" placeholder={this.props.oneMed.name} />
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />
             <Field label="To be taken every X hours: " type="number" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
-            <Field label={`How many days to take ${this.props.oneMed.name}: `} type="number" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
+            <Field label={`How many days to take medication: `} type="number" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
             <button type="submit">Update</button>
             </form>
             <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck} Correct?</p>
