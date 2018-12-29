@@ -25,6 +25,7 @@ class Main extends Component {
             <p><Link to="/medicine" >Add/Edit custom Medicine</Link></p>
             <p><Link to="/userinfo" >View/Edit Account Details</Link></p>
             <p><Link to='/begin' >Begin Treatment</Link></p>
+            <p><Link to='/end' >Stop Treatment</Link></p>
             </div>)
      }
        else return (<div>Hi!

@@ -8,7 +8,7 @@ const initalState = {
         end: null,
         userId : null
     }],
-    timeIsNow: moment({}),
+    timeIsNow: moment().format(),
     currentEvent : [{
         patientId: null,
         medId : null,
