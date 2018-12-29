@@ -10,6 +10,10 @@ export const everyEventsError = error => ({
 export const eventsLogout = () =>({
     type : 'EVENTS_LOGOUT'
 });
+
+export const clearCurrentEvent = () =>({
+    type: 'CLEAR_CURRENT_EVENT'
+});
 // the successes
 export const fetchOneEventSuccess = data => ({
     type : 'FETCH_ONE_EVENT_SUCCESS',
@@ -19,9 +23,9 @@ export const fetchAllEventsSuccess = data => ({
     type : 'FETCH_ALL_EVENTS_SUCCESS',
     data
 });
-export const createNewEventSuccess = data => ({
+export const createNewEventSuccess = payload => ({
     type : 'ADD_EVENT_SUCCESS',
-    data
+    "data" : payload
 });
 export const updateEventSuccess = data => ({
     type : 'UPDATE_EVENT_SUCCESS',

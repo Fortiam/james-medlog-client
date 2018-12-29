@@ -15,7 +15,7 @@ class Calendar extends Component {
         if(this.props.loggedId){
         return (
           <div className="main" id='example'>
-            <FullCalendar id='calendar' className="App"
+            <FullCalendar id='myCalendar' className="App"
             header= {{
               left: 'prev,next today myCustomButton',
               center: 'title',

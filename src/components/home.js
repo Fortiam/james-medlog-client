@@ -16,7 +16,7 @@ class Home extends Component {
     render(){
         return (<div>
                 <Router>
-                    <div>
+                    <div className="home">
                     <Header />
                     <Route exact path='/' component={Welcome} />
                     <Route exact path='/register' component={FormRegister} />

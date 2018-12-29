@@ -3,13 +3,21 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {OneName} from './oneName';
 import {OneMed} from './oneMed';
-import { createNewEvent } from '../actions/events';
+import { createNewEvent, clearCurrentEvent } from '../actions/events';
+import moment from 'moment';
+
 class Begin extends Component {
+    componentDidMount(){
+        this.props.dispatch(clearCurrentEvent());
+    }
+
     clicked(values){
         values.preventDefault();
+        let findName = this.props.listOfOwnedByUser.filter(person => person.id===values.currentTarget[0].value);
+        let findMed = this.props.manyMeds.filter(med=> med.id === values.currentTarget[1].value);
         const theGoods = {"token": this.props.token,
-         "title" : "testing events for now!",
-         "start" : this.props.nowTime,
+         "title" : values.currentTarget[2].value || `Med: ${findMed[0].name} for ${findName[0].name}`,
+         "start" :  moment().format(),
         // "endTime" : values.endTime,
          "patientId" : values.currentTarget[0].value,
          "medId" : values.currentTarget[1].value,
@@ -21,6 +29,7 @@ class Begin extends Component {
             if(this.props.loggedIn){
                 let listNames = [];
                 let listMeds = [];
+                
                 if(this.props.listOfOwnedByUser.length < 1 || this.props.manyMeds.length < 1){
                     return (<div>Please add at least 1 family member and at least 1 medicine before assigning a medicine to someone!
                         <p><Link to="/main" >Return to homepage</Link></p>
@@ -35,24 +44,22 @@ class Begin extends Component {
                     });
                     const displayNames = listNames.map((oneName, index)=> (<option key={index} value={oneName.id}>{oneName.name}</option>));
                     const displayMeds = listMeds.map((oneMed, index)=> (<option key={index} value={oneMed.id}>{oneMed.name}</option>));
-                    // return (<div>reached assign page!
-                    //     <ul>here is patients names': {displayNames}</ul>
-                    //     <div>here is meds' names: {displayMeds}</div>
-                    //         <p><Link to="/main" >Return to homepage</Link></p>
-                    //     </div>);
                     return(<div>
                         <p>Please select 1 person to start taking medication</p>
                         <form name="assignment" onSubmit={(e)=>this.clicked(e)}>
-                            <label htmlFor="person" >Family member to begin medication: </label>
+                            <p><label htmlFor="person" >Family member to begin medication: </label>
                             <select name="person" id="person">
                                 {displayNames}
-                            </select>
-                            <label htmlFor="med" >Medication to start taking: </label>
+                            </select></p>
+                            <p><label htmlFor="med" >Medication to start taking: </label>
                             <select name="med" id="med">
                                 {displayMeds}
-                            </select>
+                            </select></p>
+                            <p><label htmlFor="title">Title to display on calendar:</label>
+                            <input type="text" name="title" id="title" placeholder="Change me.."/></p>
                             <button type="submit">Ok</button>
                         </form>
+                        <div><OneName title={this.props.currentEvent[0].title} /></div>
                         <p><Link to="/main" >Return to homepage</Link></p>
                     </div>);
                 }
@@ -75,11 +82,6 @@ const mapStateToProps = state =>{
         manyMeds: [...state.meds.manyMeds],
         currentEvent : [...state.events.currentEvent],
         nowTime : state.events.timeIsNow
-        // title : state.events.title,
-        // startTime : state.events.startTime,
-        // endTime : state.events.endTime,
-        // patientName : state.events.patientName,
-        // medName : state.evetns.medName,
         });
     }
     else {

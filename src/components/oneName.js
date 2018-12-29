@@ -1,5 +1,8 @@
 import React from 'react';
 
 export function OneName(props){
-    return (<div>hello person: {props.who.name}</div>);
+    if(props.title != null){
+    return (<div>A new event: {props.title} was successfully created</div>);
+    }
+    else return (<div></div>);
 }

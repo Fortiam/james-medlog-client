@@ -21,7 +21,7 @@ const initalState = {
     error : null
 };
 
-export const eventsReducer = (state = initalState, action)=>{
+export function eventsReducer (state = initalState, action){
     if(action.type === 'EVERY_EVENTS_REQUEST'){
         return Object.assign({}, state, {
             loading : true,
@@ -38,7 +38,7 @@ export const eventsReducer = (state = initalState, action)=>{
         return Object.assign({}, state, {
             loading : false,
             error : null,
-            currentEvent : [...action.data]
+            currentEvent : [action.data]
         });
     }
     else if (action.type === 'FETCH_ALL_EVENTS_SUCCESS') {
@@ -52,8 +52,9 @@ export const eventsReducer = (state = initalState, action)=>{
         let newState = Object.assign({}, state, { 
             loading : false,
             error: null,
-            allOfTheEvents: [ ...state.events.allOfTheEvents, ...action.data
-            ]
+            allOfTheEvents: [ ...state.allOfTheEvents, action.data
+            ],
+            currentEvent : [action.data]
         });
         return newState;
     }
@@ -92,6 +93,20 @@ export const eventsReducer = (state = initalState, action)=>{
                 end: null,
                 userId : null
             }],
+            currentEvent : [{
+                patientId: null,
+                medId : null,
+                title : null,
+                start: null,
+                end: null,
+                userId : null
+            }]
+        })
+    }
+    else if (action.type === 'CLEAR_CURRENT_EVENT'){
+        return Object.assign({}, state, {
+            loading: false,
+            error: null,
             currentEvent : [{
                 patientId: null,
                 medId : null,
