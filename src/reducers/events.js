@@ -8,7 +8,7 @@ const initalState = {
         end: null,
         userId : null
     }],
-    timeIsNow: moment().format(),
+    timeIsNow: moment({}),
     currentEvent : [{
         patientId: null,
         medId : null,
@@ -52,9 +52,9 @@ export function eventsReducer (state = initalState, action){
         let newState = Object.assign({}, state, { 
             loading : false,
             error: null,
-            allOfTheEvents: [ ...state.allOfTheEvents, action.data
+            allOfTheEvents: [ ...state.allOfTheEvents, ...action.data
             ],
-            currentEvent : [action.data]
+            currentEvent : [action.data[0]]
         });
         return newState;
     }

@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removePatientInfo, editPatient } from '../actions/patients';
 import './patient_single.css';
+//import { fetchAllEvents } from '../actions/events';
 
 class PatientSingle extends Component{
     sayGoodbye(){
         let goner = {"token": this.props.token, "patientId": this.props.listOfOwnedByUser[this.props.patientNumber].id}
         this.props.dispatch(removePatientInfo(goner));
+        //this.props.dispatch(fetchAllEvents({'token': this.props.token}));
     }
     editMe(familyValues){
         let edited = Object.assign({}, familyValues, {"token": this.props.token, "patientId": this.props.listOfOwnedByUser[this.props.patientNumber].id});

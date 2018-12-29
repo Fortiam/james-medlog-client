@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {OneName} from './oneName';
-import {OneMed} from './oneMed';
+// import {OneMed} from './oneMed';
 import { createNewEvent, clearCurrentEvent } from '../actions/events';
 import moment from 'moment';
 
@@ -17,7 +17,7 @@ class Begin extends Component {
         let findMed = this.props.manyMeds.filter(med=> med.id === values.currentTarget[1].value);
         const theGoods = {"token": this.props.token,
          "title" : values.currentTarget[2].value || `Med: ${findMed[0].name} for ${findName[0].name}`,
-         "start" :  moment().format(),
+         "start" :  moment({}),
         // "endTime" : values.endTime,
          "patientId" : values.currentTarget[0].value,
          "medId" : values.currentTarget[1].value,

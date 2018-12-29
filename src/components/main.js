@@ -39,7 +39,7 @@ const mapStateToProps = state => ({
     token : state.auth.authToken,
     listOfOwnedByUser : [...state.patients.listOfOwnedByUser]
 });
-//export default connect(mapStateToProps)(Main);
+
 export default reduxForm({
     form: 'login',
 

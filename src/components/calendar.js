@@ -5,12 +5,9 @@ import './calendar.css';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 //import Button from './button';
-//import * as actions from './actions';
 
 class Calendar extends Component {
-    componentDidMount(){
-       //add get all events for current user here 
-    }
+   
     render() {
         if(this.props.loggedId){
         return (
@@ -21,7 +18,7 @@ class Calendar extends Component {
               center: 'title',
               right: 'month,basicWeek,basicDay'
             }}
-            defaultDate={'2018-12-17'}
+            defaultDate={this.props.timeIsNow}
             navLinks= {true} // can click day/week names to navigate views
             editable= {true}
             eventLimit= {true} // allow "more" link when too many events
@@ -41,7 +38,6 @@ class Calendar extends Component {
 const mapStateToProps = (state)=>({
     events : [...state.events.allOfTheEvents],
     timeIsNow : state.timeIsNow,
-    whereTo: state.whereTo,
     loggedId : state.auth.currentUser !== null
   });
 export default connect(mapStateToProps)(Calendar);
