@@ -104,7 +104,7 @@ export const updateEvent = user => dispatch =>{
 };
 export const removeEvent = user => dispatch =>{
     dispatch(everyEventsRequest());
-    return fetch(`${API_BASE_URL}/api/events/${user.eventId}`, {
+    return fetch(`${API_BASE_URL}/api/events/one/${user.eventId}`, {
         method: 'DELETE',
         headers : {
             'content-type': 'application/json',
@@ -119,4 +119,17 @@ export const removeEvent = user => dispatch =>{
         return dispatch(everyEventsError(err));
     });
 };
-
+export const removeOnlyFutureEventsForOneMed = user => dispatch => {
+    dispatch(everyEventsRequest());
+    return fetch(`${API_BASE_URL}/api/events/future`, {
+        method : 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization' : `Bearer ${user.token}`
+        },
+        body :JSON.stringify(user)
+    })
+    .then(bad=> bad.json())
+    .then(data=> dispatch(fetchAllEventsSuccess(data)))
+    .catch(err=> dispatch(everyEventsError(err)));
+};

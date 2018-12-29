@@ -49,7 +49,6 @@ export const login = (username, password) => dispatch => {
                 dispatch(authError({"error": "Incorrect username or password"}));
             
             }
-            // console.log("?",res);
             return res.json()})
         .then(({authToken}) => {
             if(authToken){
@@ -58,7 +57,6 @@ export const login = (username, password) => dispatch => {
             else return true;
         })
         .catch(err => {
-            console.log("bloody", err);
             const {status} = err;
             const message =
                 status === 401
