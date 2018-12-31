@@ -6,6 +6,7 @@ import { getAllPatientsInfo } from '../actions/patients';
 import { getAllMeds } from '../actions/meds';
 import { registerLogout } from '../actions/register';
 import { fetchAllEvents } from '../actions/events';
+import { getAllLogs } from '../actions/log';
 
 class Main extends Component {
     componentDidMount(){
@@ -14,6 +15,8 @@ class Main extends Component {
        this.props.dispatch(getAllPatientsInfo({"token": this.props.token}));
        this.props.dispatch(getAllMeds({"token": this.props.token}));
        this.props.dispatch(fetchAllEvents({"token": this.props.token}));
+       this.props.dispatch(getAllLogs({"token": this.props.token}));
+
     }
 
     render(){
@@ -26,6 +29,7 @@ class Main extends Component {
             <p><Link to="/userinfo" >View/Edit Account Details</Link></p>
             <p><Link to='/begin' >Begin Treatment</Link></p>
             <p><Link to='/end' >Stop Treatment</Link></p>
+            <p><Link to='/log' >Log, Journal, Records Page</Link></p>
             </div>)
      }
        else return (<div>Hi!

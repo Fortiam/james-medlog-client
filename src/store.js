@@ -6,6 +6,7 @@ import {registerReducer} from './reducers/register';
 import {reducer as formReducer} from 'redux-form';
 import { patienceReducer } from './reducers/patients';
 import { medsReducer } from './reducers/meds';
+import { logsReducer } from './reducers/log';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default createStore(
@@ -15,7 +16,8 @@ export default createStore(
         auth: authReducer,
         signUp : registerReducer,
         patients : patienceReducer,
-        meds: medsReducer
+        meds: medsReducer,
+        logs : logsReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
 );

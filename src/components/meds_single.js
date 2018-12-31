@@ -4,6 +4,7 @@ import { /*submitAction,*/ registerError, /*registerMe */} from '../actions/regi
 import { connect } from 'react-redux';
 import { editMeds, removeMeds } from '../actions/meds';
 import { Input } from './input';
+//import { getAllLogs } from '../actions/log';
 
 class MedsSingle extends Component {
     onSubmit(values){
@@ -18,6 +19,7 @@ class MedsSingle extends Component {
     removeMed(){
         const thisMed = {"token": this.props.token, "medsId": this.props.oneMed.id};
         this.props.dispatch(removeMeds(thisMed));
+        //this.props.dispatch(getAllLogs({"token": this.props.token}));
     }
     render(){
        return (<div>Medication: 

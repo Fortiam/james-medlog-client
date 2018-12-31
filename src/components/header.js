@@ -6,6 +6,7 @@ import { medsLogout } from '../actions/meds';
 import { patientLogout } from '../actions/patients';
 import { registerLogout } from '../actions/register';
 import { eventsLogout } from '../actions/events';
+import { logsLogout } from '../actions/log';
 
 class Header extends Component {
     handleLogOut(){
@@ -13,6 +14,7 @@ class Header extends Component {
         this.props.dispatch(patientLogout());
         this.props.dispatch(registerLogout());
         this.props.dispatch(eventsLogout());
+        this.props.dispatch(logsLogout());
         this.props.dispatch(clearAuth());
     }
     render(){

@@ -12,6 +12,7 @@ import Medicine from './medicine';
 import Userinfo from './userinfo';
 import Begin from './begin';
 import End from './end';
+import Log from './log';
 
 class Home extends Component {
     render(){
@@ -29,6 +30,7 @@ class Home extends Component {
                     <Route exact path='/userinfo' component={Userinfo} />
                     <Route exact path='/begin' component={Begin} />
                     <Route exact path='/end' component={End} />
+                    <Route exact path='/log' component={Log} />
                     </div>
                 </Router>
                 </div>
