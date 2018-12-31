@@ -18,7 +18,7 @@ class Log extends Component {
                 });
             return (<div>{displayComments}
             <p><button onClick={()=>this.addComment("new log entry..")}>Add a new log entry</button></p>
-            <p>/reactions to medication? symptoms? missed appointments?/</p>
+            <p>Having reactions to medication? New symptoms? Missed appointments?</p>
             <p><Link to="/main" >Return to homepage</Link></p>
             </div>);
             }  else {

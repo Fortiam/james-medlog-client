@@ -22,7 +22,7 @@ class MedsSingle extends Component {
         //this.props.dispatch(getAllLogs({"token": this.props.token}));
     }
     render(){
-       return (<div>Medication: 
+       return (<div><p>Medication:</p>
             <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="Medicine Name: " type="text" component={Input} name="name" placeholder={this.props.oneMed.name} />
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />

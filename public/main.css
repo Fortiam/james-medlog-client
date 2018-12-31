@@ -1,4 +1,17 @@
-/* body {
+body {
     box-sizing: border-box;
     background: lightblue;
-} */
+    margin-bottom: 35px;
+}
+.policy-container {
+    position: fixed;
+    bottom : 0px;
+    background-color: white;
+    width:100%;
+    left: 0px;
+    height: 25px;
+}
+.privacy {
+    position: relative;
+    bottom : 0px;
+}

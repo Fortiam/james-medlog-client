@@ -12,8 +12,6 @@ class LogsSingle extends Component {
         if(values.medId){
             checkedValues.medId = values.medId;
         }
-        console.log("1: ", values);
-        console.log("2: ", values.patientId);
         if(values.patientId){
             checkedValues.patientId = values.patientId;
         }
@@ -47,16 +45,16 @@ class LogsSingle extends Component {
         // }
       
         let whom = this.props.patients.filter(eachOne=> eachOne.id === this.props.oneLog.patientId);
-        let defaultWho = "Nobody yet..";
+        let defaultWho = "Nobody..";
         if(whom.length >0){
             defaultWho = whom[0].name.toString();
         }
         let whichMeds = this.props.meds.filter(eachOfTheMeds => eachOfTheMeds.id===this.props.oneLog.medId);
-        let defaultMed = 'Nothing yet..';
+        let defaultMed = 'No medicine..';
         if(whichMeds.length > 0){
             defaultMed = whichMeds[0].name;
         }
-       return (<div>Log Entry for {defaultWho} about {defaultMed}:
+       return (<div><p>Log Entry for {defaultWho} about {defaultMed}:</p>
             <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="comment:" type="text" component={Input} name="comment" placeholder={this.props.oneLog.comments[0].comment} />
             <Field label="Associate comment with Medicine:" element="select" component={Input} name="medId" >
