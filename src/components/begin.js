@@ -29,7 +29,10 @@ class Begin extends Component {
             if(this.props.loggedIn){
                 let listNames = [];
                 let listMeds = [];
-                
+                let safetyTitle = '';
+                if(this.props.currentEvent.length > 0){
+                    safetyTitle = this.props.currentEvent[0].title;
+                }
                 if(this.props.listOfOwnedByUser.length < 1 || this.props.manyMeds.length < 1){
                     return (<div>Please add at least 1 family member and at least 1 medicine before assigning a medicine to someone!
                         <p><Link to="/main" >Return to homepage</Link></p>
@@ -59,7 +62,7 @@ class Begin extends Component {
                             <input type="text" name="title" id="title" placeholder="Change me.."/></p>
                             <button type="submit">Ok</button>
                         </form>
-                        <div><OneName title={this.props.currentEvent[0].title} /></div>
+                        <div><OneName title={safetyTitle} /></div>
                         <p><Link to="/main" >Return to homepage</Link></p>
                     </div>);
                 }

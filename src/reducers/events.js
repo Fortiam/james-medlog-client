@@ -9,6 +9,7 @@ const initalState = {
         userId : null
     }],
     timeIsNow: moment().format(),
+    filter : false,
     currentEvent : [{
         patientId: null,
         medId : null,
@@ -38,6 +39,7 @@ export function eventsReducer (state = initalState, action){
         return Object.assign({}, state, {
             loading : false,
             error : null,
+            filter : true,
             currentEvent : [action.data]
         });
     }
@@ -45,13 +47,23 @@ export function eventsReducer (state = initalState, action){
         return Object.assign({}, state, {
             loading : false,
             error : null,
+            filter : false,
             allOfTheEvents : [...action.data]
+        });
+    }
+    else if (action.type === 'FILTERED_EVENTS_SUCCESS'){
+        return Object.assign({}, state, {
+            loading : false,
+            error: null,
+            filter : true,
+            currentEvent : [...action.data]
         });
     }
     else if (action.type === 'ADD_EVENT_SUCCESS') {
         let newState = Object.assign({}, state, { 
             loading : false,
             error: null,
+            filter : false,
             allOfTheEvents: [ ...state.allOfTheEvents, ...action.data
             ],
             currentEvent : [action.data[0]]
@@ -70,6 +82,7 @@ export function eventsReducer (state = initalState, action){
         const newState = Object.assign({}, state, {
             loading : false,
             error : null,
+            filter : false,
             allOfTheEvents : [...updatedArray]
         });;
         return newState;
@@ -78,6 +91,7 @@ export function eventsReducer (state = initalState, action){
         return Object.assign({}, state, {
             loading : false,
             error : null,
+            filter : false,
             allOfTheEvents : [...action.data]
         })
     }
@@ -85,6 +99,7 @@ export function eventsReducer (state = initalState, action){
         return Object.assign({}, state, {
             loading : false,
             error : null,
+            filter : false,
             allOfTheEvents : [{
                 patientId: null,
                 medId : null,
@@ -107,6 +122,7 @@ export function eventsReducer (state = initalState, action){
         return Object.assign({}, state, {
             loading: false,
             error: null,
+            filter : false,
             currentEvent : [{
                 patientId: null,
                 medId : null,

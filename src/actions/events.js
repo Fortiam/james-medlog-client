@@ -27,6 +27,10 @@ export const createNewEventSuccess = payload => ({
     type : 'ADD_EVENT_SUCCESS',
     "data" : payload
 });
+export const filteredEventsSuccess = data => ({
+    type : 'FILTERED_EVENTS_SUCCESS',
+    data
+});
 export const updateEventSuccess = data => ({
     type : 'UPDATE_EVENT_SUCCESS',
     data
@@ -63,6 +67,22 @@ export const fetchAllEvents = user => dispatch =>{
     .then(badData=> badData.json())
     .then(data => {
         return dispatch(fetchAllEventsSuccess(data))
+    })
+    .catch(err=> dispatch(everyEventsError(err)));
+};
+export const fetchFilteredEvents = user => dispatch =>{
+    dispatch(everyEventsRequest());
+    return fetch(`${API_BASE_URL}/api/events/filter`, {
+        method: 'POST',
+        headers : {
+            'content-type': 'application/json',
+            'Authorization' : `Bearer ${user.token}`
+        },
+        body : JSON.stringify(user)
+    })
+    .then(badData=> badData.json())
+    .then(data => {
+        return dispatch(filteredEventsSuccess(data))
     })
     .catch(err=> dispatch(everyEventsError(err)));
 };
