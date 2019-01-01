@@ -7,7 +7,7 @@ import './log.css';
 
 class Log extends Component {
     addComment(values){
-        const newGoodies = Object.assign({}, {'comments': values}, {"token": this.props.token})
+        const newGoodies = Object.assign({}, {'comment': values}, {"token": this.props.token})
         this.props.dispatch(createNewLogs(newGoodies));
     }
     

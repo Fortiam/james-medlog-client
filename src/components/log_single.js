@@ -57,7 +57,7 @@ class LogsSingle extends Component {
         if(this.props.meds.length > 0 && this.props.patients.length > 0&& this.props.comments.length > 0){
             return (<div><p>Log Entry for {defaultWho} about {defaultMed}:</p>
                 <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-                <Field label="comment:" component='textarea' className='commentInput' name="comment" placeholder={this.props.comments[this.props.whichLog].comments[0].comment} />
+                <Field label="comment:" component='textarea' className='commentInput' name="comment" placeholder={this.props.comments[this.props.whichLog].comment} />
                 <Field label="Associate comment with Medicine:" element="select" component={Input} name="medId" >
                     {/* <option key={'default'} value={null}>None</option> */}
                     {otherOptions}
