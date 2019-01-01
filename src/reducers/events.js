@@ -60,7 +60,7 @@ export function eventsReducer (state = initalState, action){
     }
     else if (action.type === 'UPDATE_EVENT_SUCCESS'){
         const updatedArray = state.allOfTheEvents.map(each=>{
-            if(each.title === action.data.title){
+            if(each.id === action.data.id){
                 return action.data;
             }
             else {

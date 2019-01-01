@@ -13,6 +13,7 @@ class PatientSingle extends Component{
     editMe(familyValues){
         let edited = Object.assign({}, familyValues, {"token": this.props.token, "patientId": this.props.listOfOwnedByUser[this.props.patientNumber].id});
         this.props.dispatch(editPatient(edited));
+        //this.props.dispatch(getAllPatientsInfo({"token": this.props.token}));
     }
     render(){
         

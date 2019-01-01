@@ -47,7 +47,7 @@ export function patienceReducer (state = initalState, action){
             return newpostState;
         case('EDIT_PATIENT_SUCCESS'):
             const neweditState = state.listOfOwnedByUser.map(object=> {
-                if(object.name === action.data.name){
+                if(object.id === action.data.id){
                     return action.data;
                 } else {
                     return object;
