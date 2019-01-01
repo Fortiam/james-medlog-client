@@ -37,7 +37,6 @@ class Home extends Component {
     }
 
     startPeriodicRefresh() {
-        console.log("hello");
                 return Promise.all([this.props.dispatch(refreshAuthToken()),
                 this.props.dispatch(destroy()),
                 this.props.dispatch(registerLogout()),

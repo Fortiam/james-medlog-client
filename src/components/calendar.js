@@ -14,8 +14,8 @@ class Calendar extends Component {
    
     render() {
         if(this.props.loggedId){
-            let safe = null;
-            if(this.props.events[0].start){
+            let safe = [];
+            if((this.props.events.length >0) && (this.props.events[0].start !== null)){
                 safe = [...this.props.events];
             }
         return (
