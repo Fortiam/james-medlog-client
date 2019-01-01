@@ -31,6 +31,7 @@ export function logsReducer (state = initalState, action){
             error : action.error
         });
         case('GET_ALL_LOGS_SUCCESS'):
+            // const newArray = action.data.map(object=> object.comments[0]);
             const newState = Object.assign({}, state, {loading : false, error: null, comments : [...action.data]});
             return newState;
         case('CREATE_LOGS_SUCCESS'):

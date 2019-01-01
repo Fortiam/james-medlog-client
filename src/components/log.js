@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LogsSingle from './log_single';
 import { createNewLogs } from '../actions/log';
+import './log.css';
 
 class Log extends Component {
     addComment(values){

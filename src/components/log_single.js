@@ -47,30 +47,34 @@ class LogsSingle extends Component {
         let whom = this.props.patients.filter(eachOne=> eachOne.id === this.props.oneLog.patientId);
         let defaultWho = "Nobody..";
         if(whom.length >0){
-            defaultWho = whom[0].name.toString();
+            defaultWho = whom[0].name;
         }
         let whichMeds = this.props.meds.filter(eachOfTheMeds => eachOfTheMeds.id===this.props.oneLog.medId);
         let defaultMed = 'No medicine..';
         if(whichMeds.length > 0){
             defaultMed = whichMeds[0].name;
         }
-       return (<div><p>Log Entry for {defaultWho} about {defaultMed}:</p>
-            <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-            <Field label="comment:" type="text" component={Input} name="comment" placeholder={this.props.oneLog.comments[0].comment} />
-            <Field label="Associate comment with Medicine:" element="select" component={Input} name="medId" >
-                {/* <option key={'default'} value={null}>None</option> */}
-                {otherOptions}
-            </Field>
-            <Field label="Associate comment with Patient:" element="select" component={Input} name="patientId" >
-                {/* <option key={'default'} value={null}>Not specific to one person</option> */}
-                {requiredPatients}
-            </Field>
-            <button type="submit">Update</button>
-            </form>
-            <button type="click" onClick={()=>this.removeLogs()}>Remove this Entry</button>
-            </div>);
-        }
-        
+        if(this.props.meds.length > 0 && this.props.patients.length > 0&& this.props.comments.length > 0){
+            return (<div><p>Log Entry for {defaultWho} about {defaultMed}:</p>
+                <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+                <Field label="comment:" component='textarea' className='commentInput' name="comment" placeholder={this.props.comments[this.props.whichLog].comments[0].comment} />
+                <Field label="Associate comment with Medicine:" element="select" component={Input} name="medId" >
+                    {/* <option key={'default'} value={null}>None</option> */}
+                    {otherOptions}
+                </Field>
+                <Field label="Associate comment with Patient:" element="select" component={Input} name="patientId" >
+                    {/* <option key={'default'} value={null}>Not specific to one person</option> */}
+                    {requiredPatients}
+                </Field>
+                <button type="submit">Update</button>
+                </form>
+                <button type="click" onClick={()=>this.removeLogs()}>Remove this Entry</button>
+                </div>);
+        } else {
+            return (<div></div>);
+    }
+
+    }
 }
 const mapStateToProps = state => ({
     comments : state.logs.comments,
