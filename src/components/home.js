@@ -13,8 +13,55 @@ import Userinfo from './userinfo';
 import Begin from './begin';
 import End from './end';
 import Log from './log';
+import { refreshAuthToken } from '../actions/auth';
+import { getAllPatientsInfo } from '../actions/patients';
+import { getAllMeds } from '../actions/meds';
+import { registerLogout } from '../actions/register';
+import { fetchAllEvents } from '../actions/events';
+import { getAllLogs } from '../actions/log';
+import { destroy } from 'redux-form';
+import { authError } from '../actions/auth';
 
 class Home extends Component {
+    componentDidUpdate(prevProps) {
+        if (!prevProps.loggedIn && this.props.loggedIn) {
+            // When we are logged in, refresh the auth token periodically
+            this.startPeriodicRefresh();
+        } else if (prevProps.loggedIn && !this.props.loggedIn) {
+            // Stop refreshing when we log out
+            this.stopPeriodicRefresh();
+        }
+    }
+    componentWillUnmount() {
+        this.stopPeriodicRefresh();
+    }
+
+    startPeriodicRefresh() {
+        console.log("hello");
+                return Promise.all([this.props.dispatch(refreshAuthToken()),
+                this.props.dispatch(destroy()),
+                this.props.dispatch(registerLogout()),
+                this.props.dispatch(getAllPatientsInfo({"token": this.props.token})),
+                this.props.dispatch(getAllMeds({"token": this.props.token})),
+                this.props.dispatch(fetchAllEvents({"token": this.props.token})),
+                this.props.dispatch(getAllLogs({"token": this.props.token}))])
+                .then(()=>{
+                    this.refreshInterval = setInterval(
+                        () =>this.props.dispatch(refreshAuthToken()),
+                        24 * 60 * 60 * 1000 // One day
+                    );
+                })
+                .catch(err=>this.props.dispatch(authError(err)));
+       
+    }
+
+    stopPeriodicRefresh() {
+        if (!this.refreshInterval) {
+            return;
+        }
+        clearInterval(this.refreshInterval);
+    }
+
     render(){
         return (<div>
                 <Router>
@@ -40,6 +87,8 @@ class Home extends Component {
 
 const mapStateToProps = (state)=>({
     events : state.events,
-    timeIsNow : state.timeIsNow
+    timeIsNow : state.timeIsNow,
+    loggedIn : state.auth.currentUser !== null,
+    token : state.auth.authToken
   });
   export default connect(mapStateToProps)(Home);

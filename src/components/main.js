@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { reduxForm, destroy } from 'redux-form';
-import { getAllPatientsInfo } from '../actions/patients';
-import { getAllMeds } from '../actions/meds';
-import { registerLogout } from '../actions/register';
-import { fetchAllEvents } from '../actions/events';
-import { getAllLogs } from '../actions/log';
+import { reduxForm} from 'redux-form';
+
 
 class Main extends Component {
-    componentDidMount(){
-       this.props.dispatch(destroy());
-       this.props.dispatch(registerLogout());
-       this.props.dispatch(getAllPatientsInfo({"token": this.props.token}));
-       this.props.dispatch(getAllMeds({"token": this.props.token}));
-       this.props.dispatch(fetchAllEvents({"token": this.props.token}));
-       this.props.dispatch(getAllLogs({"token": this.props.token}));
-
-    }
-
+      
     render(){
      if(this.props.loggedIn){
          return (<div>

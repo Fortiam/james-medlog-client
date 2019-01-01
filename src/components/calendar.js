@@ -5,11 +5,19 @@ import './calendar.css';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 //import Button from './button';
+import {fetchAllEvents} from '../actions/events';
 
 class Calendar extends Component {
+    componentWill(){
+    this.props.dispatch(fetchAllEvents({"token": this.props.token}));
+    }
    
     render() {
         if(this.props.loggedId){
+            let safe = null;
+            if(this.props.events[0].start){
+                safe = [...this.props.events];
+            }
         return (
           <div className="main" id='example'>
             <FullCalendar id='myCalendar' className="App"
@@ -22,7 +30,7 @@ class Calendar extends Component {
             navLinks= {true} // can click day/week names to navigate views
             editable= {true}
             eventLimit= {true} // allow "more" link when too many events
-            events = {this.props.events}
+            events = {safe}
             ></FullCalendar>
             <p><Link to="/main" >Return to homepage</Link></p>
             </div>
@@ -38,6 +46,7 @@ class Calendar extends Component {
 const mapStateToProps = (state)=>({
     events : [...state.events.allOfTheEvents],
     timeIsNow : state.timeIsNow,
-    loggedId : state.auth.currentUser !== null
+    loggedId : state.auth.currentUser !== null,
+    token : state.auth.authToken
   });
 export default connect(mapStateToProps)(Calendar);

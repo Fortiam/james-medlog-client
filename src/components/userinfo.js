@@ -7,6 +7,7 @@ import { patientLogout } from '../actions/patients';
 import { clearAuth } from '../actions/auth';
 import { eventsLogout } from '../actions/events';
 import { logsLogout } from '../actions/log';
+import { clearAuthToken } from '../local-storage';
 
 class Userinfo extends Component {
     onSubmit(values){
@@ -34,6 +35,7 @@ class Userinfo extends Component {
         this.props.dispatch(eventsLogout());
         this.props.dispatch(logsLogout());
         this.props.dispatch(clearAuth());
+        clearAuthToken();
         this.props.history.push('/');
     }
    

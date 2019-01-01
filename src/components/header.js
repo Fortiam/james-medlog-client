@@ -7,6 +7,7 @@ import { patientLogout } from '../actions/patients';
 import { registerLogout } from '../actions/register';
 import { eventsLogout } from '../actions/events';
 import { logsLogout } from '../actions/log';
+import { clearAuthToken } from '../local-storage';
 
 class Header extends Component {
     handleLogOut(){
@@ -16,6 +17,7 @@ class Header extends Component {
         this.props.dispatch(eventsLogout());
         this.props.dispatch(logsLogout());
         this.props.dispatch(clearAuth());
+        clearAuthToken();
     }
     render(){
         if(this.props.loggedIn){

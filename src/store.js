@@ -7,6 +7,7 @@ import {reducer as formReducer} from 'redux-form';
 import { patienceReducer } from './reducers/patients';
 import { medsReducer } from './reducers/meds';
 import { logsReducer } from './reducers/log';
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default createStore(
