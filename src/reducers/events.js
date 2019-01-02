@@ -70,6 +70,14 @@ export function eventsReducer (state = initalState, action){
         });
         return newState;
     }
+    else if(action.type ==='CHANGE_MANY_EVENTS_SUCCESS'){
+        return Object.assign({}, state, {
+            loading : false,
+            error: null,
+            filter : false,
+            currentEvent : [...action.data]
+        });
+    }
     else if (action.type === 'UPDATE_EVENT_SUCCESS'){
         const updatedArray = state.allOfTheEvents.map(each=>{
             if(each.id === action.data.id){

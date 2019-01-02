@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { /*submitAction,*/ registerError, /*registerMe */} from '../actions/register';
 import { connect } from 'react-redux';
-import { editMeds, removeMeds } from '../actions/meds';
+import { editMeds, removeMeds, MedsError } from '../actions/meds';
 import { Input } from './input';
 //import { getAllLogs } from '../actions/log';
+import { updateManyEvents } from '../actions/events';
 
 class MedsSingle extends Component {
     onSubmit(values){
@@ -14,7 +15,15 @@ class MedsSingle extends Component {
         (values.howLongAmount)? values.howLongAmount = Number(values.howLongAmount) : delete values.howLongAmount;
         
         //need to validate the values and remove the empty inputs before dispatch
-        this.props.dispatch(editMeds(values));
+        this.props.dispatch(editMeds(values))
+        .then(()=>{
+            const newMedValues = this.props.manyMeds.filter(eachMed=>eachMed.id ===values.medsId);
+            // this.props.dispatch new put all route here
+            this.props.dispatch(updateManyEvents({"token": this.props.token, "medId": newMedValues[0].id, "rateAmount": newMedValues[0].rateAmount, "howLongAmount": newMedValues[0].howLongAmount})
+            );
+        })
+        .catch(err=>this.props.dispatch(MedsError(err)));
+
     }
     removeMed(){
         const thisMed = {"token": this.props.token, "medsId": this.props.oneMed.id};

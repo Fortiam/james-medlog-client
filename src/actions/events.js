@@ -35,6 +35,10 @@ export const updateEventSuccess = data => ({
     type : 'UPDATE_EVENT_SUCCESS',
     data
 });
+export const changeManyEventsSuccess = data => ({
+    type : 'CHANGE_MANY_EVENTS_SUCCESS',
+    data
+});
 export const removeEventSuccess = data => ({
     type : 'REMOVE_EVENT_SUCCESS',
     data
@@ -122,6 +126,25 @@ export const updateEvent = user => dispatch =>{
         return dispatch(everyEventsError(err));
     });
 };
+export const updateManyEvents = user => dispatch =>{
+    dispatch(everyEventsRequest());
+    return fetch(`${API_BASE_URL}/api/events/`, {
+        method: 'PUT',
+        headers : {
+            'content-type': 'application/json',
+            'Authorization' : `Bearer ${user.token}`
+        },
+        body: JSON.stringify(user) 
+    })
+    .then(unJsonifiedData => unJsonifiedData.json())
+    .then(data => {
+        return dispatch(fetchAllEventsSuccess(data));
+    })
+    .catch(err=> {
+        return dispatch(everyEventsError(err));
+    });
+};
+
 export const removeEvent = user => dispatch =>{
     dispatch(everyEventsRequest());
     return fetch(`${API_BASE_URL}/api/events/one/${user.eventId}`, {
