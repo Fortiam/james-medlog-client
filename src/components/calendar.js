@@ -4,7 +4,7 @@ import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 import './calendar.css';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-//import Button from './button';
+import Filter from './filter';
 import { fetchAllEvents, fetchFilteredEvents } from '../actions/events';
 
 class Calendar extends Component {
@@ -51,19 +51,11 @@ class Calendar extends Component {
                 eventLimit= {true} // allow "more" link when too many events
                 events = {safe}>
             </FullCalendar>
-            <form name="filter" onSubmit={(e)=>{e.preventDefault();this.filterEvents(e)}}>
-                <p><label htmlFor="patientId" >Show only schedule for: </label>
-                <select name="patientId" id="patientId">
-                    <option value='false'>Do not filter by Person</option>
-                    {displayNames}
-                </select></p>
-                <p><label htmlFor="medId" >Medication to filter: </label>
-                <select name="medId" id="medId">
-                    <option value='false'>Do not filter by Medication</option>
-                    {displayMeds}
-                </select></p>
-                <button type="submit">Filter</button>
-            </form>
+            <Filter
+              submitProp={(e)=>this.filterEvents(e)}
+              displayNamesProp={displayNames}
+              displayMedsProp={displayMeds}
+            />
             <p><Link to="/main" >Return to homepage</Link></p>
             </div>
         );

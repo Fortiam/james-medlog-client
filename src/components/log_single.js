@@ -9,17 +9,22 @@ import { Input } from './input';
 class LogsSingle extends Component {
     onSubmit(values){
         let checkedValues = Object.assign({}, {"token": this.props.token, "logsId": this.props.oneLog.id});
-        if(values.medId){
+        if(values.medId && values.medId !== 'none'){
             checkedValues.medId = values.medId;
+        } else if(values.medId === 'none') {
+            checkedValues['removeMedId'] = true;
         }
-        if(values.patientId){
+        if(values.patientId && values.patientId !== 'none'){
             checkedValues.patientId = values.patientId;
+        } else if(values.patientId === 'none'){
+            checkedValues['removePatientId'] = true;
         }
         if(values.comment){
             checkedValues.comment = values.comment;
         }
         //only update if there's some info to update
-        if(checkedValues.medId || checkedValues.comment|| checkedValues.patientId){
+        const trueField = (Object.values(checkedValues)).filter(field=>field);
+        if(trueField){
             this.props.dispatch(editLogs(checkedValues));
         }
     }
@@ -59,11 +64,11 @@ class LogsSingle extends Component {
                 <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                 <Field label="comment:" component='textarea' className='commentInput' name="comment" placeholder={this.props.comments[this.props.whichLog].comment} />
                 <Field label="Associate comment with Medicine:" element="select" component={Input} name="medId" >
-                    {/* <option key={'default'} value={null}>None</option> */}
+                    <option key={'default'} value={'none'}>None</option>
                     {otherOptions}
                 </Field>
                 <Field label="Associate comment with Patient:" element="select" component={Input} name="patientId" >
-                    {/* <option key={'default'} value={null}>Not specific to one person</option> */}
+                    <option key={'default'} value={'none'}>Not specific to one person</option>
                     {requiredPatients}
                 </Field>
                 <button type="submit">Update</button>

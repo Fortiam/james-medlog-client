@@ -7,6 +7,10 @@ export const getLogsSuccess = payload => ({
     type : 'GET_LOGS_SUCCESS',
     "data" : payload
 });
+export const getFilteredLogsSuccess = data => ({
+    type : 'GET_FILTERED_LOGS_SUCCESS',
+    data
+});
 export const logsError = err => ({
     type : 'LOGS_ERROR',
     "error": err
@@ -46,6 +50,22 @@ export const getAllLogs = user => dispatch => {
     })
     .catch(err=> dispatch(logsError(err)));
 }
+export const getFilteredLogs = user => dispatch => {
+    dispatch(logsRequest());
+    return fetch(`${API_BASE_URL}/api/logs/filter`,{
+        method: 'POST', 
+        headers : {
+            'content-type': 'application/json',
+            'Authorization' : `Bearer ${user.token}`
+        },
+        body : JSON.stringify(user)
+    })
+    .then(sloppyData=> sloppyData.json())
+    .then(data=> {
+        return dispatch(getFilteredLogsSuccess(data));
+    })
+    .catch(err=> dispatch(logsError(err)));
+};
 export const getAllLogsSuccess = payload => ({
     type : 'GET_ALL_LOGS_SUCCESS',
     "data" : payload

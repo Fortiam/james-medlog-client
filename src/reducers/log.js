@@ -3,7 +3,8 @@ const initalState = {
         comment : "placeholder 1st comment",
     }],
     loading : false,
-    error : null
+    error : null,
+    filter : false
 };
 export function logsReducer (state = initalState, action){
     switch(action.type){
@@ -31,9 +32,17 @@ export function logsReducer (state = initalState, action){
             error : action.error
         });
         case('GET_ALL_LOGS_SUCCESS'):
-            // const newArray = action.data.map(object=> object.comments[0]);
-            const newState = Object.assign({}, state, {loading : false, error: null, comments : [...action.data]});
+            const newState = Object.assign({}, state, {loading : false,
+                error: null,
+                filter: false,
+                comments : [...action.data]});
             return newState;
+        case('GET_FILTERED_LOGS_SUCCESS'):
+            const filteredState = Object.assign({}, state, {loading : false,
+                error: null,
+                filter: true,
+                comments : [...action.data]});
+            return filteredState;
         case('CREATE_LOGS_SUCCESS'):
             const newpostState = Object.assign({}, state, {loading : false, error: null, comments : [...state.comments, action.data]});
             return newpostState;
