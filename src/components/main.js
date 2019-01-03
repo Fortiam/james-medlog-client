@@ -8,7 +8,7 @@ class Main extends Component {
       
     render(){
      if(this.props.loggedIn){
-         return (<div>
+         return (<div >
             <p><Link to="/calendar" >Visit Calendar</Link></p>
             <p><Link to='/patient' >Family Member</Link></p>
             <p><Link to="/medicine" >Medicine</Link></p>

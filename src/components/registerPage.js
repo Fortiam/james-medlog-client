@@ -73,7 +73,7 @@ class RegisterPage extends Component{
                     <Field
                         name="password"
                         label="Enter Password: "
-                        type="text"
+                        type="password"
                         component={Input}
                         validate={[required, nonEmpty, stringy, legitPassword]}>
                     </Field>

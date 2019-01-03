@@ -17,9 +17,9 @@ class Patient extends Component {
         if(this.props.loggedIn){
             if(this.props.listOfOwnedByUser.length > 0) {
                 const whoToShow = this.props.listOfOwnedByUser.map((person, index)=>{
-                    return (<li key={index}><PatientSingle patientNumber={index}/></li>);
+                    return (<div className='list' key={index}><PatientSingle patientNumber={index}/></div>);
                 });
-                return (<div><ul>{whoToShow}</ul>
+                return (<div>{whoToShow}
                     {common}
                     </div>);
             }//here .length is 0

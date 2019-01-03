@@ -50,7 +50,7 @@ class Userinfo extends Component {
           : (<div key={index}><label htmlFor={info[index]}>{info[index]}</label><input id={info[index]} placeholder={defaultInfo[index]} type="text" /></div>));
         }
         if(this.props.loggedIn){
-            return (<div>
+            return (<div className='list'>
                 <p>Account details for {this.props.username}:</p>
                 <form onSubmit={values=>{
                    values.preventDefault();

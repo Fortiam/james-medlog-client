@@ -30,7 +30,7 @@ class Log extends Component {
         if(this.props.loggedIn){
             if(this.props.meds.length > 0 && this.props.patients.length > 0){
                 const displayComments = this.props.comments.map((aComment, index)=>{
-                    return (<div key={index}><LogsSingle form={aComment.id} formKey={aComment.id} oneLog={aComment} whichLog={index}/></div>);
+                    return (<div className='list' key={index}><LogsSingle form={aComment.id} formKey={aComment.id} oneLog={aComment} whichLog={index}/></div>);
                 });
             return (<div>
              <Filter 

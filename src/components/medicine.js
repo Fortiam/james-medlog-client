@@ -18,7 +18,7 @@ class Medicine extends Component {
                 
                 </div>);
             const displayMeds = this.props.manyMeds.map((eachMed, index) => {
-                return (<div key={index}><MedsSingle form={eachMed.id} formKey={eachMed.id} oneMed={eachMed} whichMed={index}/></div>);
+                return (<div className='list' key={index}><MedsSingle form={eachMed.id} formKey={eachMed.id} oneMed={eachMed} whichMed={index}/></div>);
             });
             if(this.props.manyMeds.length > 0){
             return (<div>

@@ -64,11 +64,11 @@ class Treatment extends Component {
                 //the nested array is all the names of the meds that person is taking
             }
             
-            let renderReadyList = theList.map((who, index)=> (<div key={index}>{who.name.toString()} is using medication: {arrayOfMedsAndPpl[index].join(", ")}</div>));
-            return (<div>{renderReadyList} </div>);
+            let renderReadyList = theList.map((who, index)=> (<div key={index}><p>{who.name.toString()} is using medication: {arrayOfMedsAndPpl[index].join(", ")}</p></div>));
+            return (<div className='list'>{renderReadyList} </div>);
         }
         else {
-           return (<p>Nobody is currently on treatment</p>);
+           return (<div className='list'><p>Nobody is currently on treatment</p></div>);
         }
     }
     render(){
@@ -96,8 +96,7 @@ class Treatment extends Component {
                     });
                     const displayNames = listNames.map((oneName, index)=> (<option key={index} value={oneName.id}>{oneName.name}</option>));
                     const displayMeds = listMeds.map((oneMed, index)=> (<option key={index} value={oneMed.id}>{oneMed.name}</option>));
-                    return(<div>
-                        <p>Please select 1 person to start taking medication</p>
+                    return(<div><div className='list'>
                         <form name="assignment" onSubmit={(e)=>this.clicked(e)}>
                             <p><label htmlFor="person" >Family member to begin medication: </label>
                             <select name="person" id="person">
@@ -111,10 +110,8 @@ class Treatment extends Component {
                             <input type="text" name="title" id="title" placeholder="Change me.."/></p>
                             <button type="submit"><i className="fas fa-check"></i></button>
                         </form>
-                        <div><OneName title={safetyTitle} /></div>
-                        <p>-----------------------------------------</p>
-                        <p>Please select 1 person to stop taking medication</p>
-                    <form name="stopMed" onSubmit={(e)=>this.btnClicky(e)}>
+                        <OneName title={safetyTitle} /></div>
+                    <form className='list' name="stopMed" onSubmit={(e)=>this.btnClicky(e)}>
                         <p><label htmlFor="whom" >Family member to stop medication: </label>
                         <select name="whom" id="whom">
                             {displayNames}
@@ -125,8 +122,7 @@ class Treatment extends Component {
                         </select></p>
                         <button type="submit"><i className="fas fa-check"></i></button>
                     </form>
-                    <p>-----------------------------------------</p>
-                        <div>{renderPersonOnMeds}</div>
+                        <div >{renderPersonOnMeds}</div>
                    </div>);
                 }
             }

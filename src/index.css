@@ -1,15 +1,15 @@
+html {
+    height: 100%;
+}
 .left {
     float : left;
 }
-
 .right {
   float : right;
 }
-
 .center {
    text-align: center;
 }
-
 .inlineBlock {
     text-align: center;
     width: 100%;
@@ -18,5 +18,21 @@
     font-size: 2em;
 }
 body {
-    background: lightblue;
+    background: linear-gradient(125deg, rgb(159, 192, 250), rgb(159, 170, 250));
+}
+.list {
+    background : rgb(159, 215, 250);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 1px 1px rgb(171, 159, 250);
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+a:visited {
+    color : black;
 }
