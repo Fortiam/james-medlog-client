@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { submitAction, registerError } from '../actions/register';
 import { login } from '../actions/auth';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import {Input} from './input';
 import { required, nonEmpty, legitPassword, stringy } from '../utils/localChecks';
 import { connect } from 'react-redux';
@@ -19,6 +19,10 @@ class Login extends Component{
         if(this.props.loggedIn){
             return (<Redirect to={{pathname: '/main'}} />);
 
+        }
+        let loadingMessage = '';
+        if(this.props.loading){
+            loadingMessage = (<p>Loading Please Wait..</p>);
         }
         let successMessage;
         if (this.props.submitSucceeded && !this.props.loggedIn) {
@@ -57,12 +61,15 @@ class Login extends Component{
                     </Field>
                     <button type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
+                <div>{loadingMessage}</div>
+                <p><Link to='/' >Cancel</Link></p>
             </div>
         );
     }
 }
 const mapStateToProps = state=> ({
     loggedIn : state.auth.currentUser,
+    loading : state.auth.loading,
     error : state.auth.error
 });
 export default reduxForm({
