@@ -71,9 +71,9 @@ class LogsSingle extends Component {
                     <option key={'default'} value={'none'}>Not specific to one person</option>
                     {requiredPatients}
                 </Field>
-                <button type="submit">Update</button>
+                <button type="submit"><i class="fas fa-check"></i></button>
                 </form>
-                <button type="click" onClick={()=>this.removeLogs()}>Remove this Entry</button>
+                <button type="click" onClick={()=>this.removeLogs()}><i class="far fa-trash-alt"></i></button>
                 </div>);
         } else {
             return (<div></div>);

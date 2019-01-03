@@ -55,7 +55,7 @@ class Login extends Component{
                         component={Input}
                         validate={[required, nonEmpty, stringy, legitPassword]}>
                     </Field>
-                    <button type="submit">Submit!</button>
+                    <button type="submit"><i class="far fa-check-circle"></i></button>
                 </form>
             </div>
         );

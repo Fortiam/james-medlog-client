@@ -85,7 +85,7 @@ class RegisterPage extends Component{
                         <option value='false'>No, thanks</option>
                         <option value='true'>Yes, please</option>
                     </Field>
-                    <button type="submit">Submit</button>
+                    <button type="submit"><i class="far fa-check-circle"></i></button>
                 </form>
             </div>
         );

@@ -14,9 +14,8 @@ class Medicine extends Component {
     render(){
         if(this.props.loggedId){
             const common = (<div>
-                <p><button type="click" onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}>Add Tylenol</button></p>
-                <p><button type="click" onClick={()=>this.makeAMeds(newMedsToAdd.advil)}>Add Advil</button></p>
-                <p><button type="click" onClick={()=>this.makeAMeds(newMedsToAdd.tussin)}>Add Robitussin</button></p>
+                <p><button type="click" onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}><i class="fas fa-prescription-bottle-alt"></i></button></p>
+                
                 </div>);
             const displayMeds = this.props.manyMeds.map((eachMed, index) => {
                 return (<div key={index}><MedsSingle form={eachMed.id} formKey={eachMed.id} oneMed={eachMed} whichMed={index}/></div>);
@@ -25,12 +24,10 @@ class Medicine extends Component {
             return (<div>
                 <div>{displayMeds}</div>
                 {common}
-                <p><Link to="/main" >Return to homepage</Link></p>
                 </div>);
             } else {
                 return (<div>No Meds have been added yet.
                     {common}
-                    <p><Link to="/main" >Return to homepage</Link></p>
                 </div>);
             }
         }

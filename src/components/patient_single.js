@@ -52,13 +52,13 @@ class PatientSingle extends Component{
                         delete values["doctor's contact info"];
                     }
                     this.editMe(values);
-                    }}>Update</button>
+                    }}><i class="fas fa-check"></i></button>
                 </div>);
         });
         return (<div className="person header">
         <p>Family member details:</p>
         {displayArray}
-        <button onClick={()=>this.sayGoodbye()} type="click">Remove this Family Member</button>
+        <button onClick={()=>this.sayGoodbye()} type="click"><i class="far fa-trash-alt"></i></button>
         </div>);
         } else {
             return '';

@@ -39,6 +39,11 @@ class Calendar extends Component {
             }
         return (
           <div className="main" id='example'>
+           <Filter
+              submitProp={(e)=>this.filterEvents(e)}
+              displayNamesProp={displayNames}
+              displayMedsProp={displayMeds}
+            />
             <FullCalendar id='myCalendar' className="App"
                 header= {{
                 left: 'prev,next today myCustomButton',
@@ -51,13 +56,7 @@ class Calendar extends Component {
                 eventLimit= {true} // allow "more" link when too many events
                 events = {safe}>
             </FullCalendar>
-            <Filter
-              submitProp={(e)=>this.filterEvents(e)}
-              displayNamesProp={displayNames}
-              displayMedsProp={displayMeds}
-            />
-            <p><Link to="/main" >Return to homepage</Link></p>
-            </div>
+           </div>
         );
         } else {
             return (<div>Hello there, 

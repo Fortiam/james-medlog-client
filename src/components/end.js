@@ -42,9 +42,8 @@ class End extends Component {
                         <select name="stopMed" id="stopMed">
                             {displayMeds}
                         </select></p>
-                        <button type="submit">Ok</button>
+                        <button type="submit"><i class="fas fa-check"></i></button>
                     </form>
-                    <p><Link to="/main" >Return to homepage</Link></p>
                 </div>);
             }
         }

@@ -35,7 +35,6 @@ class Begin extends Component {
                 }
                 if(this.props.listOfOwnedByUser.length < 1 || this.props.manyMeds.length < 1){
                     return (<div>Please add at least 1 family member and at least 1 medicine before assigning a medicine to someone!
-                        <p><Link to="/main" >Return to homepage</Link></p>
                     </div>);
                 }
                 else {
@@ -60,11 +59,10 @@ class Begin extends Component {
                             </select></p>
                             <p><label htmlFor="title">Title to display on calendar:</label>
                             <input type="text" name="title" id="title" placeholder="Change me.."/></p>
-                            <button type="submit">Ok</button>
+                            <button type="submit"><i class="fas fa-check"></i></button>
                         </form>
                         <div><OneName title={safetyTitle} /></div>
-                        <p><Link to="/main" >Return to homepage</Link></p>
-                    </div>);
+                   </div>);
                 }
             }
             else {

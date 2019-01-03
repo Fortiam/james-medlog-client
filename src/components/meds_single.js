@@ -31,16 +31,16 @@ class MedsSingle extends Component {
         //this.props.dispatch(getAllLogs({"token": this.props.token}));
     }
     render(){
-       return (<div><p>Medication:</p>
+       return (<div>
             <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="Medicine Name: " type="text" component={Input} name="name" placeholder={this.props.oneMed.name} />
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />
             <Field label="To be taken every X hours: " type="number" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
             <Field label={`How many days to take medication: `} type="number" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
-            <button type="submit">Update</button>
+            <button type="submit"><i class="fas fa-check"></i></button>
+            <button type="click" onClick={()=>this.removeMed()}><i class="far fa-trash-alt"></i></button>
             </form>
             <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck} Correct?</p>
-            <button type="click" onClick={()=>this.removeMed()}>Remove this medicine</button>
             </div>);
     }
 }

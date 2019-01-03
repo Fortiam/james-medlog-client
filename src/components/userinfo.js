@@ -58,21 +58,19 @@ class Userinfo extends Component {
                 }}>
                 {displayInfo}
                 <div>
-                <label htmlFor="emailApi">MedLog will sync schedule with email account. Currently Active: {this.props.useEmailForApi.toString()}</label>
+                <label htmlFor="emailApi">MedLog sync schedule with email account. Currently Active: {this.props.useEmailForApi.toString()}</label>
                 </div>
                 <div>
-                <span>Change? </span>
                 <select id="emailApi">
-                    <option value='null'>No Change Thanks</option>
-                    <option value='false'>Do not use email address to sync schedule, thanks</option>
-                    <option value='true'>Yes, please do sync with this email address!</option>
+                    <option value='null'>Don't Change Email Sync</option>
+                    <option value='false'>Do not use email address to sync schedule</option>
+                    <option value='true'>Yes, do sync with this email address</option>
                 </select>
                 </div>
-                <button type="submit">Update!</button>
+                <button type="submit"><i class="fas fa-check"></i></button>
                 </form>
-                <button type="click" onClick={()=>this.props.history.push('/main')}>Cancel all changes</button>
-                <p><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} >REMOVE THIS ACCOUNT</button></p>
-                <p><Link to="/main" >Return to homepage</Link></p>
+                <button type="click" onClick={()=>this.props.history.push('/main')}><i class="fas fa-times"></i></button>
+                <p><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i class="far fa-trash-alt"></i></button></p>
             </div>);
         }
         else {

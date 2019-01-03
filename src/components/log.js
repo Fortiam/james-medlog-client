@@ -32,19 +32,17 @@ class Log extends Component {
                 const displayComments = this.props.comments.map((aComment, index)=>{
                     return (<div key={index}><LogsSingle form={aComment.id} formKey={aComment.id} oneLog={aComment} whichLog={index}/></div>);
                 });
-            return (<div>{displayComments}
-            <p><button onClick={()=>this.addComment("new log entry..")}>Add a new log entry</button></p>
-            <p>Having reactions to medication? New symptoms? Missed appointments?</p>
-            <Filter 
+            return (<div>
+             <Filter 
               submitProp={(e)=>this.filterEvents(e)}
               displayNamesProp={this.props.patients.map((oneName, index)=> (<option key={index} value={oneName.id}>{oneName.name}</option>))}
               displayMedsProp={this.props.meds.map((oneMed, index)=> (<option key={index} value={oneMed.id}>{oneMed.name}</option>))}
             />
-            <p><Link to="/main" >Return to homepage</Link></p>
+            {displayComments}
+            <p><button onClick={()=>this.addComment("new log entry..")}><i class="fas fa-plus-circle"></i></button></p>
             </div>);
             }  else {
                 return (<div><p>You need to have family members and medicines before you can comment about them..</p>
-                    <p><Link to="/main" >Return to homepage</Link></p>
                 </div>);
             }
         }
