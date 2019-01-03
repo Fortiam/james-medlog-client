@@ -14,7 +14,7 @@ class Medicine extends Component {
     render(){
         if(this.props.loggedId){
             const common = (<div>
-                <p><button type="click" onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}><i class="fas fa-prescription-bottle-alt"></i></button></p>
+                <p><button type="click" onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt"></i></button></p>
                 
                 </div>);
             const displayMeds = this.props.manyMeds.map((eachMed, index) => {

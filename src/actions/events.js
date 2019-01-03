@@ -1,4 +1,5 @@
 import {API_BASE_URL} from '../config';
+import {editPatientSuccess} from './patients';
 
 export const everyEventsRequest = () => ({
     type : 'EVERY_EVENTS_REQUEST'
@@ -102,7 +103,8 @@ export const createNewEvent = user => dispatch=> {
     })
     .then(unJsonifiedData => unJsonifiedData.json())
     .then(data => {
-        return dispatch(createNewEventSuccess(data));
+        dispatch(editPatientSuccess(data.patientData));
+        return dispatch(createNewEventSuccess(data.eventsData));
     })
     .catch(err=> {
         return dispatch(everyEventsError(err));

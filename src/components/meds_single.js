@@ -4,9 +4,9 @@ import { /*submitAction,*/ registerError, /*registerMe */} from '../actions/regi
 import { connect } from 'react-redux';
 import { editMeds, removeMeds, MedsError } from '../actions/meds';
 import { Input } from './input';
-//import { getAllLogs } from '../actions/log';
+import { getAllLogs } from '../actions/log';
 import { updateManyEvents } from '../actions/events';
-
+import { getAllPatientsInfo } from '../actions/patients';
 class MedsSingle extends Component {
     onSubmit(values){
         values.token = this.props.token;
@@ -19,16 +19,17 @@ class MedsSingle extends Component {
         .then(()=>{
             const newMedValues = this.props.manyMeds.filter(eachMed=>eachMed.id ===values.medsId);
             // this.props.dispatch new put all route here
-            this.props.dispatch(updateManyEvents({"token": this.props.token, "medId": newMedValues[0].id, "rateAmount": newMedValues[0].rateAmount, "howLongAmount": newMedValues[0].howLongAmount})
-            );
+            this.props.dispatch(updateManyEvents({"token": this.props.token, "medId": newMedValues[0].id, "rateAmount": newMedValues[0].rateAmount, "howLongAmount": newMedValues[0].howLongAmount}));
+            
         })
         .catch(err=>this.props.dispatch(MedsError(err)));
-
+        
     }
     removeMed(){
         const thisMed = {"token": this.props.token, "medsId": this.props.oneMed.id};
         this.props.dispatch(removeMeds(thisMed));
-        //this.props.dispatch(getAllLogs({"token": this.props.token}));
+        this.props.dispatch(getAllLogs({"token": this.props.token}));
+        this.props.dispatch(getAllPatientsInfo({"token": this.props.token}));
     }
     render(){
        return (<div>
@@ -37,8 +38,8 @@ class MedsSingle extends Component {
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />
             <Field label="To be taken every X hours: " type="number" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
             <Field label={`How many days to take medication: `} type="number" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
-            <button type="submit"><i class="fas fa-check"></i></button>
-            <button type="click" onClick={()=>this.removeMed()}><i class="far fa-trash-alt"></i></button>
+            <button type="submit"><i className="fas fa-check"></i></button>
+            <button type="click" onClick={()=>this.removeMed()}><i className="far fa-trash-alt"></i></button>
             </form>
             <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck} Correct?</p>
             </div>);

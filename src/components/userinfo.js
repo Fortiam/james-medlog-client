@@ -67,10 +67,10 @@ class Userinfo extends Component {
                     <option value='true'>Yes, do sync with this email address</option>
                 </select>
                 </div>
-                <button type="submit"><i class="fas fa-check"></i></button>
+                <button type="submit"><i className="fas fa-check"></i></button>
                 </form>
-                <button type="click" onClick={()=>this.props.history.push('/main')}><i class="fas fa-times"></i></button>
-                <p><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i class="far fa-trash-alt"></i></button></p>
+                <button type="click" onClick={()=>this.props.history.push('/main')}><i className="fas fa-times"></i></button>
+                <p><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt"></i></button></p>
             </div>);
         }
         else {

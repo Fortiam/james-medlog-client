@@ -1,13 +1,18 @@
 const initalState = {
     listOfOwnedByUser : [{
-    name : null,
-    age : null,
-    gender : null,
-    height : null,
-    weight : null,
-    doctor : ["Dr. Name goes here", "Dr. contact info goes here"],
-    allergies : null,
+        name : null,
+        age : null,
+        gender : null,
+        height : null,
+        weight : null,
+        doctor : ["Dr. Name goes here", "Dr. contact info goes here"],
+        allergies : null,
+        medsCurrentlyOn : [{
+            name : null,
+            medId : null,
+        }],
     }],
+    
     loading : false,
     error : null
 };
@@ -65,7 +70,11 @@ export function patienceReducer (state = initalState, action){
                 height : null,
                 weight : null,
                 doctor : ["Dr. Name goes here", "Dr. contact info goes here"],
-                allergies : null
+                allergies : null,
+                medsCurrentlyOn : [{
+                    name : null,
+                    medId : null,
+                }],
             }]});
             return logOutState;
     default : return state;

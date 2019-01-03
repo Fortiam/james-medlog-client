@@ -10,8 +10,8 @@ import Calendar from './calendar';
 import Patient from './patient';
 import Medicine from './medicine';
 import Userinfo from './userinfo';
-import Begin from './begin';
-import End from './end';
+import Treatment from './treatment';
+// import End from './end';
 import Log from './log';
 import { refreshAuthToken } from '../actions/auth';
 import { getAllPatientsInfo } from '../actions/patients';
@@ -74,8 +74,8 @@ class Home extends Component {
                     <Route exact path='/patient' component={Patient} />
                     <Route exact path='/medicine' component={Medicine} />
                     <Route exact path='/userinfo' component={Userinfo} />
-                    <Route exact path='/begin' component={Begin} />
-                    <Route exact path='/end' component={End} />
+                    <Route exact path='/treatment' component={Treatment} />
+                    {/* <Route exact path='/end' component={End} /> */}
                     <Route exact path='/log' component={Log} />
                     </div>
                 </Router>

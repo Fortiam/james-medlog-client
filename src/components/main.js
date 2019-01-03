@@ -13,8 +13,8 @@ class Main extends Component {
             <p><Link to='/patient' >Family Member</Link></p>
             <p><Link to="/medicine" >Medicine</Link></p>
             <p><Link to="/userinfo" >Account Details</Link></p>
-            <p><Link to='/begin' >Begin Treatment</Link></p>
-            <p><Link to='/end' >Stop Treatment</Link></p>
+            <p><Link to='/treatment' >Treatment</Link></p>
+            {/* <p><Link to='/end' >Stop Treatment</Link></p> */}
             <p><Link to='/log' >Journal</Link></p>
             </div>)
      }

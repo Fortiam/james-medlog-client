@@ -23,8 +23,8 @@ class Header extends Component {
         if(this.props.loggedIn){
             return (<div className='inlineBlock'>
             <span className='big'>Welcome to MedLog!</span>
-            <Link to="/" className='right' onClick={()=>this.handleLogOut()} ><i class="fas fa-sign-out-alt"></i></Link>
-            <Link to="/main" className='left' ><i class="fas fa-bars"></i></Link>
+            <Link to="/" className='right' onClick={()=>this.handleLogOut()} ><i className="fas fa-sign-out-alt"></i></Link>
+            <Link to="/main" className='left' ><i className="fas fa-bars"></i></Link>
         </div>);
         } else {
         return (<div className='inlineBlock'>

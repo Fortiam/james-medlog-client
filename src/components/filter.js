@@ -12,6 +12,6 @@ export default function(props){
         <option value='false'>Do not filter by Medication</option>
         {props.displayMedsProp}
     </select>
-    <button type="submit"><i class="fas fa-filter"></i></button>
+    <button type="submit"><i className="fas fa-filter"></i></button>
 </form>);
 }

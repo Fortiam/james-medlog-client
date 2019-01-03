@@ -11,7 +11,7 @@ class Patient extends Component {
     }
     render(){
         const common = (
-            <div><button onClick={()=>this.AddOne()}><i class="fas fa-users"></i></button>
+            <div><button onClick={()=>this.AddOne()}><i className="fas fa-users"></i></button>
             </div>
             );
         if(this.props.loggedIn){
