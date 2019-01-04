@@ -52,7 +52,7 @@ class Userinfo extends Component {
         if(this.props.loggedIn){
             return (<div className='list'>
                 <p>Account details for {this.props.username}:</p>
-                <form onSubmit={values=>{
+                <form className='innerlist' onSubmit={values=>{
                    values.preventDefault();
                     this.onSubmit(values.currentTarget);
                 }}>
@@ -67,9 +67,9 @@ class Userinfo extends Component {
                     <option value='true'>Yes, do sync with this email address</option>
                 </select>
                 </div>
-                <button type="submit"><i className="fas fa-check"></i></button>
-                </form>
+                <button className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
                 <button type="click" onClick={()=>this.props.history.push('/main')}><i className="fas fa-times"></i></button>
+                </form>
                 <p><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt"></i></button></p>
             </div>);
         }

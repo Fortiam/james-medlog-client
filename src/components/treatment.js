@@ -65,10 +65,10 @@ class Treatment extends Component {
             }
             
             let renderReadyList = theList.map((who, index)=> (<div key={index}><p>{who.name.toString()} is using medication: {arrayOfMedsAndPpl[index].join(", ")}</p></div>));
-            return (<div className='list'>{renderReadyList} </div>);
+            return (<div className='innerlist'>{renderReadyList} </div>);
         }
         else {
-           return (<div className='list'><p>Nobody is currently on treatment</p></div>);
+           return (<div className='innerlist'><p>Nobody is currently on treatment</p></div>);
         }
     }
     render(){
@@ -96,8 +96,8 @@ class Treatment extends Component {
                     });
                     const displayNames = listNames.map((oneName, index)=> (<option key={index} value={oneName.id}>{oneName.name}</option>));
                     const displayMeds = listMeds.map((oneMed, index)=> (<option key={index} value={oneMed.id}>{oneMed.name}</option>));
-                    return(<div><div className='list'>
-                        <form name="assignment" onSubmit={(e)=>this.clicked(e)}>
+                    return(<div ><div className='list'>
+                        <form className='innerlist' name="assignment" onSubmit={(e)=>this.clicked(e)}>
                             <p><label htmlFor="person" >Family member to begin medication: </label>
                             <select name="person" id="person">
                                 {displayNames}
@@ -112,17 +112,18 @@ class Treatment extends Component {
                         </form>
                         <OneName title={safetyTitle} /></div>
                     <form className='list' name="stopMed" onSubmit={(e)=>this.btnClicky(e)}>
-                        <p><label htmlFor="whom" >Family member to stop medication: </label>
+                        <div className='innerlist'><label htmlFor="whom" >Family member to stop medication: </label>
                         <select name="whom" id="whom">
                             {displayNames}
-                        </select></p>
+                        </select>
                         <p><label htmlFor="stopMed" >Medication to stop taking: </label>
                         <select name="stopMed" id="stopMed">
                             {displayMeds}
                         </select></p>
                         <button type="submit"><i className="fas fa-check"></i></button>
+                        </div>
                     </form>
-                        <div >{renderPersonOnMeds}</div>
+                        <div className='list'>{renderPersonOnMeds}</div>
                    </div>);
                 }
             }

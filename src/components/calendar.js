@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FullCalendar from 'fullcalendar-reactwrapper';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
-import './calendar.css';
+//import './calendar.css';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import Filter from './filter';
@@ -37,14 +37,14 @@ class Calendar extends Component {
                     safe = [...this.props.events];
                 }
             }
-        return (
-          <div className="main" id='example'>
-           <Filter
+        return (<div>
+            <Filter
               submitProp={(e)=>this.filterEvents(e)}
               displayNamesProp={displayNames}
               displayMedsProp={displayMeds}
             />
-            <FullCalendar id='myCalendar' className="App"
+            <div className="list" id='example'>
+              <FullCalendar id='myCalendar' className="innerlist"
                 header= {{
                 left: 'prev,next today myCustomButton',
                 center: 'title',
@@ -55,7 +55,8 @@ class Calendar extends Component {
                 editable= {true}
                 eventLimit= {true} // allow "more" link when too many events
                 events = {safe}>
-            </FullCalendar>
+              </FullCalendar>
+           </div>
            </div>
         );
         } else {

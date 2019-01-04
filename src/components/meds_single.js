@@ -34,13 +34,13 @@ class MedsSingle extends Component {
         this.refreshState();
     }
     render(){
-       return (<div>
+       return (<div className='innerlist'>
             <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="Medicine Name: " type="text" component={Input} name="name" placeholder={this.props.oneMed.name} />
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />
             <Field label="To be taken every X hours: " type="number" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
             <Field label={`How many days to take medication: `} type="number" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
-            <button type="submit"><i className="fas fa-check"></i></button>
+            <button className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
             <button type="click" onClick={()=>this.removeMed()}><i className="far fa-trash-alt"></i></button>
             </form>
             <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck} Correct?</p>

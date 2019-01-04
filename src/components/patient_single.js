@@ -16,50 +16,54 @@ class PatientSingle extends Component{
         this.props.dispatch(editPatient(edited));
         //this.props.dispatch(getAllPatientsInfo({"token": this.props.token}));
     }
-    render(){
-        
-    if(this.props.patientNumber != null){
+    
+    prepSingleField(inputArray){
         const monkeySauce = [];
-        const fieldArray = ["name", "age", "gender", "height", "weight", "doctor's name","doctor's contact info", "allergies"];
-        const personArray = [this.props.listOfOwnedByUser[this.props.patientNumber].name,
-                             this.props.listOfOwnedByUser[this.props.patientNumber].age,
-                             this.props.listOfOwnedByUser[this.props.patientNumber].gender,
-                             this.props.listOfOwnedByUser[this.props.patientNumber].height,
-                             this.props.listOfOwnedByUser[this.props.patientNumber].weight,
-                             this.props.listOfOwnedByUser[this.props.patientNumber].doctor[0].name,
-                             this.props.listOfOwnedByUser[this.props.patientNumber].doctor[0].contact,
-                             this.props.listOfOwnedByUser[this.props.patientNumber].allergies
-                            ];
-        const validArray = personArray.map(f=> f? f: 'optional field not entered yet..');
-        const displayArray = fieldArray.map((field, index)=>{
-            return (<div key={index} className="person">
+        const fieldArray = ["name", "age", "gender", "height", "weight", "Dr(name)","Dr(contact)", "allergies"];
+        const readyArray = fieldArray.map((field, index)=>{
+            return (<div key={index} className="personfield">
                 <label htmlFor={field}>{field}: </label>
-                <input id={field} type="text" placeholder={validArray[index]} ref={input => monkeySauce[index] = input} />
+                <input id={field} className={field} type="text" placeholder={inputArray[index]} ref={input => monkeySauce[index] = input} />
                 <button type="click" onClick={()=>{
                     let values = {};
                     values[field] = monkeySauce[index].value.toString();
                     if(values.age){
                         values.age = parseInt(values.age);
                     }
-                    if(values["doctor's name"]){
+                    if(values["Dr(name)"]){
                         values.doctor = [{}];
-                        values.doctor[0].name = values["doctor's name"];
-                        delete values["doctor's name"];
+                        values.doctor[0].name = values["Dr(name)"];
+                        delete values["Dr(name)"];
                     }
-                    if(values["doctor's contact info"]){
+                    if(values["Dr(contact)"]){
                         values.doctor = [{}];
-                        values.doctor[0].contact = values["doctor's contact info"];
-                        delete values["doctor's contact info"];
+                        values.doctor[0].contact = values["Dr(contact)"];
+                        delete values["Dr(contact)"];
                     }
                     this.editMe(values);
                     }}><i className="fas fa-check"></i></button>
                 </div>);
         });
-        return (<div className="person header">
-        <p>Family member details:</p>
-        {displayArray}
-        <button onClick={()=>this.sayGoodbye()} type="click"><i className="far fa-trash-alt"></i></button>
-        </div>);
+        return readyArray;
+    }
+    render(){
+        if(this.props.patientNumber != null){
+            const personArray = [this.props.listOfOwnedByUser[this.props.patientNumber].name,
+                                this.props.listOfOwnedByUser[this.props.patientNumber].age,
+                                this.props.listOfOwnedByUser[this.props.patientNumber].gender,
+                                this.props.listOfOwnedByUser[this.props.patientNumber].height,
+                                this.props.listOfOwnedByUser[this.props.patientNumber].weight,
+                                this.props.listOfOwnedByUser[this.props.patientNumber].doctor[0].name,
+                                this.props.listOfOwnedByUser[this.props.patientNumber].doctor[0].contact,
+                                this.props.listOfOwnedByUser[this.props.patientNumber].allergies
+                                ];
+            const validArray = personArray.map(f=> f? f: 'optional field..');
+            const displayArray = this.prepSingleField(validArray);
+            return (<div className="innerlist header">
+                <p>Family member details:</p>
+                {displayArray}
+                <button className='spaceAbove' onClick={()=>this.sayGoodbye()} type="click"><i className="far fa-trash-alt"></i></button>
+                </div>);
         } else {
             return '';
         }

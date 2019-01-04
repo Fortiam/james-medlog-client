@@ -31,11 +31,11 @@ class Header extends Component {
     }
     render(){
         if(this.props.loggedIn){
-            return (<div className='inlineBlock'>
-            <span className='big'>Welcome to MedLog!</span>
-            <Link to="/" className='right' onClick={()=>this.handleLogOut()} ><i className="fas fa-sign-out-alt"></i></Link>
-            <button onClick={()=>this.hamburger()} type='button' className='left' ><i className="fas fa-bars"></i></button>
-            <NavMenu showUp={this.state.toggle} />
+            return (<div className='inlineBlock navContainer'>
+            <span className='big navContents'>Welcome to MedLog!</span>
+            <Link to="/" className='right navContents' onClick={()=>this.handleLogOut()} ><i className="fas fa-sign-out-alt"></i></Link>
+            <button onClick={()=>this.hamburger()} type='button' className='left navContents' ><i className="fas fa-bars"></i></button>
+            <NavMenu className='navContents' showUp={this.state.toggle} />
         </div>);
         } else {
         return (<div className='inlineBlock'>

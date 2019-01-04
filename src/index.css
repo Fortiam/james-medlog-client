@@ -20,22 +20,71 @@ html {
 body {
     background: linear-gradient(125deg, rgb(159, 192, 250), rgb(159, 170, 250));
 }
+a:visited {
+    color : black;
+}
+.navmenu {
+    background: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    /* z-index: 999; */
+}
+.navContainer {
+    /* padding-left:10px;
+    padding-right:10px; */
+    /* top: 5px; */
+    margin-bottom: 15px;
+}
+.navContainer::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+/* button.navContents {
+    position: fixed;
+    left: 0;
+    margin-top: 5px;
+} */
 .list {
-    background : rgb(159, 215, 250);
+    background : rgb(149, 205, 240);
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
     box-shadow: 3px 3px 1px 1px rgb(171, 159, 250);
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    text-align: center;
 }
-a:visited {
-    color : black;
+.innerlist, #myCalendar {
+    background: rgb(169, 225, 255);
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    box-shadow: 3px 3px 1px 1px rgb(109, 165, 195);
+    /* z-index: 0; */
 }
-.navmenu {
-    background: white;
+.personfield input.Dr\(contact\) {
+    width: 159px;
+}
+.spacing {
+    margin-right: 50px;
+}
+.spaceAbove {
+    margin-top: 12px;
+}
+.hidden {
+    display: none;
 }

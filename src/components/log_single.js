@@ -60,7 +60,7 @@ class LogsSingle extends Component {
             defaultMed = whichMeds[0].name;
         }
         if(this.props.meds.length > 0 && this.props.patients.length > 0&& this.props.comments.length > 0){
-            return (<div><p>Log Entry for {defaultWho} about {defaultMed}:</p>
+            return (<div className='innerlist'><p>Log Entry for {defaultWho} about {defaultMed}:</p>
                 <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                 <Field label="comment:" component='textarea' className='commentInput' name="comment" placeholder={this.props.comments[this.props.whichLog].comment} />
                 <Field label="Associate comment with Medicine:" element="select" component={Input} name="medId" >
@@ -71,9 +71,9 @@ class LogsSingle extends Component {
                     <option key={'default'} value={'none'}>Not specific to one person</option>
                     {requiredPatients}
                 </Field>
-                <button type="submit"><i className="fas fa-check"></i></button>
-                </form>
+                <button className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
                 <button type="click" onClick={()=>this.removeLogs()}><i className="far fa-trash-alt"></i></button>
+                </form>
                 </div>);
         } else {
             return (<div></div>);
