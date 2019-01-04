@@ -59,7 +59,7 @@ class Login extends Component{
                         component={Input}
                         validate={[required, nonEmpty, stringy, legitPassword]}>
                     </Field>
-                    <button type="submit"><i className="far fa-check-circle"></i></button>
+                    <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
                 <div>{loadingMessage}</div>
                 <p><Link to='/' >Cancel</Link></p>

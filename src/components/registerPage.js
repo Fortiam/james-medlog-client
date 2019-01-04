@@ -85,7 +85,7 @@ class RegisterPage extends Component{
                         <option value='false'>No, thanks</option>
                         <option value='true'>Yes, please</option>
                     </Field>
-                    <button type="submit"><i className="far fa-check-circle"></i></button>
+                    <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
             </div>
         );
