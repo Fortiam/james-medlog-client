@@ -5,7 +5,7 @@ import FormRegister from './formRegister';
 import Welcome from './welcome';
 import FormLogin from './formLogin';
 import Header from './header';
-import MainWrapper from './mainWrapper';
+import Main from './main';
 import Calendar from './calendar';
 import Patient from './patient';
 import Medicine from './medicine';
@@ -19,14 +19,13 @@ import { getAllMeds } from '../actions/meds';
 import { registerLogout } from '../actions/register';
 import { fetchAllEvents } from '../actions/events';
 import { getAllLogs } from '../actions/log';
-import { destroy } from 'redux-form';
 import { authError } from '../actions/auth';
 
 class Home extends Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
-            this.startPeriodicRefresh();
+            return this.startPeriodicRefresh();
         } else if (prevProps.loggedIn && !this.props.loggedIn) {
             // Stop refreshing when we log out
             this.stopPeriodicRefresh();
@@ -35,10 +34,9 @@ class Home extends Component {
     componentWillUnmount() {
         this.stopPeriodicRefresh();
     }
-
+    
     startPeriodicRefresh() {
-                return Promise.all([this.props.dispatch(refreshAuthToken()),
-                this.props.dispatch(destroy()),
+            return Promise.all([this.props.dispatch(refreshAuthToken()),
                 this.props.dispatch(registerLogout()),
                 this.props.dispatch(getAllPatientsInfo({"token": this.props.token})),
                 this.props.dispatch(getAllMeds({"token": this.props.token})),
@@ -69,7 +67,7 @@ class Home extends Component {
                     <Route exact path='/' component={Welcome} />
                     <Route exact path='/register' component={FormRegister} />
                     <Route exact path='/login' component={FormLogin} />
-                    <Route exact path='/main' component={MainWrapper} />
+                    <Route exact path='/main' component={Main} />
                     <Route exact path='/calendar' component={Calendar} />
                     <Route exact path='/patient' component={Patient} />
                     <Route exact path='/medicine' component={Medicine} />

@@ -8,8 +8,18 @@ import { registerLogout } from '../actions/register';
 import { eventsLogout } from '../actions/events';
 import { logsLogout } from '../actions/log';
 import { clearAuthToken } from '../local-storage';
+import NavMenu from './navMenu';
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            toggle : false
+        }
+    }
+    hamburger(){
+        this.setState({toggle : !this.state.toggle});
+    }
     handleLogOut(){
         this.props.dispatch(medsLogout());
         this.props.dispatch(patientLogout());
@@ -24,7 +34,8 @@ class Header extends Component {
             return (<div className='inlineBlock'>
             <span className='big'>Welcome to MedLog!</span>
             <Link to="/" className='right' onClick={()=>this.handleLogOut()} ><i className="fas fa-sign-out-alt"></i></Link>
-            <Link to="/main" className='left' ><i className="fas fa-bars"></i></Link>
+            <button onClick={()=>this.hamburger()} type='button' className='left' ><i className="fas fa-bars"></i></button>
+            <NavMenu showUp={this.state.toggle} />
         </div>);
         } else {
         return (<div className='inlineBlock'>
@@ -33,7 +44,7 @@ class Header extends Component {
         }
     }
 }
-//change me to like a nav bar or a log-in log-out panel, or something
+
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });

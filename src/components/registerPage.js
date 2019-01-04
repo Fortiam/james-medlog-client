@@ -24,7 +24,7 @@ class RegisterPage extends Component{
     }
     render(){
         if(this.props.loggedIn){
-            return (<Redirect to={{pathname: '/main'}} />);
+            return (<Redirect to={{pathname: '/calendar'}} />);
 
         }
         let successMessage;

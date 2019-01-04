@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { reduxForm} from 'redux-form';
-
 
 class Main extends Component {
       
@@ -31,7 +29,4 @@ const mapStateToProps = state => ({
     listOfOwnedByUser : [...state.patients.listOfOwnedByUser]
 });
 
-export default reduxForm({
-    form: 'login',
-
-})(connect(mapStateToProps)(Main));
+export default connect(mapStateToProps)(Main);

@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 class Welcome extends Component {
     render(){
         if(this.props.token){
-            return (<Redirect to='/main'/>);
+            return (<Redirect to='/calendar'/>);
         }
        else {
             return (<div>

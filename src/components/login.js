@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { submitAction, registerError } from '../actions/register';
+import { /*submitAction,*/ registerError } from '../actions/register';
 import { login } from '../actions/auth';
 import { Redirect, Link } from 'react-router-dom';
 import {Input} from './input';
@@ -10,15 +10,14 @@ import { connect } from 'react-redux';
 
 class Login extends Component{
     onSubmit(values){
-        this.props.dispatch(submitAction(values));
-        return this.props.dispatch(login(values.username, values.password))
+        //this.props.dispatch(submitAction(values));
+        this.props.dispatch(login(values.username, values.password))
         .catch(err=>{this.props.dispatch(registerError(err))});
     }
     
     render(){
         if(this.props.loggedIn){
-            return (<Redirect to={{pathname: '/main'}} />);
-
+            return (<Redirect to={{pathname: '/calendar'}} />);
         }
         let loadingMessage = '';
         if(this.props.loading){
@@ -43,6 +42,7 @@ class Login extends Component{
             <div>
                 <div>{successMessage}</div>
                 <div>{errorMessage}</div>
+                <div>{loadingMessage}</div>
                 <form 
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <Field
@@ -61,7 +61,6 @@ class Login extends Component{
                     </Field>
                     <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
-                <div>{loadingMessage}</div>
                 <p><Link to='/' >Cancel</Link></p>
             </div>
         );
