@@ -24,12 +24,12 @@ class NavMenu extends Component {
        
         if (this.props.showUp) {
             return (<div className='navmenu'>
-            <p><Link to="/calendar" >Visit Calendar</Link></p>
-                <p><Link to='/patient' >Family Member</Link></p>
-                <p><Link to="/medicine" >Medicine</Link></p>
-                <p><Link to="/userinfo" >Account Details</Link></p>
-                <p><Link to='/treatment' >Treatment</Link></p>
-            <p><Link to='/log' >Journal</Link></p>
+            <p><Link to="/calendar" onClick={()=>this.props.switch()}>Visit Calendar</Link></p>
+                <p><Link to='/patient' onClick={()=>this.props.switch()}>Family Member</Link></p>
+                <p><Link to="/medicine" onClick={()=>this.props.switch()}>Medicine</Link></p>
+                <p><Link to="/userinfo" onClick={()=>this.props.switch()}>Account Details</Link></p>
+                <p><Link to='/treatment' onClick={()=>this.props.switch()}>Treatment</Link></p>
+            <p><Link to='/log' onClick={()=>this.props.switch()} >Journal</Link></p>
             <p onClick={()=>this.doLogout()}>Log-out</p>
             </div>);
         }

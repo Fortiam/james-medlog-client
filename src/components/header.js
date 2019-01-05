@@ -36,7 +36,7 @@ class Header extends Component {
             <span className='big navContents'>MedLog</span>
             <button onClick={()=>this.hamburger()} type='button' className='left navContents' ><i className="fas fa-bars"></i></button>
             </div>
-            <NavMenu showUp={this.state.toggle} />
+            <NavMenu showUp={this.state.toggle} switch={()=>this.hamburger()}/>
             </div>);
         } else {
         return (<div className='inlineBlock'>
