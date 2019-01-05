@@ -16,7 +16,7 @@ import Log from './log';
 import { refreshAuthToken } from '../actions/auth';
 import { getAllPatientsInfo } from '../actions/patients';
 import { getAllMeds } from '../actions/meds';
-import { registerLogout } from '../actions/register';
+//import { registerLogout } from '../actions/register';
 import { fetchAllEvents } from '../actions/events';
 import { getAllLogs } from '../actions/log';
 import { authError } from '../actions/auth';
@@ -37,7 +37,7 @@ class Home extends Component {
     
     startPeriodicRefresh() {
             return Promise.all([this.props.dispatch(refreshAuthToken()),
-                this.props.dispatch(registerLogout()),
+                //this.props.dispatch(registerLogout()),
                 this.props.dispatch(getAllPatientsInfo({"token": this.props.token})),
                 this.props.dispatch(getAllMeds({"token": this.props.token})),
                 this.props.dispatch(fetchAllEvents({"token": this.props.token})),
@@ -45,7 +45,7 @@ class Home extends Component {
                 .then(()=>{
                     this.refreshInterval = setInterval(
                         () =>this.props.dispatch(refreshAuthToken()),
-                        24 * 60 * 60 * 1000 // One day
+                        60 * 60 * 1000 // One hour
                     );
                 })
                 .catch(err=>this.props.dispatch(authError(err)));
