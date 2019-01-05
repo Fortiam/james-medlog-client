@@ -119,7 +119,13 @@ button.navContents {
     -ms-user-select: none;
     user-select: none; 
 }
-
+button.navContents:after{
+    content: 'MENU';
+    position: relative;
+    font-size: 6px;
+    left: -18px;
+    top: 5px;
+}
 .labelClass {
     display: inline-block;
     width: 89px;
