@@ -43,7 +43,7 @@ class MedsSingle extends Component {
             <button className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
             <button type="click" onClick={()=>this.removeMed()}><i className="far fa-trash-alt"></i></button>
             </form>
-            <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck} Correct?</p>
+            <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck}</p>
             </div>);
     }
 }
