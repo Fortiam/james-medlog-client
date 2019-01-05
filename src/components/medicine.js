@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import MedsSingle from './meds_single';
 import { createNewMeds } from '../actions/meds';
 import * as newMedsToAdd from '../utils/medsDB';
@@ -32,9 +32,7 @@ class Medicine extends Component {
             }
         }
         else {
-            return (<div>Hello there, 
-                <Link to='/login'>please Log-in!</Link>
-                </div>)
+            return (<Redirect to='/'/>);
         }   
     }
 }

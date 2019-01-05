@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { medsLogout } from '../actions/meds';
@@ -31,12 +31,13 @@ class Header extends Component {
     }
     render(){
         if(this.props.loggedIn){
-            return (<div className='inlineBlock navContainer'>
-            <span className='big navContents'>Welcome to MedLog!</span>
-            <Link to="/" className='right navContents' onClick={()=>this.handleLogOut()} ><i className="fas fa-sign-out-alt"></i></Link>
+            return (<div className='OverContainer'>
+            <div className='inlineBlock navContainer'>
+            <span className='big navContents'>MedLog</span>
             <button onClick={()=>this.hamburger()} type='button' className='left navContents' ><i className="fas fa-bars"></i></button>
-            <NavMenu className='navContents' showUp={this.state.toggle} />
-        </div>);
+            </div>
+            <NavMenu showUp={this.state.toggle} />
+            </div>);
         } else {
         return (<div className='inlineBlock'>
                     <span className='big'>Welcome to MedLog!</span>

@@ -3,7 +3,7 @@ import FullCalendar from 'fullcalendar-reactwrapper';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
 //import './calendar.css';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Filter from './filter';
 import { fetchAllEvents, fetchFilteredEvents } from '../actions/events';
 
@@ -37,7 +37,7 @@ class Calendar extends Component {
                     safe = [...this.props.events];
                 }
             }
-        return (<div>
+        return (<div className='center'>
             <Filter
               submitProp={(e)=>this.filterEvents(e)}
               displayNamesProp={displayNames}
@@ -54,15 +54,14 @@ class Calendar extends Component {
                 navLinks= {true} // can click day/week names to navigate views
                 editable= {true}
                 eventLimit= {true} // allow "more" link when too many events
-                events = {safe}>
+                events = {safe}
+                >
               </FullCalendar>
            </div>
            </div>
         );
         } else {
-            return (<div>Hello there, 
-                 <Link to='/login'>please Log-in!</Link>
-                </div>)
+            return (<Redirect to='/login'/>);
         }       
     }
 }

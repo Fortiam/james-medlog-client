@@ -6,6 +6,7 @@
     padding-bottom: 25%;
     /* background: red; */
     /* height: 300px; */
+    z-index: 0;
   }
   #myCalendar {
     background: rgb(169, 225, 255);
@@ -18,5 +19,7 @@
     padding-bottom: 10px;
     padding-top: 5px;
     box-shadow: 3px 3px 1px 1px rgb(109, 165, 195);
+    z-index: 0;
+    position: relative;
   }
 

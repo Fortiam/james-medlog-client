@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { editUserInfo, deleteUser } from '../actions/register';
 import { medsLogout } from '../actions/meds';
 import { patientLogout } from '../actions/patients';
@@ -51,7 +51,7 @@ class Userinfo extends Component {
         }
         if(this.props.loggedIn){
             return (<div className='list'>
-                <p>Account details for {this.props.username}:</p>
+                <p className='title'>Account details for {this.props.username}:</p>
                 <form className='innerlist' onSubmit={values=>{
                    values.preventDefault();
                     this.onSubmit(values.currentTarget);
@@ -74,9 +74,7 @@ class Userinfo extends Component {
             </div>);
         }
         else {
-            return (<div>Hello there, 
-                <Link to='/login'>please Log-in!</Link>
-                </div>);
+            return (<Redirect to='/'/>);
         }   
     }
 }

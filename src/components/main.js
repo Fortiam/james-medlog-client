@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Main extends Component {
       
@@ -16,9 +16,7 @@ class Main extends Component {
             <p><Link to='/log' >Journal</Link></p>
             </div>)
      }
-       else return (<div>Hi!
-           <p><Link to='/login'>Please Log-in!</Link></p>
-           </div>);
+       else return (<Redirect to='/'/>);
     }
 }
 const mapStateToProps = state => ({

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removePatientInfo, editPatient } from '../actions/patients';
-import './patient_single.css';
 import { fetchAllEvents, everyEventsError } from '../actions/events';
 
 class PatientSingle extends Component{
@@ -22,7 +21,7 @@ class PatientSingle extends Component{
         const fieldArray = ["name", "age", "gender", "height", "weight", "Dr(name)","Dr(contact)", "allergies"];
         const readyArray = fieldArray.map((field, index)=>{
             return (<div key={index} className="personfield">
-                <label htmlFor={field}>{field}: </label>
+                <label className='labelClass' htmlFor={field}>{field}: </label>
                 <input id={field} className={field} type="text" placeholder={inputArray[index]} ref={input => monkeySauce[index] = input} />
                 <button type="click" onClick={()=>{
                     let values = {};
@@ -60,10 +59,10 @@ class PatientSingle extends Component{
             const validArray = personArray.map(f=> f? f: 'optional field..');
             const displayArray = this.prepSingleField(validArray);
             return (<div className="innerlist header">
-                <p>Family member details:</p>
                 {displayArray}
-                <button className='spaceAbove' onClick={()=>this.sayGoodbye()} type="click"><i className="far fa-trash-alt"></i></button>
-                </div>);
+                <div className='trashContainer'>
+                <button className='spaceAbove trash' onClick={()=>this.sayGoodbye()} type="click"><i className="far fa-trash-alt"></i></button>
+                </div></div>);
         } else {
             return '';
         }

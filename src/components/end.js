@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { removeOnlyFutureEventsForOneMed } from '../actions/events';
 // import moment from 'moment';
 
@@ -48,9 +48,7 @@ class End extends Component {
             }
         }
         else {
-            return (<div>Hello there, 
-                <Link to='/login'>please Log-in!</Link>
-                </div>);
+            return (<Redirect to='/'/>);
         }
     }
 }

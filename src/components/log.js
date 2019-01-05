@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import LogsSingle from './log_single';
 import { createNewLogs, getFilteredLogs } from '../actions/log';
 import './log.css';
@@ -32,7 +32,7 @@ class Log extends Component {
                 const displayComments = this.props.comments.map((aComment, index)=>{
                     return (<div className='list' key={index}><LogsSingle form={aComment.id} formKey={aComment.id} oneLog={aComment} whichLog={index}/></div>);
                 });
-            return (<div>
+            return (<div className='center'>
              <Filter 
               submitProp={(e)=>this.filterEvents(e)}
               displayNamesProp={this.props.patients.map((oneName, index)=> (<option key={index} value={oneName.id}>{oneName.name}</option>))}
@@ -46,9 +46,7 @@ class Log extends Component {
                 </div>);
             }
         }
-        else return (<div>
-           <p><Link to='/login'>Please Log-in!</Link></p>
-        </div>);
+        else return (<Redirect to='/'/>);
     }
 }
 

@@ -39,11 +39,14 @@ class Login extends Component{
             );
         }
         return (
-            <div>
+            <div className='list'>
+            <div className='imageContainer spaceAbove spaceBelow'>
+                        <img className='landingImage' src='./bright-cardiac-cardiology-433267.jpg' alt='medical' />
+                </div>
                 <div>{successMessage}</div>
                 <div>{errorMessage}</div>
                 <div>{loadingMessage}</div>
-                <form 
+                <form className='innerlist'
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <Field
                         name="username"

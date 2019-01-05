@@ -63,18 +63,20 @@ class Home extends Component {
         return (<div>
                 <Router>
                     <div className="home">
-                    <Header />
+                    <Header history={this.props.history}/>
                     <Route exact path='/' component={Welcome} />
                     <Route exact path='/register' component={FormRegister} />
                     <Route exact path='/login' component={FormLogin} />
                     <Route exact path='/main' component={Main} />
                     <Route exact path='/calendar' component={Calendar} />
+                    <Route exact path='/log' component={Log} />
+                    <div className='lower'>
                     <Route exact path='/patient' component={Patient} />
                     <Route exact path='/medicine' component={Medicine} />
                     <Route exact path='/userinfo' component={Userinfo} />
                     <Route exact path='/treatment' component={Treatment} />
                     {/* <Route exact path='/end' component={End} /> */}
-                    <Route exact path='/log' component={Log} />
+                    </div>
                     </div>
                 </Router>
                 </div>

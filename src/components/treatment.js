@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {OneName} from './oneName';
 import { createNewEvent, clearCurrentEvent, removeOnlyFutureEventsForOneMed } from '../actions/events';
 import moment from 'moment';
@@ -96,14 +96,16 @@ class Treatment extends Component {
                     });
                     const displayNames = listNames.map((oneName, index)=> (<option key={index} value={oneName.id}>{oneName.name}</option>));
                     const displayMeds = listMeds.map((oneMed, index)=> (<option key={index} value={oneMed.id}>{oneMed.name}</option>));
-                    return(<div ><div className='list'>
+                    return(<div >
+                        <div className='list'>{renderPersonOnMeds}</div>
+                        <div className='list'>
                         <form className='innerlist' name="assignment" onSubmit={(e)=>this.clicked(e)}>
                             <p><label htmlFor="person" >Family member to begin medication: </label>
                             <select name="person" id="person">
                                 {displayNames}
                             </select></p>
-                            <p><label htmlFor="med" >Medication to start taking: </label>
-                            <select name="med" id="med">
+                            <p><label htmlFor="med" >Medication to start taking: </label></p>
+                            <p><select name="med" id="med">
                                 {displayMeds}
                             </select></p>
                             <p><label htmlFor="title">Title to display on calendar:</label>
@@ -123,14 +125,12 @@ class Treatment extends Component {
                         <button type="submit"><i className="fas fa-check"></i></button>
                         </div>
                     </form>
-                        <div className='list'>{renderPersonOnMeds}</div>
+                        
                    </div>);
                 }
             }
             else {
-                return (<div>Hello there, 
-                    <Link to='/login'>please Log-in!</Link>
-                    </div>);
+                return (<Redirect to='/'/>);
             }
     }
 }

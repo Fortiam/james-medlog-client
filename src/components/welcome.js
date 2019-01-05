@@ -8,10 +8,26 @@ class Welcome extends Component {
             return (<Redirect to='/calendar'/>);
         }
        else {
-            return (<div>
-                    <p>MedLog is an app to help parents keep track of their family members' medical records and schedules.  A person can create a record containing information about which medication(s) and the times they need to be taken, for everyone in the family, including pets.  After filling out the details of each family member, which medicine they are on, a schedule can be viewed for the entire family, to see who needs to take what and when.  A calendar view can show everyone's appointments all together or filtered to just display a single person's schedule or log.  Entries can be added to a person's log when side effects, reactions, or symptoms appear, or if a scheduled appointment was missed. To get started, head to the Registration Page to create a new account!</p>
-                    <p><Link to="/register" >New User Registration</Link></p>
-                    <p><Link to="/login" >Log-in</Link></p>
+           return (<div className='welcomeParent'>
+                    <p>MedLog is an app to help parents keep track of their family members' medical records and schedules.</p> 
+                    <div className='imageContainer'>
+                        <img className='landingImage' src='./aerial-aerial-view-application-935869.jpg' alt='medical equipment' />
+                    </div>
+                    <p>A person can create a record containing information about which medication(s) and the times they need to be taken, for everyone in the family.</p>
+                    <div className='imageContainer'>
+                        <img className='landingImage' src='./balance-cobblestone-conceptual-279470.jpg' alt='pills' />
+                    </div>
+                    <p>After filling out the details of each family member, which medicine they are on, a schedule can be viewed for the entire family.</p>
+                    <p>A calendar view can show everyone's appointments all together or filtered to just display a single person's schedule.</p>
+                    <p>Entries can be added to a person's log when side effects, reactions, or symptoms appear, or if a scheduled appointment was missed.</p>
+                    <div className='list loginContainer'>
+                        <div className='smallbox'>
+                            <span className='left innerlist'><Link to="/register" >Create a new account</Link></span>    
+                        </div>
+                        <div className='smallbox right innerlist'>
+                            <Link to="/login">Log-in</Link>
+                        </div>
+                    </div>
                 </div>
                 );
        }   

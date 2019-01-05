@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import PatientSingle from './patient_single';
 import { createNewPatient } from '../actions/patients';
 
@@ -11,7 +11,7 @@ class Patient extends Component {
     }
     render(){
         const common = (
-            <div><button onClick={()=>this.AddOne()}><i className="fas fa-users"></i></button>
+            <div className='list'><button className='innerlist' onClick={()=>this.AddOne()}><i className="fas fa-users"></i></button>
             </div>
             );
         if(this.props.loggedIn){
@@ -29,9 +29,7 @@ class Patient extends Component {
             }
         }//here they aren't logged in somehow
         else {
-            return (<div>Hello there, 
-                <Link to='/login'>please Log-in!</Link>
-                </div>);
+            return (<Redirect to='/'/>);
         }
     }
 }

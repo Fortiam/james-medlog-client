@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 //define actions
 import { /*submitAction,*/ registerError, registerMe } from '../actions/register';
 import { login } from '../actions/auth';
@@ -40,10 +40,10 @@ class RegisterPage extends Component{
             errorMessage = (<p className="message message-error">{this.props.error2.reason}</p>);
         }
         return (
-            <div>
+            <div className='list'>
                 <div>{successMessage}</div>
                 <div>{errorMessage}</div>
-                <form 
+                <form className='innerlist'
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <Field
                         name="username"
@@ -87,6 +87,7 @@ class RegisterPage extends Component{
                     </Field>
                     <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
+                <p><Link to='/' >Cancel</Link></p>
             </div>
         );
     }
