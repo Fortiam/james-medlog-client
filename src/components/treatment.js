@@ -112,7 +112,7 @@ class Treatment extends Component {
                             <input type="text" name="title" id="title" placeholder="Change me.."/></p>
                             <button type="submit"><i className="fas fa-check"></i></button>
                         </form>
-                        <OneName title={safetyTitle} /></div>
+                        <OneName className='list' title={safetyTitle} /></div>
                     <form className='list' name="stopMed" onSubmit={(e)=>this.btnClicky(e)}>
                         <div className='innerlist'><label htmlFor="whom" >Family member to stop medication: </label>
                         <select name="whom" id="whom">

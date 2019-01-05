@@ -21,12 +21,12 @@ class Login extends Component{
         }
         let loadingMessage = '';
         if(this.props.loading){
-            loadingMessage = (<p>Loading Please Wait..</p>);
+            loadingMessage = (<p className='innerlist'>Loading Please Wait..</p>);
         }
         let successMessage;
         if (this.props.submitSucceeded && !this.props.loggedIn) {
             successMessage = (
-                <p className="message message-success">
+                <p className="message message-success innerlist">
                     Message submitted successfully
                 </p>
             );
@@ -34,7 +34,7 @@ class Login extends Component{
         let errorMessage;
         if (this.props.error) {
             errorMessage = (
-                <div><p className="message message-error">{this.props.error.error}</p>
+                <div className='innerlist'><p className="message message-error">{this.props.error.error}</p>
                 <p className="message message-error">{this.props.error.message}</p></div>
             );
         }
@@ -43,9 +43,9 @@ class Login extends Component{
             <div className='imageContainer spaceAbove spaceBelow'>
                         <img className='landingImage' src='./bright-cardiac-cardiology-433267.jpg' alt='medical' />
                 </div>
-                <div>{successMessage}</div>
-                <div>{errorMessage}</div>
-                <div>{loadingMessage}</div>
+                <div >{successMessage}</div>
+                <div >{errorMessage}</div>
+                <div >{loadingMessage}</div>
                 <form className='innerlist'
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <Field
@@ -64,7 +64,7 @@ class Login extends Component{
                     </Field>
                     <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
-                <p><Link to='/' >Cancel</Link></p>
+                <p className='innerlist'><Link to='/' >Cancel</Link></p>
             </div>
         );
     }

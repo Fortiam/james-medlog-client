@@ -30,19 +30,19 @@ class RegisterPage extends Component{
         let successMessage;
         if (this.props.submitSucceeded) {
             successMessage = (
-                <p className="message message-success">
+                <p className="message message-success innerlist">
                     Message submitted successfully
                 </p>
             );
         }
         let errorMessage;
         if (this.props.error2) {
-            errorMessage = (<p className="message message-error">{this.props.error2.reason}</p>);
+            errorMessage = (<p className="message message-error innerlist">{this.props.error2.reason}</p>);
         }
         return (
             <div className='list'>
-                <div>{successMessage}</div>
-                <div>{errorMessage}</div>
+                <div className='list'>{successMessage}</div>
+                <div className='list'>{errorMessage}</div>
                 <form className='innerlist'
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <Field
@@ -87,7 +87,7 @@ class RegisterPage extends Component{
                     </Field>
                     <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
-                <p><Link to='/' >Cancel</Link></p>
+                <p className='innerlist'><Link to='/' >Cancel</Link></p>
             </div>
         );
     }

@@ -64,7 +64,7 @@ class Home extends Component {
                 <Router>
                     <div className="home">
                     <Header history={this.props.history}/>
-                    <Route exact path='/' component={Welcome} />
+                    <Route exact path='/' history={this.props.history} component={Welcome} />
                     <Route exact path='/register' component={FormRegister} />
                     <Route exact path='/login' component={FormLogin} />
                     <Route exact path='/main' component={Main} />

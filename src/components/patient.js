@@ -11,7 +11,7 @@ class Patient extends Component {
     }
     render(){
         const common = (
-            <div className='list'><button className='innerlist' onClick={()=>this.AddOne()}><i className="fas fa-users"></i></button>
+            <div className='marginCenter smallbutton'><button onClick={()=>this.AddOne()}><i className="fas fa-users innerlist"></i></button>
             </div>
             );
         if(this.props.loggedIn){
@@ -24,7 +24,7 @@ class Patient extends Component {
                     </div>);
             }//here .length is 0
             else {
-                return (<div className="person"><p>Nobody has been added to your Family yet!</p>
+                return (<div className="list"><p className='innerlist'>Nobody has been added to your Family yet!</p>
                     {common}</div>);
             }
         }//here they aren't logged in somehow
