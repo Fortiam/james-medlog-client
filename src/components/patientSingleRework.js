@@ -14,6 +14,11 @@ class PatientSingle extends Component {
     }
     onSubmit(newValues){
         let edited = Object.assign({}, newValues, {"token": this.props.token, "patientId": this.props.listOfOwnedByUser[this.props.patientNumber].id});
+        if(edited['age']){
+            edited["age"]= parseInt(newValues.age);
+        } else if(edited.age === null){
+            delete edited.age;
+        }
         this.props.dispatch(editPatient(edited));
     }
     render(){
@@ -34,6 +39,7 @@ class PatientSingle extends Component {
                     <Field 
                         label='age'
                         component='input'
+                        type='number'
                         name='age'
                         placeholder={this.props.whom.age}
                     />

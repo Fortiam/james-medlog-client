@@ -8,7 +8,7 @@ class Patient extends Component {
     AddOne(){
         let newbie = {"token": this.props.token,
             "name" : "New Family Member!",
-            age : 0,
+            age : 1,
             gender : "...",
             height : '...',
             weight : '...',
