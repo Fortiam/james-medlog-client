@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import PatientSingle from './patient_single';
+import PatientSingle from './patientSingleRework';
 import { createNewPatient } from '../actions/patients';
 
 class Patient extends Component {
     AddOne(){
-        let newbie = {"token": this.props.token, "name" : "New Family Member!"};
+        let newbie = {"token": this.props.token,
+            "name" : "New Family Member!",
+            age : 0,
+            gender : "...",
+            height : '...',
+            weight : '...',
+            doctor : {name: ".. doctor name",
+            contact: ".. contact info"}
+        };
         this.props.dispatch(createNewPatient(newbie));
     }
     render(){
@@ -17,7 +25,7 @@ class Patient extends Component {
         if(this.props.loggedIn){
             if(this.props.listOfOwnedByUser.length > 0) {
                 const whoToShow = this.props.listOfOwnedByUser.map((person, index)=>{
-                    return (<div className='list' key={index}><PatientSingle patientNumber={index}/></div>);
+                    return (<div className='list' key={index}><PatientSingle form={person.id} formKey={person.id} whom={person} patientNumber={index}/></div>);
                 });
                 return (<div>{whoToShow}
                     {common}

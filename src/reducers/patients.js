@@ -5,7 +5,7 @@ const initalState = {
         gender : null,
         height : null,
         weight : null,
-        doctor : ["Dr. Name goes here", "Dr. contact info goes here"],
+        doctor : {name:"Dr. Name goes here", contact: "Dr. contact info goes here"},
         allergies : null,
         medsCurrentlyOn : [{
             name : null,
@@ -69,7 +69,7 @@ export function patienceReducer (state = initalState, action){
                 gender : null,
                 height : null,
                 weight : null,
-                doctor : ["Dr. Name goes here", "Dr. contact info goes here"],
+                doctor : {name:"Dr. Name goes here", contact:"Dr. contact info goes here"},
                 allergies : null,
                 medsCurrentlyOn : [{
                     name : null,

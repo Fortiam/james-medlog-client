@@ -83,9 +83,6 @@ export const createNewPatientSuccess = payload => ({
 });
 
 export const editPatient = user => dispatch => {
-    let touchedBody = Object.assign({}, user);
-    delete touchedBody.token;
-    delete touchedBody.patientId;
     //put api call here
     dispatch(PatientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/${user.patientId}`, {
