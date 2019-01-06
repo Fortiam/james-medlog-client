@@ -25,7 +25,15 @@ class Home extends Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
-            return this.startPeriodicRefresh();
+            return Promise.all([/*this.props.dispatch(refreshAuthToken()),*/
+                this.props.dispatch(getAllPatientsInfo({"token": this.props.token})),
+                this.props.dispatch(getAllMeds({"token": this.props.token})),
+                this.props.dispatch(fetchAllEvents({"token": this.props.token})),
+                this.props.dispatch(getAllLogs({"token": this.props.token}))])
+                .then(()=>{
+                    return this.startPeriodicRefresh();
+                })
+                .catch(err=>this.dispatch(authError(err)));
         } else if (prevProps.loggedIn && !this.props.loggedIn) {
             // Stop refreshing when we log out
             this.stopPeriodicRefresh();
@@ -36,19 +44,19 @@ class Home extends Component {
     }
     
     startPeriodicRefresh() {
-            return Promise.all([this.props.dispatch(refreshAuthToken()),
+         //   return Promise.all([/*this.props.dispatch(refreshAuthToken()),*/
                 //this.props.dispatch(registerLogout()),
-                this.props.dispatch(getAllPatientsInfo({"token": this.props.token})),
-                this.props.dispatch(getAllMeds({"token": this.props.token})),
-                this.props.dispatch(fetchAllEvents({"token": this.props.token})),
-                this.props.dispatch(getAllLogs({"token": this.props.token}))])
-                .then(()=>{
+                // this.props.dispatch(getAllPatientsInfo({"token": this.props.token})),
+                // this.props.dispatch(getAllMeds({"token": this.props.token})),
+                // this.props.dispatch(fetchAllEvents({"token": this.props.token})),
+                // this.props.dispatch(getAllLogs({"token": this.props.token}))])
+                // .then(()=>{
                     this.refreshInterval = setInterval(
                         () =>this.props.dispatch(refreshAuthToken()),
                         60 * 60 * 1000 // One hour
                     );
-                })
-                .catch(err=>this.props.dispatch(authError(err)));
+               // })
+               // .catch(err=>this.props.dispatch(authError(err)));
        
     }
 
