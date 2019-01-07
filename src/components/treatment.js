@@ -100,29 +100,34 @@ class Treatment extends Component {
                         <div className='list'>{renderPersonOnMeds}</div>
                         <div className='list'>
                         <form className='innerlist' name="assignment" onSubmit={(e)=>this.clicked(e)}>
-                            <p><label htmlFor="person" >Family member to begin medication: </label>
+                            <p className='inputGroup'><label htmlFor="person" >Family member to begin medication: </label>
                             <select name="person" id="person">
                                 {displayNames}
                             </select></p>
-                            <p><label htmlFor="med" >Medication to start taking: </label></p>
-                            <p><select name="med" id="med">
+                            <p className='inputGroup'><label htmlFor="med" >Medication to start taking: </label>
+                            <select name="med" id="med">
                                 {displayMeds}
                             </select></p>
-                            <p><label htmlFor="title">Title to display on calendar:</label>
-                            <input type="text" name="title" id="title" placeholder="Change me.."/></p>
-                            <button type="submit"><i className="fas fa-check"></i></button>
+                            <p className='inputGroup'><label htmlFor="title">Title to display on calendar:</label>
+                            <input type="text" name="title" id="title" placeholder="Event title.."/></p>
+                            <p><button type="submit"><i className="fas fa-check"></i></button></p>
                         </form>
                         <OneName className='list' title={safetyTitle} /></div>
                     <form className='list' name="stopMed" onSubmit={(e)=>this.btnClicky(e)}>
-                        <div className='innerlist'><label htmlFor="whom" >Family member to stop medication: </label>
+                        <div className='innerlist'>
+                        <p className='inputGroup'>
+                        <label htmlFor="whom">Family member to stop medication: </label>
                         <select name="whom" id="whom">
                             {displayNames}
                         </select>
-                        <p><label htmlFor="stopMed" >Medication to stop taking: </label>
+                        </p>
+                        <p className='inputGroup'><label htmlFor="stopMed" >Medication to stop taking: </label>
                         <select name="stopMed" id="stopMed">
                             {displayMeds}
                         </select></p>
+                        <p>
                         <button type="submit"><i className="fas fa-check"></i></button>
+                        </p>
                         </div>
                     </form>
                         

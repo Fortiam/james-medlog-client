@@ -77,14 +77,14 @@ class RegisterPage extends Component{
                         component={Input}
                         validate={[required, nonEmpty, stringy, legitPassword]}>
                     </Field>
-                    <Field
+                    {/* <Field
                         name="useEmailForApi"
                         label="Would you like to have alerts sent to your email?(optional): "
                         component={Input}
                         element="select">
                         <option value='false'>No, thanks</option>
                         <option value='true'>Yes, please</option>
-                    </Field>
+                    </Field> */}
                     <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
                 <p className='innerlist'><Link to='/' >Cancel</Link></p>

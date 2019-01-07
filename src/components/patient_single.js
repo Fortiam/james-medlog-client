@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removePatientInfo, editPatient } from '../actions/patients';
 import { fetchAllEvents, everyEventsError } from '../actions/events';
@@ -21,7 +21,7 @@ class PatientSingle extends Component{
         const fieldArray = ["name", "age", "gender", "height", "weight", "Dr(name)","Dr(contact)", "allergies"];
         const readyArray = fieldArray.map((field, index)=>{
             return (<div key={index} className="personfield">
-                <label className='labelClass' htmlFor={field}>{field}: </label>
+                <label htmlFor={field}>{field}: </label>
                 <input id={field} className={field} type="text" placeholder={inputArray[index]} ref={input => monkeySauce[index] = input} />
                 <button type="click" onClick={()=>{
                     let values = {};
@@ -74,4 +74,4 @@ const mapStateToProps = state => ({
     userId : state.auth.currentUser.id,
     token : state.auth.authToken,
 });
-export default connect(mapStateToProps)(PatientSingle);
+export default connect(mapStateToProps)(PatientSingle);*/

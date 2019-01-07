@@ -3,8 +3,16 @@ html {
     height: 100%;
 }
 body {
-    background: linear-gradient(125deg, rgb(159, 192, 250), rgb(159, 170, 250));
+    background: rgb(234, 234, 234);
+    /*background: linear-gradient(125deg, rgb(159, 192, 250), rgb(159, 170, 250));*/
     /* height: 100%;  */
+}
+.big p{
+    font-family: 'Libre Baskerville', serif;
+}
+p {
+    margin-block-start: 0.8em;
+    margin-block-end: 0.8em;
 }
 /* .policy-container {
     position: fixed;
@@ -70,7 +78,7 @@ a:visited {
 }
 .navmenu {
     position: relative;
-    background: white;
+    background: lightblue;
     border-width: 1px;
     border-style: solid;
     border-color: rgba(0,0,0,0.2);
@@ -89,7 +97,7 @@ a{
     left:0;
     right:0;
     top:0;
-    background: white;
+    background: lightskyblue;
     height: 50px;
     padding-top:20px;
 }
@@ -126,11 +134,9 @@ button.navContents:after{
     left: -18px;
     top: 5px;
 }
-.labelClass {
-    display: inline-block;
-    width: 89px;
+p.smallSpace {
+    font-size: 2px;
 }
-
 .list {
     margin-bottom: 1px;
     padding: 15px;
@@ -146,7 +152,7 @@ button.navContents:after{
     text-align: center; */
 }
 .title {
-    color:white;
+    color:black;
 }
 .innerlist, #myCalendar {
     background: rgb(169, 225, 255);
@@ -157,13 +163,15 @@ button.navContents:after{
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+    /* text-align: center; */
     padding: 15px;
     box-shadow: 1px 1px 1px 1px rgb(109, 165, 195);
     z-index: 0;
 }
+
+
 .trashContainer {
-    text-align: right;
+    float: right;
 }
 #emailApi{
     width: 75%;
@@ -176,7 +184,13 @@ button.navContents:after{
     margin-right: 50px;
 }
 .spaceAbove {
-    margin-top: 12px;
+    margin-top: 20px;
+}
+.textAlignLeft {
+    text-align: left;
+}
+.textAlignRight {
+    text-align: right;
 }
 .spaceBelow {
     margin-bottom: 12px;
@@ -233,4 +247,69 @@ button.navContents:after{
 .marginCenter {
     margin-left: auto;
     margin-right: auto;
+}
+.inputGroup {
+    display: inline-block;
+    border : none;
+    border-radius: 5px;
+    padding: 2px;
+    transition: 1.0s;
+    width: 100%;
+
+}
+/* .inputGroup:focus {
+    background-color: rgb(240, 240, 240);
+    transform: scale(1.1);
+    transition: 1.0s;
+    
+} */
+.inputGroup:hover {
+    transform: scale(1.05);
+}
+
+input {
+    border:none;
+    border-radius: 5px;
+    padding: 5px;
+    /* margin-left: 5px; */
+    width: 80%;
+}
+
+select {
+    border:none;
+    transition: 1.0s;
+}
+textarea {
+    border: none;
+    transition: 1.0s;
+}
+/* *:focus {
+    transition: 1.0s;
+    outline : none !important;
+} */
+
+@media (max-width: 480px) {
+    .innerlist {
+        text-align : left;
+    }
+    input {
+        text-align: center;
+        width: 96%;
+       
+    }
+   /* .inputGroup {
+        max-width: 238px;
+    } */
+}
+@media (min-width: 481px){
+    .innerlist {
+        text-align : center;
+    }
+    input {
+        text-align: left;
+    }
+    .textAlignLeft {
+        padding-left: 42px;
+        padding-right: 42px;
+    }
 }

@@ -12,7 +12,7 @@ class Welcome extends Component {
         }
        else {
            return (<div className='welcomeParent'>
-                    <p>MedLog is an app to help parents keep track of their family members' medical records and schedules.</p> 
+                    <span>MedLog is an app to help parents keep track of their family members' medical records and schedules.</span>
                     <div className='imageContainer'>
                         <img className='landingImage' src='./aerial-aerial-view-application-935869.jpg' alt='medical equipment' />
                     </div>

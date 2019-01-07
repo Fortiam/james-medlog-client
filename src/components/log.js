@@ -39,7 +39,7 @@ class Log extends Component {
               displayMedsProp={this.props.meds.map((oneMed, index)=> (<option key={index} value={oneMed.id}>{oneMed.name}</option>))}
             />
             {displayComments}
-            <p><button onClick={()=>this.addComment("new log entry..")}><i className="fas fa-plus-circle"></i></button></p>
+            <p><button className='list' onClick={()=>this.addComment("new log entry..")}><i className="fas fa-plus-circle innerlist"></i></button></p>
             </div>);
             }  else {
                 return (<div><p>You need to have family members and medicines before you can comment about them..</p>

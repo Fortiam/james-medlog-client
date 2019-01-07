@@ -40,10 +40,12 @@ class MedsSingle extends Component {
             <Field label="Amount taken per dose: "  type="text" component={Input} name="dosage" placeholder={this.props.oneMed.dosage} />
             <Field label="To be taken every X hours: " type="number" component={Input} name="rateAmount" placeholder={this.props.oneMed.rateAmount} />
             <Field label={`How many days to take medication: `} type="number" component={Input} name="howLongAmount" placeholder={this.props.oneMed.howLongAmount} />
-            <button className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
-            <button type="click" onClick={()=>this.removeMed()}><i className="far fa-trash-alt"></i></button>
+            <div className='textAlignLeft spaceAbove'>
+                <button className='spacing left' type="submit"><i className="fas fa-check"></i></button>
+                <button className='trashContainer' type="click" onClick={()=>this.removeMed()}><i className="far fa-trash-alt"></i></button>
+            <span >For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck}</span>
+            </div>
             </form>
-            <p>For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck}</p>
             </div>);
     }
 }

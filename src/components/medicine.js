@@ -14,18 +14,18 @@ class Medicine extends Component {
     render(){
         if(this.props.loggedId){
             const common = (<div className='marginCenter smallbutton'>
-                <button type="click" onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt"></i></button>
+                <button className='list' onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>
                 </div>);
             const displayMeds = this.props.manyMeds.map((eachMed, index) => {
                 return (<div className='list' key={index}><MedsSingle form={eachMed.id} formKey={eachMed.id} oneMed={eachMed} whichMed={index}/></div>);
             });
             if(this.props.manyMeds.length > 0){
-            return (<div>
-                <div>{displayMeds}</div>
+            return (<div >
+                {displayMeds}
                 {common}
-                </div>);
+               </div>);
             } else {
-                return (<div ><p className='innerlist'>No Meds have been added yet.</p>
+                return (<div className='list'><p className='innerlist'>No Meds have been added yet.</p>
                     {common}
                 </div>);
             }

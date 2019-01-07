@@ -40,7 +40,7 @@ class Header extends Component {
             </div>);
         } else {
         return (<div className='inlineBlock'>
-                    <span className='big'>Welcome to MedLog!</span>
+                    <p className='big'>Welcome to MedLog!</p>
                 </div>);
         }
     }

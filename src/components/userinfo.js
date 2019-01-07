@@ -46,8 +46,8 @@ class Userinfo extends Component {
         userInfo = [this.props.firstName, this.props.lastName, this.props.email, this.props.useEmailForApi];
         defaultInfo = ["Enter first name", "Enter last name", "Enter email address"];
         displayInfo = info.map((field, index) => userInfo[index]?
-            (<div key={index}><label htmlFor={info[index]}>{info[index]}</label><input id={info[index]} placeholder={userInfo[index].toString()} type="text" /></div>)
-          : (<div key={index}><label htmlFor={info[index]}>{info[index]}</label><input id={info[index]} placeholder={defaultInfo[index]} type="text" /></div>));
+            (<div className='inputGroup' key={index}><p ><label htmlFor={info[index]}>{info[index]}</label></p><input id={info[index]} placeholder={userInfo[index].toString()} type="text" /></div>)
+          : (<div className='inputGroup' key={index}><p ><label htmlFor={info[index]}>{info[index]}</label></p><input id={info[index]} placeholder={defaultInfo[index]} type="text" /></div>));
         }
         if(this.props.loggedIn){
             return (<div className='list'>
@@ -57,20 +57,20 @@ class Userinfo extends Component {
                     this.onSubmit(values.currentTarget);
                 }}>
                 {displayInfo}
-                <div>
-                <label htmlFor="emailApi">MedLog sync schedule with email account. Currently Active: {this.props.useEmailForApi.toString()}</label>
-                </div>
-                <div>
+                <div className='inputGroup'>
+                {/* <label htmlFor="emailApi">MedLog sync schedule with email account. Currently Active: {this.props.useEmailForApi.toString()}</label>
                 <select id="emailApi">
                     <option value='null'>Don't Change Email Sync</option>
                     <option value='false'>Do not use email address to sync schedule</option>
                     <option value='true'>Yes, do sync with this email address</option>
-                </select>
+                </select> */}
                 </div>
+                <div className='textAlignLeft'>
                 <button className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
-                <button type="click" onClick={()=>this.props.history.push('/main')}><i className="fas fa-times"></i></button>
+                <button className='trashContainer spaceAbove' type="click" onClick={()=>this.props.history.push('/main')}><i className="fas fa-times"></i></button>
+                </div>
                 </form>
-                <p className='marginCenter smallbutton'><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt"></i></button></p>
+                <p className='marginCenter smallbutton'><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt red"></i></button></p>
             </div>);
         }
         else {

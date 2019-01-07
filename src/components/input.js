@@ -23,22 +23,24 @@ export class Input extends React.Component {
 
         return (
             <div className="form-input">
-               <div>
+               <div className='inputGroup'>
                 <label htmlFor={this.props.input.name}>
                     {this.props.label}
                     {error}
                     {warning}
                 </label>
-                </div>
+                <p>
                 <Element
-                    {...this.props.input}
-                    id={this.props.input.name}
-                    type={this.props.type}
-                    ref={input => (this.input = input)}
-                    placeholder={this.props.placeholder || ''}
-                >
+               {...this.props.input}
+               id={this.props.input.name}
+               type={this.props.type}
+               ref={input => (this.input = input)}
+               placeholder={this.props.placeholder || ''}
+               >
                     {this.props.children}
                 </Element>
+                </p>
+               </div>
             </div>
         );
     }
