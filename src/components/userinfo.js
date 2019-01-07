@@ -49,7 +49,7 @@ class Userinfo extends Component {
             (<div className='inputGroup' key={index}><p ><label htmlFor={info[index]}>{info[index]}</label></p><input id={info[index]} placeholder={userInfo[index].toString()} type="text" /></div>)
           : (<div className='inputGroup' key={index}><p ><label htmlFor={info[index]}>{info[index]}</label></p><input id={info[index]} placeholder={defaultInfo[index]} type="text" /></div>));
         }
-        if(this.props.loggedIn){
+        if(this.props.loggedIn&& this.props.username !=='demouser'){
             return (<div className='list'>
                 <p className='title center'>Account details for {this.props.username}:</p>
                 <form className='innerlist' onSubmit={values=>{
@@ -72,7 +72,12 @@ class Userinfo extends Component {
                 </form>
                 <p className='marginCenter smallbutton'><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt red"></i></button></p>
             </div>);
+        } else if (this.props.loggedIn){
+            return (<div className='list'>
+            <p className='innerlist'>Update account info, or remove account here. *Not available in demo mode*</p>
+            </div>);
         }
+
         else {
             return (<Redirect to='/'/>);
         }   

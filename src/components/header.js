@@ -39,7 +39,7 @@ class Header extends Component {
             <NavMenu showUp={this.state.toggle} switch={()=>this.hamburger()}/>
             </div>);
         } else {
-        return (<div className='inlineBlock'>
+        return (<div className='inlineBlock welcomeText'>
                     <p className='big'>Welcome to MedLog!</p>
                 </div>);
         }

@@ -40,9 +40,12 @@ class Login extends Component{
         }
         return (
             <div className='list'>
-            <div className='imageContainer spaceAbove spaceBelow'>
-                        <img className='landingImage' src='./bright-cardiac-cardiology-433267.jpg' alt='medical' />
+           
+                <div className='spaceAbove spaceBelow innerlist'>
+                    <img className='loginImage' src='./bright-cardiac-cardiology-433267.jpg' alt='medical' />
+                    <span className='loginText'>Log-in</span>
                 </div>
+            
                 <div >{successMessage}</div>
                 <div >{errorMessage}</div>
                 <div >{loadingMessage}</div>
@@ -64,7 +67,7 @@ class Login extends Component{
                     </Field>
                     <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
-                <p className='innerlist'><Link to='/' >Cancel</Link></p>
+                <p className='list center'><Link className='innerlist' to='/' >Cancel</Link></p>
             </div>
         );
     }

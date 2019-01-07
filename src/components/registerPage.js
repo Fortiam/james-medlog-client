@@ -30,20 +30,26 @@ class RegisterPage extends Component{
         let successMessage;
         if (this.props.submitSucceeded) {
             successMessage = (
-                <p className="message message-success innerlist">
+                <p className="message message-success">
                     Message submitted successfully
                 </p>
             );
         }
         let errorMessage;
         if (this.props.error2) {
-            errorMessage = (<p className="message message-error innerlist">{this.props.error2.reason}</p>);
+            errorMessage = (<p className="message message-error">{this.props.error2.reason}</p>);
         }
         return (
             <div className='list'>
-                <div className='list'>{successMessage}</div>
-                <div className='list'>{errorMessage}</div>
-                <form className='innerlist'
+            
+                <div className='center innerlist'>
+                <span className='registerText'>Register A New Account</span>
+                    <img className='registerImage' src='./rawpixel-602152-unsplash.jpg' alt='stethoscope' />
+                {successMessage}
+                {errorMessage}
+            
+                </div>
+                <form className='innerlist spaceAbove'
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <Field
                         name="username"
@@ -87,7 +93,8 @@ class RegisterPage extends Component{
                     </Field> */}
                     <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
-                <p className='innerlist'><Link to='/' >Cancel</Link></p>
+                
+                <p className='list center'><Link className='innerlist' to='/' >Cancel</Link></p>
             </div>
         );
     }

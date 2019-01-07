@@ -42,7 +42,7 @@ class Log extends Component {
             <p><button className='list' onClick={()=>this.addComment("new log entry..")}><i className="fas fa-plus-circle innerlist"></i></button></p>
             </div>);
             }  else {
-                return (<div><p>You need to have family members and medicines before you can comment about them..</p>
+                return (<div className='list lower'><p className='innerlist'>You need to have family members and medicines before you can comment about them..</p>
                 </div>);
             }
         }
