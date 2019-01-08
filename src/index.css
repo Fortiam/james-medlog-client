@@ -335,8 +335,8 @@ p.smallSpace {
     transition: 1.0s;
     
 } */
-.inputGroup:hover {
-    transform: scale(1.05);
+input:focus {
+    background: rgb(240,240,240);
 }
 
 input {

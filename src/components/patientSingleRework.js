@@ -24,20 +24,21 @@ class PatientSingle extends Component {
     render(){
         return(<div className='innerlist'>
             <form  id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-            <div className='inputGroup'>
-                <label >Name: </label>
-                <p className='smallSpace'></p>
+            <div >
+                <label className='inputGroup'>Name: 
+                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
                         name='name'
                         placeholder={this.props.whom.name}
                     />
+                    </label>
             </div>
             <p></p>
-                <div className='inputGroup'>
-                <label >Age: </label>
-                <p className='smallSpace'></p>
+                <div>
+                <label className='inputGroup'>Age:
+                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='age'
                         component='input'
@@ -45,76 +46,79 @@ class PatientSingle extends Component {
                         name='age'
                         placeholder={this.props.whom.age}
                     />
-                
+                 </label>
                 </div>
                 <p></p>
-                <div className='inputGroup'>
-               <label className='inputGroup'>Gender: </label>
-               <p className='smallSpace'></p>
+                <div>
+               <label className='inputGroup'>Gender: 
+               {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='gender'
                         component='input'
                         name='gender'
                         placeholder={this.props.whom.gender}
                     />
-               
+               </label>
                 </div>
             <p></p>
-            <div className='inputGroup'>
-                <label className='inputGroup'>Height: </label>
-                <p className='smallSpace'></p>
+            <div >
+                <label className='inputGroup'>Height: 
+                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
                         name='height'
                         placeholder={this.props.whom.height}
                     />
-                
+                </label>
                 </div>
             <p></p>
-            <div className='inputGroup'>
-                <label className='inputGroup'>Weight: </label>
-                <p className='smallSpace'></p>
+            <div >
+                <label className='inputGroup'>Weight: 
+                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
                         name='weight'
                         placeholder={this.props.whom.weight}
                     />
+                    </label>
                </div>
              <p></p>
-             <div className='inputGroup'>
-                <label className='inputGroup'>Alleriges: </label>
-                <p className='smallSpace'></p>
+             <div >
+                <label className='inputGroup'>Alleriges: 
+                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
                         name='allergies'
                         placeholder={this.props.whom.alleriges}
                     />
+                    </label>
             </div>
-
-            <p></p>
-            <div className='inputGroup'>
-                <label className='inputGroup'>Dr.(name): </label>
-                <p className='smallSpace'></p>
+                <p></p>
+            <div >
+                <label className='inputGroup'>Dr.(name):
+                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='Dr.(name)'
                         component='input'
                         name='doctor.name'
                         placeholder={this.props.whom.doctor.name}
                     />
+                </label>
            </div>
             <p></p>
-            <div className='inputGroup'>
-                <label className='inputGroup'>Dr.(contact): </label>
-                <p className='smallSpace'></p>
+            <div >
+                <label className='inputGroup'>Dr.(contact): 
+                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='Dr.(contact)'
                         component='input'
                         name='doctor.contact'
                         placeholder={this.props.whom.doctor.contact}
                     />
+                </label>
             </div>
             <div className='textAlignLeft' >
                 <button className='spaceAbove' type="submit"><i className="fas fa-check"></i></button>

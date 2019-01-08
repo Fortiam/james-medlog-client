@@ -100,31 +100,40 @@ class Treatment extends Component {
                         <div className='list'>{renderPersonOnMeds}</div>
                         <div className='list'>
                         <form className='innerlist' name="assignment" onSubmit={(e)=>this.clicked(e)}>
-                            <p className='inputGroup'><label htmlFor="person" >Family member to begin medication: </label>
+                            <p className='inputGroup'><label htmlFor="person" >Family member to begin medication: 
                             <select name="person" id="person">
                                 {displayNames}
-                            </select></p>
-                            <p className='inputGroup'><label htmlFor="med" >Medication to start taking: </label>
+                            </select>
+                            </label>
+                            </p>
+                            <p className='inputGroup'><label htmlFor="med" >Medication to start taking: 
                             <select name="med" id="med">
                                 {displayMeds}
-                            </select></p>
-                            <p className='inputGroup'><label htmlFor="title">Title to display on calendar:</label>
-                            <input type="text" name="title" id="title" placeholder="Event title.."/></p>
+                            </select>
+                            </label>
+                            </p>
+                            <p className='inputGroup'><label htmlFor="title">Title to display on calendar:
+                            <input type="text" name="title" id="title" placeholder="Event title.."/>
+                            </label>
+                            </p>
                             <p><button type="submit"><i className="fas fa-check"></i></button></p>
                         </form>
                         <OneName className='list' title={safetyTitle} /></div>
                     <form className='list' name="stopMed" onSubmit={(e)=>this.btnClicky(e)}>
                         <div className='innerlist'>
                         <p className='inputGroup'>
-                        <label htmlFor="whom">Family member to stop medication: </label>
+                        <label htmlFor="whom">Family member to stop medication: 
                         <select name="whom" id="whom">
                             {displayNames}
                         </select>
+                        </label>
                         </p>
-                        <p className='inputGroup'><label htmlFor="stopMed" >Medication to stop taking: </label>
+                        <p className='inputGroup'><label htmlFor="stopMed" >Medication to stop taking: 
                         <select name="stopMed" id="stopMed">
                             {displayMeds}
-                        </select></p>
+                        </select>
+                        </label>
+                        </p>
                         <p>
                         <button type="submit"><i className="fas fa-check"></i></button>
                         </p>
