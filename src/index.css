@@ -291,6 +291,9 @@ p.smallSpace {
 .welcomeParent2 {
     text-align:center;
     background : rgb(84, 118, 211);
+    position: fixed;
+    bottom : 0;
+    width: 100%;
  }
 .smallbox{
     width: 25%;
@@ -375,6 +378,7 @@ textarea {
     .image3 {
         display : none;
     }
+  
 }
 @media (min-width: 481px){
     .innerlist {
