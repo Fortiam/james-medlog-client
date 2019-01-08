@@ -302,14 +302,15 @@ p.smallSpace {
 }
 .welcomeParent {
     text-align:center;
-    background : rgb(173, 188, 230);
+    /* background : rgb(173, 188, 230); */
+    background : none;
     position: fixed;
     bottom : 60px;
     width: 100%;
 }
 .welcomeParent2 {
     text-align:left;
-    background : rgb(84, 118, 211);
+    background : rgba(84, 118, 211, 0.5);
     position: fixed;
     bottom : 0;
     width: 100%;
@@ -351,7 +352,6 @@ input {
     /* margin-left: 5px; */
     width: 80%;
 }
-
 select {
     border:none;
     transition: 1.0s;
@@ -370,6 +370,9 @@ textarea {
     margin-top: 9px;
     padding-left: 1%;
     padding-right: 1%;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .imageContainer3 {
     margin-top: 5px;
@@ -420,13 +423,28 @@ textarea {
     }
     .image3 {
         display : none;
+        position: absolute;
     }
-  
+.imageContainer4 {
+    margin-left: auto;
+    margin-right: auto;
+   padding-left: 25%;
+   padding-right: 25%;
+}
 
 /*--------------------------------End small begin large----------------------------------*/
-/*
 @media (min-width: 481px){
-    .innerlist {
+    .image3 {
+        display : inline-block;
+        position: absolute;
+        max-height: 700px;
+        max-width: 50%;
+      
+    }
+    
+}
+/*
+.innerlist {
         text-align : center;
     }
     input {
