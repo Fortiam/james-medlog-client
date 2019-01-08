@@ -5,6 +5,6 @@ export default function LandingText(props){
         return (<span className={`innerlist ${props.landing}`} onClick={()=>props.onClick(props.showMe)}>{props.answer}</span>);
     }
     else {
-        return (<span className={`innerlist ${props.landing} underline`} onClick={()=>props.onClick(props.showMe)}>{props.question}</span>);
+        return (<span className={`${props.landing} underline ${props.landingPart2}`} onClick={()=>props.onClick(props.showMe)}>{props.question}</span>);
     }
 }
