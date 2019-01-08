@@ -27,7 +27,7 @@ class Welcome extends Component {
                     <span className='landingText2'>Users can create records containing information about medication(s) and the times they need to be taken, for everyone in the family.</span>
                     </div>
                     {/* <p>After filling out the details of each family member, which medicine they are on, a schedule can be viewed for the entire family.</p> */}
-                    <div className='imageContainer'>
+                    <div className='imageContainer centerContainer'>
                         <span className='landingText3'>A calendar view can show everyone's appointments or filtered for a single person's schedule.</span>
                     </div>
                     {/* <div className='imageContainer'>
@@ -35,17 +35,21 @@ class Welcome extends Component {
                     </div> */}
                     {/* <p>Entries can be added to a person's log when side effects, reactions, or symptoms appear, or if a scheduled appointment was missed.</p> */}
                     <div className='welcomeParent'>
-                        <div className='list loginContainer'>
-                            <div className='smallbox' onClick={()=>this.goToScreen('/register')}>
-                                <span className='left innerlist'><Link to="/register" >Create a new account</Link></span>    
-                            </div>
-                            <div className='smallbox right innerlist' onClick={()=>this.goToScreen('/login')}>
-                                <Link to="/login">Log-in</Link>
-                            </div>
-                        </div>
-                    </div>
-                   <div className='welcomeParent2'>
                         <button onClick={()=>this.demoLogin()} className='innerlist' type='click' >Try Demo</button>
+                        </div>
+                        
+                            
+                   <div className='welcomeParent2'>
+                        <div className='list loginContainer'>
+                            {/* <div className='smallbox' onClick={()=>this.goToScreen('/register')}> */}
+                            {/* <span className='left innerlist'> */}
+                            <Link className='left' to="/register" >Create a new account</Link>
+                            {/* </span>     */}
+                            {/* </div> */}
+                            {/* <div className='smallbox right innerlist' onClick={()=>this.goToScreen('/login')}> */}
+                            <Link className='right' to="/login">Log-in</Link>
+                            {/* </div> */}
+                        </div>
                    </div>
                 </div>
                 );
