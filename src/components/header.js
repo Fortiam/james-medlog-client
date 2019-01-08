@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { medsLogout } from '../actions/meds';
@@ -40,6 +40,9 @@ class Header extends Component {
             </div>);
         } else {
         return (<div className='inlineBlock welcomeText'>
+                    <Link className='navFooter' to="/register" >Register</Link>
+                    <Link className='navFooter' to="/login">Log-in</Link>
+                    <a href='/privacy.html' className='navFooter'>Privacy Policy</a>
                     <p className='big'>MedLog</p>
                 </div>);
         }

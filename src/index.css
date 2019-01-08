@@ -13,7 +13,7 @@ body {
     font-family: 'Libre Baskerville', serif;
 }
 .welcomeText {
-    background: lightskyblue;
+    background: rgb(135, 206, 250);
     position: relative;
     /* top: -8px;
     left: -8px; */
@@ -293,13 +293,7 @@ p.smallSpace {
     min-height: 60px;
 
 }
-.navFooter {
-    margin-right: 20px;
-    text-align: left;
-    padding-top: 20px;
-    position: relative;
-    top:20px;
-}
+
 .welcomeParent {
     text-align:center;
     /* background : rgb(173, 188, 230); */
@@ -387,28 +381,6 @@ input {
     
 }
 
-.image1 {
-    max-width: 140px;
-    /* top: 25px;
-    left: 10px; */
-   float:center;
-    
-    top: 8px;
-}
-span.landingText1{
-    display: inline-block;
-    
-    width: 125px;
-    margin-right: 0;
-    margin-left: 0;
-    max-height: 100px; 
-    position: relative;
-    left: -10px;
-    text-align: left;
-    vertical-align: middle;
-    
-   text-align: center;
-}
 span.landingText2{
     max-width: 165px;
     text-align: center;
@@ -464,15 +436,75 @@ span.landingText3 {
     background : rgb(234, 234, 234);
     border-radius: 10px;
     width: 75px;
+    box-shadow: 1px 1px 1px 1px rgb(135, 206, 250);
+}
+.navFooter {
+    margin-right: 20px;
+    margin-left: 5px;
+    text-align: left;
+    /* padding-top: 20px; */
+    position: relative;
+    top:2px;
+    float: left;
+    font-size: 12px;
 }
 
+span.landingText1{
+    display: inline-block;
+    width: 125px;
+    margin-right: 0;
+    margin-left: 0;
+    max-height: 100px; 
+    position: relative;
+    left: -70px;
+    text-align: left;
+    vertical-align: middle;
+    text-align: center;
+}
 /*-----------------------------------Begin Small width-------------------------------------*/
-/* @media (max-width: 480px) { */
-
-/*--------------------------------End small begin large----------------------------------*/
-/*
-@media (min-width: 481px){
+@media (max-width: 480px) { 
+    .image1 {
+        max-width: 140px;
+        position: absolute;
+        /* top: 25px;*/
+        right: 1%; 
+        top: 75px; 
+        /* right: 30px; */
+        text-align: center;
+    }
+   
 }
+/*--------------------------------End small begin large----------------------------------*/
+
+@media (min-width: 481px){
+    .image1 {
+        max-width: 150px;
+        position: absolute;
+        /* top: 25px;*/
+        right: 20%; 
+        /* top: 8px; */
+        /* right: 30px; */
+    }
+
+    span.landingText1{
+        display: inline-block;
+        position: relative;
+         left: -90px;
+    }
+}
+@media(min-width: 600px){
+    .navFooter {
+    font-size: 16px;      
+    }
+
+}
+/* @media(min-width: 850px){
+    .image1{
+        display: inline-block;
+        width: 450px;
+    }
+} */
+/*
 .innerlist {
     text-align : center;
 }

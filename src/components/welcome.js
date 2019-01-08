@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { /*Link,*/ Redirect } from 'react-router-dom';
 import { login } from '../actions/auth';
 import { DEMO_ACCOUNT } from '../config';
 import LandingText from './landingText';
@@ -63,19 +63,18 @@ class Welcome extends Component {
                     <div className='welcomeParent'>
                         <button onClick={()=>this.demoLogin()} className='innerlist buttonRight' type='click' >Try Demo</button>
                         </div>
-                    <div className='welcomeParent2'>
-                        <div className='loginContainer'>
+                    {/* <div className='welcomeParent2'>
+                        <div className='loginContainer'> */}
                             {/* <div className='smallbox' onClick={()=>this.goToScreen('/register')}> */}
                             {/* <span className='left innerlist'> */}
-                            <Link className='navFooter' to="/register" >Create a new account</Link>
                             {/* </span>     */}
                             {/* </div> */}
+                  
                             {/* <div className='smallbox right innerlist' onClick={()=>this.goToScreen('/login')}> */}
-                            <Link className='navFooter' to="/login">Log-in</Link>
-                            <a href='/privacy.html' className='navFooter'>Privacy Policy</a>
+                           
                             {/* </div> */}
-                        </div>
-                   </div>
+                        {/* </div>
+                   </div> */}
                 </div>
                 );
        }   
