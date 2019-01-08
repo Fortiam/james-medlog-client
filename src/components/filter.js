@@ -16,6 +16,6 @@ export default function(props){
     </select>
     </label>
     </p>
-    <button type="submit"><i className="fas fa-filter"></i></button>
+    <button type="submit" className='filterButton'><i className="fas fa-filter"></i></button>
 </form>);
 }

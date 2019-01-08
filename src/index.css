@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     height: 100%;
+
 }
 body {
     background: rgb(234, 234, 234);
@@ -18,6 +19,10 @@ body {
     left: -8px; */
     /* right: -16px; */
     width: 100%;
+    z-index: 9;
+}
+.underline {
+    text-decoration: underline;
 }
 /* .welcomeText::after {
     content: '';
@@ -72,6 +77,13 @@ button:focus {
     -webkit-tap-highlight-color: transparent;
 }
 
+.filterButton::after {
+    content: 'FILTER';
+    position: relative;
+    font-size: 7px;
+    left: -20px;
+    top: 8px;
+}
 .left {
     float : left;
 }
@@ -221,8 +233,6 @@ p.smallSpace {
 }
 .imageContainer {
     text-align: center;
-    margin-bottom: 10px;
-    max-width : 350px;
     margin-left: auto;
     margin-right:auto;
 }
@@ -279,24 +289,31 @@ p.smallSpace {
     margin-left:auto;
     margin-right: auto;
     /* background: white; */
-    border-radius: 5px;
-    width: 75%;
+    width: 100%;
     min-height: 60px;
-    max-width: 500px;
+
+}
+.navFooter {
+    margin-right: 20px;
+    text-align: left;
+    padding-top: 20px;
+    position: relative;
+    top:20px;
 }
 .welcomeParent {
-   text-align:center;
-   background : rgb(173, 188, 230);
-   position: fixed;
-   bottom : 95px;
-   width: 100%;
+    text-align:center;
+    background : rgb(173, 188, 230);
+    position: fixed;
+    bottom : 60px;
+    width: 100%;
 }
 .welcomeParent2 {
-    text-align:center;
+    text-align:left;
     background : rgb(84, 118, 211);
     position: fixed;
     bottom : 0;
     width: 100%;
+    padding-left: 1%;
  }
 .smallbox{
     width: 25%;
@@ -343,12 +360,23 @@ textarea {
     border: none;
     transition: 1.0s;
 }
-/* *:focus {
-    transition: 1.0s;
-    outline : none !important;
-} */
 
-@media (max-width: 480px) {
+.imageContainer1 {
+    margin-top:3px;
+    text-align: center;
+    height: 151px;
+}
+.imageContainer2{
+    margin-top: 9px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.imageContainer3 {
+    margin-top: 5px;
+    text-align: center;
+}
+/*-----------------------------------Begin Small width-------------------------------------*/
+/* @media (max-width: 480px) { */
     .innerlist {
         text-align : left;
     }
@@ -357,35 +385,46 @@ textarea {
         width: 96%;
        
     }
-    .imageContainer {
-        margin-top:35px;
+   
+    .image1 {
+        max-width: 140px;
+        top: 25px;
     }
     span.landingText1{
-        display: inline-block;
+        display: inline-block; 
         width: 125px;
+         height: 100px; 
         position: relative;
         left: -10px;
         text-align: left;
+        vertical-align: middle;
+        padding-top: 10px;
     }
     span.landingText2{
         width: 165px;
-        text-align: right;
-        display: inline-block;
+        text-align: center;
+        /* display: inline-block;*/
         position: relative;
-        right: 0px;
-        top: 0px;
+        padding: 5px 2px 5px 2px;
+        /* top: -20px; */
+        float: right;
+       
     }
     span.landingText3 {
         display: inline-block;
-        width: 155px;
+        width: 175px;
         position: relative;
        text-align: center;
+       padding: 2px 5px;
+       top: -5px;
     }
     .image3 {
         display : none;
     }
   
-}
+
+/*--------------------------------End small begin large----------------------------------*/
+/*
 @media (min-width: 481px){
     .innerlist {
         text-align : center;
@@ -397,35 +436,52 @@ textarea {
         padding-left: 42px;
         padding-right: 42px;
     }
-    .imageContainer {
+    .imageContainer1 {
         display: block;
         text-align: center;
         max-width: 50%;
-        left: 0;
+        left: 25%;
+        
         position: relative;
-        margin: 35px 0px 25px 0px;
+        margin: 35px 0px 5px 0px;
     }
-    .image1, .image2 {
-        display: none;
+    .imageContainer2 {
+       margin-right: 10%;
+       text-align: right;
+    }
+    .image1{
+        display: inline-block; 
+        float: right;
+    }
+    
+    .image2 {
+        display: inline-block;
+        position: relative;
+        left: -50px;
+        margin-right: 40px;
     }
     span.landingText1{
      position: relative;
      display: inline-block;
-     /* left: 25%; */
+     /* left: 25%; /
      width: 120px;
-     /* margin: 0; */
+     /* margin: 0; /
      margin-left:auto;
      margin-right:auto;
     }
     span.landingText2{
         position: relative;
         display: inline-block;
-        /* left: 25%; */
-        width: 90px;
+        /* left: 25%; /
+        width: 82px;
     }
     span.landingText3{
-        position: relative;
-         bottom: 148px;
+        position: fixed;
+         bottom: 158px;
+        
+         width: 500px;
+         display: block;
+        
     }
     .centerContainer {
         text-align: center;
@@ -438,7 +494,7 @@ textarea {
     }
     .image3 {
         float: right;
-        display: block;
+        display: none;
         max-width: 50%;
         max-height: 340px;
         position: relative;
@@ -449,3 +505,4 @@ textarea {
         border-style: solid;
     }
 }
+*/

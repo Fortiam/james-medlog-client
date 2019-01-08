@@ -3,7 +3,27 @@ import {connect} from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { login } from '../actions/auth';
 import { DEMO_ACCOUNT } from '../config';
+import LandingText from './landingText';
+
 class Welcome extends Component {
+    constructor(props){
+        super(props);
+        this.state= {
+            showFirst : false,
+            showSecond : false,
+            showThird: false
+        }
+    }
+    flipClick(which){
+        this.setState({showFirst : !this.state.showFirst});
+    }
+    flipClick2(which){
+        this.setState({showSecond : !this.state.showSecond});
+    }
+    flipClick3(which){
+        this.setState({showThird : !this.state.showThird});
+    }
+    
     goToScreen(where){
         this.props.history.push(where);
     }
@@ -18,17 +38,17 @@ class Welcome extends Component {
            return (<div >
                    
                     <img className='image3' src='./rawpixel-600792-unsplash.jpg' alt='pills' />
-                    <div className='imageContainer'>
-                    <span className='landingText1'>MedLog is an app to help parents keep track of their family members' medical records and schedules.</span>
+                    <div className='imageContainer1'>
+                        <LandingText showMe={this.state.showFirst} onClick={showFirst=>this.flipClick(showFirst)} landing='landingText1' question={'What is Medlog?'} answer={"MedLog is an app to help parents keep track of their family members' medical records and schedules."}/>
                         <img className='landingImage image1' src='./aerial-aerial-view-application-935869.jpg' alt='medical equipment' />
                     </div>
-                    <div className='imageContainer'>
+                    <div className='imageContainer2'>
                         <img className='landingImage image2' src='./balance-cobblestone-conceptual-279470.jpg' alt='pills' />
-                    <span className='landingText2'>Users can create records containing information about medication(s) and the times they need to be taken, for everyone in the family.</span>
+                    <LandingText showMe={this.state.showSecond} onClick={showSecond=>this.flipClick2(showSecond)} landing='landingText2' question={'How?'} answer={'Users create events about medication such as when to be taken, for all the family.'} />
                     </div>
                     {/* <p>After filling out the details of each family member, which medicine they are on, a schedule can be viewed for the entire family.</p> */}
-                    <div className='imageContainer centerContainer'>
-                        <span className='landingText3'>A calendar view can show everyone's appointments or filtered for a single person's schedule.</span>
+                    <div className='imageContainer3 centerContainer'>
+                        <LandingText showMe={this.state.showThird} onClick={showThird=>this.flipClick3(showThird)} landing='landingText3' question={'Schedule?'} answer={'A calendar view can show everyone\'s appointments or filtered for a single person.'} />
                     </div>
                     {/* <div className='imageContainer'>
                        
@@ -40,14 +60,15 @@ class Welcome extends Component {
                         
                             
                    <div className='welcomeParent2'>
-                        <div className='list loginContainer'>
+                        <div className='loginContainer'>
                             {/* <div className='smallbox' onClick={()=>this.goToScreen('/register')}> */}
                             {/* <span className='left innerlist'> */}
-                            <Link className='left' to="/register" >Create a new account</Link>
+                            <Link className='navFooter' to="/register" >Create a new account</Link>
                             {/* </span>     */}
                             {/* </div> */}
                             {/* <div className='smallbox right innerlist' onClick={()=>this.goToScreen('/login')}> */}
-                            <Link className='right' to="/login">Log-in</Link>
+                            <Link className='navFooter' to="/login">Log-in</Link>
+                            <a href='/privacy.html' className='navFooter'>Privacy Policy</a>
                             {/* </div> */}
                         </div>
                    </div>
