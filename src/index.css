@@ -498,6 +498,32 @@ span.landingText1{
     }
 
 }
+/*--------------------------turned phone sideways messed everything, sad kitty-----------*/
+@media(max-height: 415px){
+    .welcomeParent {
+        display: inline-block;
+        position: fixed;
+        top: 8px;
+        z-index: 11;
+        width: 75px;
+        right: 20px;
+        max-height:74px;
+    }
+    span.landingText3{
+        display: block;
+        position: fixed;
+        bottom: 35px;
+        max-height: 75px;
+        
+        top: 66%;
+        left:33%;
+    }
+    span.landingText3.moreContrast{
+        height: 15px;
+    }
+
+}
+
 /* @media(min-width: 850px){
     .image1{
         display: inline-block;
