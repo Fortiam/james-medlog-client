@@ -7,4 +7,6 @@ describe('<Main />', () => {
     it('Renders without crashing', () => {
         shallow(<Main />);
     });
+
+    
 });

@@ -19,7 +19,7 @@ class Patient extends Component {
     }
     render(){
         const common = (
-            <div className='marginCenter smallbutton'><button onClick={()=>this.AddOne()}><i className="fas fa-users innerlist"></i></button>
+            <div className='marginCenter smallbutton'><button title='Add New family member' onClick={()=>this.AddOne()}><i className="fas fa-users innerlist"></i></button>
             </div>
             );
         if(this.props.loggedIn){

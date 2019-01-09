@@ -10,7 +10,7 @@ import { eventsLogout } from '../actions/events';
 import { logsLogout } from '../actions/log';
 import { clearAuthToken } from '../local-storage';
 // import { Redirect } from 'react-router-dom';
-class NavMenu extends Component {
+export class NavMenu extends Component {
     doLogout(){
         this.props.dispatch(medsLogout());
         this.props.dispatch(patientLogout());
@@ -23,7 +23,7 @@ class NavMenu extends Component {
     render(){
        
         if (this.props.showUp) {
-            return (<div className='navmenu'>
+            return (<div className='navmenu' >
             <p><Link to="/calendar" onClick={()=>this.props.switch()}>Visit Calendar</Link></p>
                 <p><Link to='/patient' onClick={()=>this.props.switch()}>Family Member</Link></p>
                 <p><Link to="/medicine" onClick={()=>this.props.switch()}>Medicine</Link></p>

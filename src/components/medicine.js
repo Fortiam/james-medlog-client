@@ -5,7 +5,7 @@ import MedsSingle from './meds_single';
 import { createNewMeds } from '../actions/meds';
 import * as newMedsToAdd from '../utils/medsDB';
 
-class Medicine extends Component {
+export class Medicine extends Component {
     makeAMeds(whichMeds){
         const newMeds = Object.assign({}, whichMeds, {"token": this.props.token});
         this.props.dispatch(createNewMeds(newMeds));

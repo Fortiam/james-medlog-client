@@ -10,7 +10,7 @@ import { logsLogout } from '../actions/log';
 import { clearAuthToken } from '../local-storage';
 import NavMenu from './navMenu';
 
-class Header extends Component {
+export class Header extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -48,7 +48,7 @@ class Header extends Component {
         }
     }
 }
-
+//privacy.html as an .html file instead of a /privacy path for google calendar api OAuth2 criteria
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });

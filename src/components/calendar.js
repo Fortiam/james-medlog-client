@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import Filter from './filter';
 import { fetchAllEvents, fetchFilteredEvents } from '../actions/events';
 
-class Calendar extends Component {
+export class Calendar extends Component {
     
     filterEvents(data){
         let theFilter = {"token": this.props.token};

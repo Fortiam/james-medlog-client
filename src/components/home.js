@@ -5,7 +5,7 @@ import FormRegister from './formRegister';
 import Welcome from './welcome';
 import FormLogin from './formLogin';
 import Header from './header';
-import Main from './main';
+// import Main from './main';
 import Calendar from './calendar';
 import Patient from './patient';
 import Medicine from './medicine';
@@ -21,7 +21,7 @@ import { fetchAllEvents } from '../actions/events';
 import { getAllLogs } from '../actions/log';
 import { authError } from '../actions/auth';
 
-class Home extends Component {
+export class Home extends Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -75,7 +75,7 @@ class Home extends Component {
                     <Route exact path='/' history={this.props.history} component={Welcome} />
                     <Route exact path='/register' component={FormRegister} />
                     <Route exact path='/login' component={FormLogin} />
-                    <Route exact path='/main' component={Main} />
+                    {/* <Route exact path='/main' component={Main} /> */}
                     <Route exact path='/calendar' component={Calendar} />
                     <Route exact path='/log' component={Log} />
                     <div className='lower'>

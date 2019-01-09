@@ -7,7 +7,8 @@ import { Input } from './input';
 import { getAllLogs } from '../actions/log';
 import { updateManyEvents } from '../actions/events';
 import { getAllPatientsInfo } from '../actions/patients';
-class MedsSingle extends Component {
+
+export class MedsSingle extends Component {
     onSubmit(values){
         values.token = this.props.token;
         values.medsId = this.props.oneMed.id;

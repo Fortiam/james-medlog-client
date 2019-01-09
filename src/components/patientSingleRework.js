@@ -121,8 +121,8 @@ class PatientSingle extends Component {
                 </label>
             </div>
             <div className='textAlignLeft' >
-                <button className='spaceAbove' type="submit"><i className="fas fa-check"></i></button>
-               <span className=' spaceAbove trash trashContainer' onClick={()=>this.removePatient()}><i className="far fa-trash-alt"></i></span>
+                <button title={'submit form for update'} className='spaceAbove' type="submit"><i className="fas fa-check"></i></button>
+               <button title={'remove this family member'} className='spaceAbove trash trashContainer' onClick={()=>this.removePatient()}><i className="far fa-trash-alt"></i></button>
             </div>
             </form>
         </div>);
