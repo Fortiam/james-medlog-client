@@ -462,6 +462,13 @@ span.landingText1{
     text-align: center;
     z-index: 3;
 }
+.quick{
+    z-index: 3;
+    display: block;
+    position: fixed;
+    top: 75px;
+    left:40%;
+}
 /*-----------------------------------Begin Small width-------------------------------------*/
 @media (max-width: 480px) { 
     .image1 {
@@ -501,7 +508,7 @@ span.landingText1{
 }
 /*--------------------------turned phone sideways messed everything, sad kitty-----------*/
 @media(max-height: 533px){
-    .welcomeParent {
+    /* .welcomeParent {
         display: inline-block;
         position: fixed;
         top: 8px;
@@ -509,7 +516,7 @@ span.landingText1{
         width: 75px;
         right: 0px;
         max-height:74px;
-    }
+    } */
     span.landingText2{
         display:block;
         position: relative;
@@ -542,6 +549,12 @@ span.landingText1{
     span.landingText1{
         position: fixed;
         left:0;
+    }
+}
+@media (max-width: 500px) and (max-height: 500px){
+    .welcomeParent{
+        position: fixed;
+        bottom: 0;
     }
 }
 /* @media(min-width: 850px){

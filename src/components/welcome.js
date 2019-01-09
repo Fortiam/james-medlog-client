@@ -42,21 +42,22 @@ class Welcome extends Component {
        else {
            return (<div className='landingBackground'>
                     <div className='imageContainer4'>
-                        <div className='image3' />
+                        <div className='image3'></div>
+                        <span className='quick'>Medication schedule aid</span>
                         {/* <img className='image3' src='./rawpixel-600792-unsplash.jpg' alt='pills' /> */}
                     </div>
-                    <div className='imageContainer1'>
+                    {/* <div className='imageContainer1'>
                         <LandingText showMe={this.state.showFirst} onClick={()=>this.flipClick(1)} landing='landingText1' landingPart2='moreContrast' question={'What is Medlog?'} answer={"MedLog is an app to help parents keep track of their family members' medical records and schedules."}/>
                         <img className='landingImage image1' src='./aerial-aerial-view-application-935869.jpg' alt='medical equipment' />
-                    </div>
-                    <div className='imageContainer2'>
+                    </div> */}
+                    {/* <div className='imageContainer2'>
                         <img className='landingImage image2' src='./balance-cobblestone-conceptual-279470.jpg' alt='pills' />
                     <LandingText showMe={this.state.showSecond} onClick={()=>this.flipClick(2)} landing='landingText2' landingPart2='moreContrast' question={'How?'} answer={'Users create events about medication such as when to be taken, for all the family.'} />
-                    </div>
+                    </div> */}
                     {/* <p>After filling out the details of each family member, which medicine they are on, a schedule can be viewed for the entire family.</p> */}
-                    <div className='imageContainer3 centerContainer'>
+                    {/* <div className='imageContainer3 centerContainer'>
                         <LandingText showMe={this.state.showThird} onClick={()=>this.flipClick(3)} landing='landingText3' landingPart2='moreContrast' question={'Schedule?'} answer={'A calendar view can show everyone\'s appointments or filtered for a single person.'} />
-                    </div>
+                    </div> */}
                     {/* <div className='imageContainer'>
                     </div> */}
                     {/* <p>Entries can be added to a person's log when side effects, reactions, or symptoms appear, or if a scheduled appointment was missed.</p> */}
