@@ -60,7 +60,7 @@ export const registerMe = user => dispatch=> {
 };
 export const editUserInfo = edits => dispatch => {
     dispatch(registerRequest());
-    return fetch(`${API_BASE_URL}/api/users/update/${edits.id}`, {
+    return fetch(`${API_BASE_URL}/api/users/${edits.id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',
@@ -77,7 +77,7 @@ export const editUserInfo = edits => dispatch => {
 
 export const deleteUser = user => dispatch => {
     dispatch(registerRequest());
-    return fetch(`${API_BASE_URL}/api/users/deleteMe/${user.id}`, {
+    return fetch(`${API_BASE_URL}/api/users/${user.id}`, {
         method : 'DELETE',
         headers : {
             'content-type': 'application/json',
