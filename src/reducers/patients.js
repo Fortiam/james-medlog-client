@@ -28,7 +28,7 @@ export function patienceReducer (state = initalState, action){
         });
         case('GET_PATIENT_INFO_SUCCESS'):
         const newArrayData = state.listOfOwnedByUser.map(object=> {
-            if(object.name === action.data.name){
+            if(object.id === action.data.id){
                 return action.data;
             } else {
                 return object;

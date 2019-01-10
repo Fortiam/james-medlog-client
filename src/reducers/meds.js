@@ -17,7 +17,7 @@ export function medsReducer (state = initalState, action){
         });
         case('GET_MEDS_SUCCESS'):
         const newArrayData = state.manyMeds.map(object=> {
-            if(object.name === action.data.name){
+            if(object.id === action.data.id){
                 return action.data;
             } else {
                 return object;
