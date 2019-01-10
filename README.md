@@ -25,29 +25,37 @@ Screenshots:
 <img src='./medlog-login.png' alt='login screen'/>
 
 Create, update and remove family members is easy:
+
 <img src='./medlog-family.png' alt='family screen' />
 
 Create, update, and remove medication, also easy:
+
 <img src='./medlog-medicine.png' alt='medicine screen' />
 
 Start, Stop, and view who is using which medicines:
+
 <img src='./medlog-treatment.png' alt='treatment screen' />
 
 Starting someone on medicine adds a calendar viewable by month, day or week:
+
 <img src='./medlog-day.png' alt='single day screen'/>
 
 Also record medical related events in a filterable log.
+
 <img src='./medlog-journal.png' alt='journal screen' />
 
 
 Changing the medicine times:
+
 <img src='./medicine-updated.png' alt='changes to schedule' />
 
 
 Automatically adjusts the schedule:
+
 <img src='./calendar-updated.png' alt='calendar updated' />
 
 
 Stopping treatment clears the future scheduled events,
 but keeps the history as a record:
+
 <img src='./med-stop-keeps-history-clear-schedule.png' alt='calendar updated' />
