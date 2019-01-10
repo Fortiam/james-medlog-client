@@ -20,4 +20,5 @@ Project Stack:
     Enzyme for React component testing
 
 Screenshots:
-<img src='./Medlog-Day-View.png' />
+<img src='./Medlog-Day-View.png' alt='medlog screen'/>
+<img src='./medlog-treatment.png' alt='medlog screen' />
