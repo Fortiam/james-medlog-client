@@ -20,5 +20,27 @@ Project Stack:
     Enzyme for React component testing
 
 Screenshots:
-<img src='./Medlog-Day-View.png' alt='medlog screen'/>
-<img src='./medlog-treatment.png' alt='medlog screen' />
+
+<img src='./medlog-landing.png' alt='welcome'/>
+<img src='./medlog-login.png' alt='login screen'/>
+<img src='./medlog-day.png' alt='single day screen'/>
+<img src='./medlog-treatment.png' alt='treatment screen' />
+<img src='./medlog-family.png' alt='family screen' />
+<img src='./medlog-medicine.png' alt='medicine screen' />
+<img src='./medlog-journal.png' alt='journal screen' />
+
+
+Changing the medicine times:
+
+<img src='./medicine-updated.png' alt='changes to schedule' />
+
+
+Automatically adjusts the schedule:
+
+<img src='./calendar-updated.png' alt='calendar updated' />
+
+
+Stopping treatment clears the future scheduled events,
+but keeps the history as a record:
+
+<img src='./med-stop-keeps-history-clear-schedule.png' alt='calendar updated' />
