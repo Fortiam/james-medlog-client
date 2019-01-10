@@ -116,7 +116,7 @@ class Treatment extends Component {
                             <input type="text" name="title" id="title" placeholder="Event title.."/>
                             </label>
                             </p>
-                            <p><button type="submit"><i className="fas fa-check"></i></button></p>
+                            <p><button title='start selected person on selected medication' type="submit"><i className="fas fa-check"></i></button></p>
                         </form>
                         <OneName className='list' title={safetyTitle} /></div>
                     <form className='list' name="stopMed" onSubmit={(e)=>this.btnClicky(e)}>
@@ -135,7 +135,7 @@ class Treatment extends Component {
                         </label>
                         </p>
                         <p>
-                        <button type="submit"><i className="fas fa-check"></i></button>
+                        <button title='stop selected person on selected medication' type="submit"><i className="fas fa-check"></i></button>
                         </p>
                         </div>
                     </form>

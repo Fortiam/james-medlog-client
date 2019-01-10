@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-
 import { clearAuth } from '../actions/auth';
 import { medsLogout } from '../actions/meds';
 import { patientLogout } from '../actions/patients';
@@ -9,7 +8,7 @@ import { registerLogout } from '../actions/register';
 import { eventsLogout } from '../actions/events';
 import { logsLogout } from '../actions/log';
 import { clearAuthToken } from '../local-storage';
-// import { Redirect } from 'react-router-dom';
+
 export class NavMenu extends Component {
     doLogout(){
         this.props.dispatch(medsLogout());
@@ -30,7 +29,7 @@ export class NavMenu extends Component {
                 <p><Link to="/userinfo" onClick={()=>this.props.switch()}>Account Details</Link></p>
                 <p><Link to='/treatment' onClick={()=>this.props.switch()}>Treatment</Link></p>
             <p><Link to='/log' onClick={()=>this.props.switch()} >Journal</Link></p>
-            <p onClick={()=>this.doLogout()}>Log-out</p>
+            <p tabIndex={1} title='log out' onClick={()=>this.doLogout()}>Log-out</p>
             </div>);
         }
         else {

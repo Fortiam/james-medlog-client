@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow/*, mount*/ } from 'enzyme';
 import { Redirect } from 'react-router-dom';
 import {Welcome} from '../components/welcome';
 

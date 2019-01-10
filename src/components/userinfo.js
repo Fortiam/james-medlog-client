@@ -66,11 +66,11 @@ class Userinfo extends Component {
                 </select> */}
                 </div>
                 <div className='textAlignLeft'>
-                <button className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
-                <button className='trashContainer spaceAbove' type="click" onClick={()=>this.props.history.push('/main')}><i className="fas fa-times"></i></button>
+                <button className='spacing spaceAbove' title='submit form with updated values' type="submit"><i className="fas fa-check"></i></button>
+                <button className='trashContainer spaceAbove' title='cancel updating form and return to menu' type="click" onClick={()=>this.props.history.push('/main')}><i className="fas fa-times"></i></button>
                 </div>
                 </form>
-                <p className='marginCenter smallbutton'><button type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt red"></i></button></p>
+                <p className='marginCenter smallbutton'><button title='delete this account' type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt red"></i></button></p>
             </div>);
         } else if (this.props.loggedIn){
             return (<div className='list'>

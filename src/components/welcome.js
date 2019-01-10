@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import { /*Link,*/ Redirect } from 'react-router-dom';
 import { login } from '../actions/auth';
 import { DEMO_ACCOUNT } from '../config';
-import LandingText from './landingText';
+//import LandingText from './landingText';
 
-class Welcome extends Component {
+export class Welcome extends Component {
     constructor(props){
         super(props);
         this.state= {
@@ -62,7 +62,7 @@ class Welcome extends Component {
                     </div> */}
                     {/* <p>Entries can be added to a person's log when side effects, reactions, or symptoms appear, or if a scheduled appointment was missed.</p> */}
                     <div className='welcomeParent'>
-                        <button onClick={()=>this.demoLogin()} className='innerlist buttonRight' type='click' >Try Demo</button>
+                        <button title='Try App for free' onClick={()=>this.demoLogin()} className='innerlist buttonRight' type='click' >Try Demo</button>
                         </div>
                     {/* <div className='welcomeParent2'>
                         <div className='loginContainer'> */}

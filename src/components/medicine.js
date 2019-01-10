@@ -14,7 +14,7 @@ export class Medicine extends Component {
     render(){
         if(this.props.loggedId){
             const common = (<div className='marginCenter smallbutton'>
-                <button className='list' onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>
+                <button className='list' title='add new medicine' onClick={()=>this.makeAMeds(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>
                 </div>);
             const displayMeds = this.props.manyMeds.map((eachMed, index) => {
                 return (<div className='list' key={index}><MedsSingle form={eachMed.id} formKey={eachMed.id} oneMed={eachMed} whichMed={index}/></div>);
