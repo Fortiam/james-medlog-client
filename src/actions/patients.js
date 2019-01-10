@@ -1,13 +1,13 @@
 import {API_BASE_URL} from '../config';
 
-export const PatientInfoRequest = () => ({
+export const patientInfoRequest = () => ({
     type : 'PATIENT_INFO_REQUEST'
 });
 export const getPatientInfoSuccess = payload => ({
     type : 'GET_PATIENT_INFO_SUCCESS',
     "data" : payload
 });
-export const PatientInfoError = err => ({
+export const patientInfoError = err => ({
     type : 'PATIENT_INFO_ERROR',
     "error": err
 });
@@ -16,7 +16,7 @@ export const patientLogout = () => ({
 });
 
 export const getPatientInfo = user => dispatch => {
-    dispatch(PatientInfoRequest());
+    dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/${user.id.toString()}`, {
         method : 'GET',
         headers : {
@@ -29,12 +29,12 @@ export const getPatientInfo = user => dispatch => {
         return dispatch(getPatientInfoSuccess(data));
     })
     .catch(err=> {
-        return dispatch(PatientInfoError(err));
+        return dispatch(patientInfoError(err));
     });
 };
 
 export const getAllPatientsInfo = user => dispatch => {
-    dispatch(PatientInfoRequest());
+    dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/`, {
         method : 'GET',
         headers : {
@@ -47,7 +47,7 @@ export const getAllPatientsInfo = user => dispatch => {
         return dispatch(getAllPatientsInfoSuccess(data));
     })
     .catch(err=> {
-        return dispatch(PatientInfoError(err));
+        return dispatch(patientInfoError(err));
     });
 };
 
@@ -59,7 +59,7 @@ export const getAllPatientsInfoSuccess = payload => ({
 
 export const createNewPatient = user => dispatch =>{
     //post api call here
-    dispatch(PatientInfoRequest());
+    dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/`, {
         method: 'POST',
         headers : {
@@ -73,7 +73,7 @@ export const createNewPatient = user => dispatch =>{
         return dispatch(createNewPatientSuccess(data));
     })
     .catch(err=> {
-        return dispatch(PatientInfoError(err));
+        return dispatch(patientInfoError(err));
     });
 };
 
@@ -84,7 +84,7 @@ export const createNewPatientSuccess = payload => ({
 
 export const editPatient = user => dispatch => {
     //put api call here
-    dispatch(PatientInfoRequest());
+    dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/${user.patientId}`, {
         method: 'PUT',
         headers : {
@@ -98,7 +98,7 @@ export const editPatient = user => dispatch => {
         return dispatch(editPatientSuccess(data));
     })
     .catch(err=> {
-        return dispatch(PatientInfoError(err));
+        return dispatch(patientInfoError(err));
     });
 };
 
@@ -109,7 +109,7 @@ export const editPatientSuccess = payload => ({
 
 export const removePatientInfo = user => dispatch => {
     //delete api call here
-    dispatch(PatientInfoRequest());
+    dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/${user.patientId}`, {
         method: 'DELETE',
         headers : {
@@ -122,7 +122,7 @@ export const removePatientInfo = user => dispatch => {
         return dispatch(removePatientInfoSuccess(data));
     })
     .catch(err=> {
-        return dispatch(PatientInfoError(err));
+        return dispatch(patientInfoError(err));
     });
 };
 
