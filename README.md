@@ -20,3 +20,4 @@ Project Stack:
     Enzyme for React component testing
 
 Screenshots:
+<img src='./Medlog-Day=View.png' />
