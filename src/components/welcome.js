@@ -43,7 +43,7 @@ export class Welcome extends Component {
            return (<div className='landingBackground'>
                     <div className='imageContainer4'>
                         <div className='image3'></div>
-                        <span className='quick'>Medication schedule aid</span>
+                        <span className='quick'>Medication schedule aid: MedLog is an app to help parents keep track of their family members' medical records and schedules.</span>
                         {/* <img className='image3' src='./rawpixel-600792-unsplash.jpg' alt='pills' /> */}
                     </div>
                     {/* <div className='imageContainer1'>

@@ -23,13 +23,13 @@ export class NavMenu extends Component {
        
         if (this.props.showUp) {
             return (<div className='navmenu' >
-            <p><Link to="/calendar" onClick={()=>this.props.switch()}>Visit Calendar</Link></p>
-                <p><Link to='/patient' onClick={()=>this.props.switch()}>Family Member</Link></p>
-                <p><Link to="/medicine" onClick={()=>this.props.switch()}>Medicine</Link></p>
-                <p><Link to="/userinfo" onClick={()=>this.props.switch()}>Account Details</Link></p>
-                <p><Link to='/treatment' onClick={()=>this.props.switch()}>Treatment</Link></p>
-            <p><Link to='/log' onClick={()=>this.props.switch()} >Journal</Link></p>
-            <p tabIndex={1} title='log out' onClick={()=>this.doLogout()}>Log-out</p>
+            <span><Link to="/calendar" onClick={()=>this.props.switch()}>View Calendar</Link></span>
+                <span><Link to='/patient' onClick={()=>this.props.switch()}>Family</Link></span>
+                <span><Link to="/medicine" onClick={()=>this.props.switch()}>Medicine</Link></span>
+                <span><Link to="/userinfo" onClick={()=>this.props.switch()}>Account Details</Link></span>
+                <span><Link to='/treatment' onClick={()=>this.props.switch()}>Treatment</Link></span>
+            <span><Link to='/log' onClick={()=>this.props.switch()} >Journal</Link></span>
+            <span tabIndex={1} title='log out' onClick={()=>this.doLogout()}>Log-out</span>
             </div>);
         }
         else {
