@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Home from '../../components/home';
-
+import {Home} from '../../components/home';
+import { BrowserRouter, Route } from 'react-router-dom';
 const MockGetPatientInfo = {
     type: 'GET_PATIENT_INFO'
 };
@@ -43,9 +43,9 @@ describe('the Home component', ()=>{
         shallow(<Home />);
     });
     
-    it('Should dispatch getAllPatientsInfo on login',()=>{
-        const wrapper = shallow(<Home loggedIn={null}/>);
-        expect(true).toEqual(true);
-
-    });
+    // it('Should dispatch getAllPatientsInfo on login',()=>{
+    //     const wrapper = mount(<Home loggedIn={null}/>);
+    //     const dispatch = jest.fn();
+    //     console.log("X:------------------------ ", wrapper.debug());
+    // });
 });
