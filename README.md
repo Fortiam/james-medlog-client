@@ -1,7 +1,7 @@
-Project Description:
+# Project Description:
     "MedLog is an app to help parents keep track of their family members' medical records and schedules.  A person can create a record containing information about which medication(s) and the times they need to be taken, for everyone in the family, including pets.  After filling out the details of each family member, which medicine they are on, a schedule can be viewed for the entire family, to see who needs to take what and when.  A calendar view can show everyone's appointments all together or filtered to just display a single person's schedule or log.  Entries can be added to a person's log when side effects, reactions, or symptoms appear, or if a scheduled appointment was missed."
 
-Project Links:
+## Project Links:
     Live deploy:
     https://james-medlog.herokuapp.com
     Github client:
@@ -9,7 +9,7 @@ Project Links:
     Github server:
     https://github.com/thinkful-ei26/james-Medlog-server
 
-Project Stack:
+## Tech Stack:
     React for the frontend
     Redux for state management
     Node for the backend
@@ -19,7 +19,7 @@ Project Stack:
     Mocha and Chai for endpoint testing
     Enzyme for React component testing
 
-Screenshots:
+## Screenshots:
 
 <img src='./medlog-landing.png' alt='welcome'/>
 <img src='./medlog-login.png' alt='login screen'/>
@@ -68,47 +68,48 @@ and shows the number currently on the account:
 <img src='./medlog-emptyFamily.png' alt='alternate add people and meds screen' />
 
 
-Project Codebase:
 
-/
-    this readme
-    the package.json
-    the readme pictures
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-/public
-    the welcome page pictures
-    the main index.html file
+## Available Scripts
 
-/src
-    the redux store in store.js
-    the jwt token management in local-storage.js
+In the project directory, you can run:
 
-    /src/actions
-    actions for new accounts in register.js
-    actions for login and token refreshing in auth.js
-    calendar schedule events actions in events.js
-    actions for medicines in meds.js
-    family member actions in patients.js
-    journal actions in log.js
+### `npm start`
 
-    /src/components
-    the home component in home.js
-    home renders the header component from header.js
-    the header renders the NavMenu component from navMenu.js
-    home handles routes for registering new users with FormRegister.js and registerPage.js
-    home handles logging in with formLogin.js and login.js
-    after logging in the calendar view is served with calendar.js and it's filter with filter.js
-    the navigation menu can be used to reach the family view with patient.js which gives each person a form via patientSingle.js
-    the nav menu can also be used to view the medicines in medicine.js where each medicine has its own form from meds_single.js
-    the nav menu Account details link shows the userinfo.js component for changing or account deletion
-    the treatment nav menu link shows the treatment.js which handles showing which family members are currently scheduled for 1 or more medicines and starting and stopping new schedules
-    finally the journal option on the nav menu renders the log.js component which displays the filter.js component and the log_single.js component
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-    /src/reducers
-    redux state reducers
-    eventsReducer in events.js,
-    authReducer in auth.js,
-    registerReducer in register.js,
-    patienceReducer in patients.js,
-    medsReducer in meds.js,
-    logsReducer in log.js
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
