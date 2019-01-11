@@ -68,7 +68,7 @@ class Log extends Component {
             </div>);
             }  else {
                 const addPerson = (<button title='Add New family member' onClick={()=>this.addOnePerson()}><i className="fas fa-users innerlist"></i></button>);
-                const addMed = (<button className='' title='add new medicine' onClick={()=>this.addOneMed(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>);
+                const addMed = (<button className='right' title='add new medicine' onClick={()=>this.addOneMed(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>);
                 
                 return (<div className='list lower'>
                 <p className='innerlist'>You need to have family members and medicines before you can comment about them..</p>

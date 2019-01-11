@@ -106,7 +106,7 @@ class Treatment extends Component {
                 }
                 if(this.props.listOfOwnedByUser.length < 1 || this.props.manyMeds.length < 1){
                     const addPerson = (<button title='Add New family member' onClick={()=>this.addOnePerson()}><i className="fas fa-users innerlist"></i></button>);
-                    const addMed = (<button className='center' title='add new medicine' onClick={()=>this.addOneMed(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>);
+                    const addMed = (<button className='right' title='add new medicine' onClick={()=>this.addOneMed(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>);
                     return (<div className='list'>
                     <p className='innerlist'>Please add at least 1 family member and at least 1 medicine before treatment!</p>
                     <p className='innerlist'>Currently there are {this.props.listOfOwnedByUser.length} family and {this.props.manyMeds.length} {this.fixGrammer()} on this account</p>
