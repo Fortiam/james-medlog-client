@@ -26,7 +26,6 @@
 ## Screenshots:
 
 <img src='./medlog-landing.png' alt='welcome'/>
-<img src='./medlog-login.png' alt='login screen'/>
 
 Create, update and remove family members is easy:
 
