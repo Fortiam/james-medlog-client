@@ -56,9 +56,7 @@ export const getAllPatientsInfoSuccess = payload => ({
     "data" : payload
 });
 
-
 export const createNewPatient = user => dispatch =>{
-    //post api call here
     dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/`, {
         method: 'POST',
@@ -83,7 +81,6 @@ export const createNewPatientSuccess = payload => ({
 });
 
 export const editPatient = user => dispatch => {
-    //put api call here
     dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/${user.patientId}`, {
         method: 'PUT',
@@ -108,7 +105,6 @@ export const editPatientSuccess = payload => ({
 });
 
 export const removePatientInfo = user => dispatch => {
-    //delete api call here
     dispatch(patientInfoRequest());
     return fetch(`${API_BASE_URL}/api/patients/${user.patientId}`, {
         method: 'DELETE',

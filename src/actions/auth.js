@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import {API_BASE_URL} from '../config';
-import {SubmissionError/*, normalizeResponseErrors*/} from 'redux-form';
+import {SubmissionError} from 'redux-form';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
 export const setAuthToken = authToken => ({
@@ -85,7 +85,6 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
         }
     })
-       // .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({authToken}) => storeAuthInfo(authToken, dispatch))
         .catch(err => {

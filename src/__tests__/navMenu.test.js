@@ -6,7 +6,7 @@ import {NavMenu} from '../components/navMenu';
 describe('the NavMenu component', ()=>{
     //component passed props are:
     //showUp={this.state.toggle}//boolean
-    //switch={()=>this.hamburger()}//this.setState for toggle bool
+    //switch={()=>this.toggleShowMenu()}//this.setState for toggle bool
     it('Should render without Crashing', ()=>{
         shallow(<NavMenu />);
     });

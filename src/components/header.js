@@ -17,7 +17,7 @@ export class Header extends Component {
             toggle : false
         }
     }
-    hamburger(){
+    toggleShowMenu(){
         this.setState({toggle : !this.state.toggle});
     }
     handleLogOut(){
@@ -34,9 +34,9 @@ export class Header extends Component {
             return (<div className='OverContainer'>
             <div className='inlineBlock navContainer'>
             <span className='big navContents'>MedLog</span>
-                <button onClick={()=>this.hamburger()} type='button' title='toggle nav menu' className='left navContents' ><i className="fas fa-bars"></i></button>
+                <button onClick={()=>this.toggleShowMenu()} type='button' title='toggle nav menu' className='left navContents' ><i className="fas fa-bars"></i></button>
             </div>
-            <NavMenu showUp={this.state.toggle} switch={()=>this.hamburger()}/>
+            <NavMenu showUp={this.state.toggle} switch={()=>this.toggleShowMenu()}/>
             </div>);
         } else {
         return (<div className='inlineBlock welcomeText'>

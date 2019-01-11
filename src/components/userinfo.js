@@ -18,12 +18,12 @@ class Userinfo extends Component {
                 updateObj[editedKeys[x]] = values[x].value;
             }
         }
-        if(values[3].value==='true'){
-            updateObj["useEmailForApi"] = 'true'
-        }
-        else if(values[3].value==='false') {
-            updateObj["useEmailForApi"] = 'false';
-        }
+        // if(values[3].value==='true'){
+        //     updateObj["useEmailForApi"] = 'true'
+        // }
+        // else if(values[3].value==='false') {
+        //     updateObj["useEmailForApi"] = 'false';
+        // }
         this.props.dispatch(editUserInfo(updateObj));
         //this.props.history.push('/calendar');
     }

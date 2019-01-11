@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { /*submitAction,*/ registerError, /*registerMe */} from '../actions/register';
+import { registerError} from '../actions/register';
 import { connect } from 'react-redux';
 import { editLogs, removeLogs } from '../actions/log';
 import { Input } from './input';
-// import { Link } from 'react-router-dom';
 
 class LogsSingle extends Component {
     onSubmit(values){
@@ -33,22 +32,12 @@ class LogsSingle extends Component {
         this.props.dispatch(removeLogs(thisLog));
     }
     render(){
-        // let otherOptions, optionalPatients;
-        // if(this.props.meds.length > 0){
-           const otherOptions = this.props.meds.map((eachMed, index)=>{
-                return (<option key={index} value={eachMed.id}>{eachMed.name}</option>);
-            });
-        // } else {
-        //     otherOptions = (<option value={null}>No Medicines</option>);
-        // }
-        // if(this.props.patients.length > 0){
-           const requiredPatients = this.props.patients.map((eachPerson, index)=>{
-                return (<option key={index} value={eachPerson.id}>{eachPerson.name}</option>)
-            });
-        // } else {
-        //     optionalPatients = (<option value={null}>No family members yet</option>);
-        // }
-      
+        const otherOptions = this.props.meds.map((eachMed, index)=>{
+            return (<option key={index} value={eachMed.id}>{eachMed.name}</option>);
+        });
+        const requiredPatients = this.props.patients.map((eachPerson, index)=>{
+            return (<option key={index} value={eachPerson.id}>{eachPerson.name}</option>)
+        });
         let whom = this.props.patients.filter(eachOne=> eachOne.id === this.props.oneLog.patientId);
         let defaultWho = "Nobody..";
         if(whom.length >0){
