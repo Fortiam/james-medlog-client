@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';//Link, NavLink 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import FormRegister from './formRegister';
 import Welcome from './welcome';
 import FormLogin from './formLogin';
 import Header from './header';
-// import Main from './main';
 import Calendar from './calendar';
 import Patient from './patient';
 import Medicine from './medicine';
 import Userinfo from './userinfo';
 import Treatment from './treatment';
-// import End from './end';
 import Log from './log';
 import { refreshAuthToken } from '../actions/auth';
 import { getAllPatientsInfo } from '../actions/patients';
 import { getAllMeds } from '../actions/meds';
-//import { registerLogout } from '../actions/register';
 import { fetchAllEvents } from '../actions/events';
 import { getAllLogs } from '../actions/log';
 import { authError } from '../actions/auth';
@@ -44,20 +41,10 @@ export class Home extends Component {
     }
     
     startPeriodicRefresh() {
-         //   return Promise.all([/*this.props.dispatch(refreshAuthToken()),*/
-                //this.props.dispatch(registerLogout()),
-                // this.props.dispatch(getAllPatientsInfo({"token": this.props.token})),
-                // this.props.dispatch(getAllMeds({"token": this.props.token})),
-                // this.props.dispatch(fetchAllEvents({"token": this.props.token})),
-                // this.props.dispatch(getAllLogs({"token": this.props.token}))])
-                // .then(()=>{
-                    this.refreshInterval = setInterval(
-                        () =>this.props.dispatch(refreshAuthToken()),
-                        60 * 60 * 1000 // One hour
-                    );
-               // })
-               // .catch(err=>this.props.dispatch(authError(err)));
-       
+        this.refreshInterval = setInterval(
+            () =>this.props.dispatch(refreshAuthToken()),
+            60 * 60 * 1000 // One hour
+        );
     }
 
     stopPeriodicRefresh() {
@@ -75,7 +62,6 @@ export class Home extends Component {
                     <Route exact path='/' history={this.props.history} component={Welcome} />
                     <Route exact path='/register' component={FormRegister} />
                     <Route exact path='/login' component={FormLogin} />
-                    {/* <Route exact path='/main' component={Main} /> */}
                     <Route exact path='/calendar' component={Calendar} />
                     <Route exact path='/log' component={Log} />
                     <div className='lower'>
@@ -83,7 +69,6 @@ export class Home extends Component {
                     <Route exact path='/medicine' component={Medicine} />
                     <Route exact path='/userinfo' component={Userinfo} />
                     <Route exact path='/treatment' component={Treatment} />
-                    {/* <Route exact path='/end' component={End} /> */}
                     </div>
                     </div>
                 </Router>

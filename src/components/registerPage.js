@@ -41,13 +41,11 @@ class RegisterPage extends Component{
         }
         return (
             <div className='list'>
-            
                 <div className='center innerlist'>
                 <span className='registerText'>Register A New Account</span>
                     <img className='registerImage' src='./rawpixel-602152-unsplash.jpg' alt='stethoscope' />
                 {successMessage}
                 {errorMessage}
-            
                 </div>
                 <form className='innerlist spaceAbove'
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -93,7 +91,6 @@ class RegisterPage extends Component{
                     </Field> */}
                     <button disabled={this.props.pristine || this.props.submitting} title='submit form' type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
-                
                 <p className='list center'><Link className='innerlist' to='/' >Cancel</Link></p>
             </div>
         );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import PatientSingle from './patientSingleRework';
+import PatientSingle from './patientSingle';
 import { createNewPatient } from '../actions/patients';
 
 class Patient extends Component {

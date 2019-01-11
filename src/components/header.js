@@ -34,7 +34,7 @@ export class Header extends Component {
             return (<div className='OverContainer'>
             <div className='inlineBlock navContainer'>
             <span className='big navContents'>MedLog</span>
-            <button onClick={()=>this.hamburger()} type='button' className='left navContents' ><i className="fas fa-bars"></i></button>
+                <button onClick={()=>this.hamburger()} type='button' title='toggle nav menu' className='left navContents' ><i className="fas fa-bars"></i></button>
             </div>
             <NavMenu showUp={this.state.toggle} switch={()=>this.hamburger()}/>
             </div>);

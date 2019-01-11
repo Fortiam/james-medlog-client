@@ -24,9 +24,8 @@ class PatientSingle extends Component {
     render(){
         return(<div className='innerlist'>
             <form  id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-            <div >
+            <div>
                 <label className='inputGroup'>Name: 
-                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
@@ -38,7 +37,6 @@ class PatientSingle extends Component {
             <p></p>
                 <div>
                 <label className='inputGroup'>Age:
-                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='age'
                         component='input'
@@ -51,7 +49,6 @@ class PatientSingle extends Component {
                 <p></p>
                 <div>
                <label className='inputGroup'>Gender: 
-               {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='gender'
                         component='input'
@@ -63,7 +60,6 @@ class PatientSingle extends Component {
             <p></p>
             <div >
                 <label className='inputGroup'>Height: 
-                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
@@ -75,7 +71,6 @@ class PatientSingle extends Component {
             <p></p>
             <div >
                 <label className='inputGroup'>Weight: 
-                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
@@ -87,7 +82,6 @@ class PatientSingle extends Component {
              <p></p>
              <div >
                 <label className='inputGroup'>Alleriges: 
-                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='name'
                         component='input'
@@ -99,7 +93,6 @@ class PatientSingle extends Component {
                 <p></p>
             <div >
                 <label className='inputGroup'>Dr.(name):
-                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='Dr.(name)'
                         component='input'
@@ -111,7 +104,6 @@ class PatientSingle extends Component {
             <p></p>
             <div >
                 <label className='inputGroup'>Dr.(contact): 
-                {/* <p className='smallSpace'></p> */}
                     <Field 
                         label='Dr.(contact)'
                         component='input'

@@ -5,6 +5,7 @@ import {OneName} from './oneName';
 import { createNewEvent, clearCurrentEvent, removeOnlyFutureEventsForOneMed } from '../actions/events';
 import moment from 'moment';
 import { editPatient } from '../actions/patients';
+
 class Treatment extends Component {
     componentDidMount(){
         this.props.dispatch(clearCurrentEvent());
@@ -76,7 +77,6 @@ class Treatment extends Component {
                 let listNames = [];
                 let listMeds = [];
                 let safetyTitle = '';
-                
                 if(this.props.currentEvent.length > 0){
                     safetyTitle = this.props.currentEvent[0].title;
                 }
@@ -87,7 +87,6 @@ class Treatment extends Component {
                 else {
                     let findPersonOnMeds = this.prepList();
                     let renderPersonOnMeds = this.convertList(findPersonOnMeds);
-
                     this.props.listOfOwnedByUser.forEach(person=>{
                         listNames.push(person);
                     });

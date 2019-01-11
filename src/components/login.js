@@ -40,12 +40,10 @@ class Login extends Component{
         }
         return (
             <div className='list'>
-           
-                <div className='spaceAbove spaceBelow innerlist'>
+               <div className='spaceAbove spaceBelow innerlist'>
                     <img className='loginImage' src='./bright-cardiac-cardiology-433267.jpg' alt='medical' />
                     <span className='loginText'>Log-in</span>
                 </div>
-            
                 <div >{successMessage}</div>
                 <div >{errorMessage}</div>
                 <div >{loadingMessage}</div>
@@ -65,9 +63,9 @@ class Login extends Component{
                         component={Input}
                         validate={[required, nonEmpty, stringy, legitPassword]}>
                     </Field>
-                    <button disabled={this.props.pristine || this.props.submitting} type="submit"><i className="far fa-check-circle"></i></button>
+                    <button disabled={this.props.pristine || this.props.submitting} title='submit form' type="submit"><i className="far fa-check-circle"></i></button>
                 </form>
-                <p className='list center'><Link className='innerlist' to='/' >Cancel</Link></p>
+                <p className='list center'><Link title='cancel login' className='innerlist' to='/' >Cancel</Link></p>
             </div>
         );
     }
