@@ -45,6 +45,12 @@ class Log extends Component {
             this.props.dispatch(getFilteredLogs({"token": this.props.token}));
         }
     }
+    fixGrammer(){
+        if(this.props.meds.length > 1){
+            return "medicines";
+        }
+        else return 'medicine';
+    }
     render(){
         if(this.props.loggedIn){
             if(this.props.meds.length > 0 && this.props.patients.length > 0){
@@ -64,7 +70,9 @@ class Log extends Component {
                 const addPerson = (<button title='Add New family member' onClick={()=>this.addOnePerson()}><i className="fas fa-users innerlist"></i></button>);
                 const addMed = (<button className='' title='add new medicine' onClick={()=>this.addOneMed(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>);
                 
-                return (<div className='list lower'><p className='innerlist'>You need to have family members and medicines before you can comment about them..</p>
+                return (<div className='list lower'>
+                <p className='innerlist'>You need to have family members and medicines before you can comment about them..</p>
+                <p className='innerlist'>Currently you have {this.props.patients.length} family members and {this.props.meds.length} {this.fixGrammer()} on this account</p>
                 <div className='innerlist'>
                     {addPerson}
                     {addMed}

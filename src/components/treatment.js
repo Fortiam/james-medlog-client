@@ -90,6 +90,12 @@ class Treatment extends Component {
            return (<div className='innerlist'><p>Nobody is currently on treatment</p></div>);
         }
     }
+    fixGrammer(){
+        if(this.props.manyMeds.length > 1){
+            return "medicines";
+        }
+        else return 'medicine';
+    }
     render(){
             if(this.props.loggedIn){
                 let listNames = [];
@@ -103,6 +109,7 @@ class Treatment extends Component {
                     const addMed = (<button className='center' title='add new medicine' onClick={()=>this.addOneMed(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>);
                     return (<div className='list'>
                     <p className='innerlist'>Please add at least 1 family member and at least 1 medicine before treatment!</p>
+                    <p className='innerlist'>Currently there are {this.props.listOfOwnedByUser.length} family and {this.props.manyMeds.length} {this.fixGrammer()} on this account</p>
                     <div className='innerlist'>
                         {addPerson}
                         {addMed}
