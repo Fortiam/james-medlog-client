@@ -76,7 +76,9 @@ button:focus {
     user-select: none; 
     -webkit-tap-highlight-color: transparent;
 }
-
+button:active{
+    transform: scale(1.1);
+}
 .filterButton::after {
     content: 'FILTER';
     position: relative;
