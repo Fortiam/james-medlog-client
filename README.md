@@ -60,6 +60,14 @@ but keeps the history as a record:
 
 <img src='./med-stop-keeps-history-clear-schedule.png' alt='calendar updated' />
 
+
+Trying to start treatment or a journal comment without at least 1 person and 1 medication
+displays buttons for the user to add people and medicine
+and shows the number currently on the account:
+
+<img src='./medlog-emptyFamily.png' alt='alternate add people and meds screen' />
+
+
 Project Codebase:
 
 /
