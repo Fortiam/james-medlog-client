@@ -1,6 +1,6 @@
 export const tylenol = {
-    "name" : "Tylenol",
-    "dosage": "1 pill",
+    "name" : "Enter Medicine Name..",
+    "dosage": "Enter dosage, such as 50 mL or 1 pill",
     "rateAmount": 4,
     "howLongAmount": 7
 };
