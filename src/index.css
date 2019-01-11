@@ -390,7 +390,7 @@ span.landingText2{
     text-align: center;
     /* display: inline-block;*/
     position: relative;
-    padding: 5px 2px 5px 2px;
+    /* padding: 5px 2px 5px 2px; */
     /* top: -20px; */
     float: right;
     
@@ -441,6 +441,7 @@ span.landingText3 {
     border-radius: 10px;
     width: 75px;
     box-shadow: 1px 1px 1px 1px rgb(135, 206, 250);
+    padding: 5px 2px;
 }
 .navFooter {
     margin-right: 20px;
@@ -503,6 +504,7 @@ span.landingText1{
         display: inline-block;
         position: relative;
          left: -90px;
+      
     }
 }
 @media(min-width: 600px){
@@ -523,10 +525,13 @@ span.landingText1{
         right: 0px;
         max-height:74px;
     } */
+    span.landingText1{
+        padding: 5px 2px;
+    }
     span.landingText2{
         display:block;
         position: relative;
-
+        padding: 5px 2px;
     }
     span.landingText3{
         display: block;
@@ -554,7 +559,7 @@ span.landingText1{
 }
     span.landingText1{
         position: fixed;
-        left:0;
+        left:0px;
     }
 }
 @media (max-height: 500px){
@@ -606,6 +611,24 @@ span.landingText1{
         padding-top: 0;
     }
 }
+@media (max-height: 166px){
+    .welcomeParent{
+        position: fixed;
+        top: 0px;
+        max-height: 49px;
+        z-index: 10;
+        right: 0;
+        width: 25%;
+        display: inline-block;
+        margin-right: 0;
+    }
+    .buttonRight{
+        margin: 0;
+        padding: 2px;
+        bottom: 0px;
+    }
+}
+
 /* @media(min-width: 850px){
     .image1{
         display: inline-block;
