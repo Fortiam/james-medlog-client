@@ -4,11 +4,29 @@ import { Redirect } from 'react-router-dom';
 import {OneName} from './oneName';
 import { createNewEvent, clearCurrentEvent, removeOnlyFutureEventsForOneMed } from '../actions/events';
 import moment from 'moment';
-import { editPatient } from '../actions/patients';
+import { editPatient, createNewPatient } from '../actions/patients';
+import { createNewMeds } from '../actions/meds';
+import * as newMedsToAdd from '../utils/medsDB';
 
 class Treatment extends Component {
     componentDidMount(){
         this.props.dispatch(clearCurrentEvent());
+    }
+    addOnePerson(){
+        let newbie = {"token": this.props.token,
+            "name" : "New Family Member!",
+            age : 1,
+            gender : "...",
+            height : '...',
+            weight : '...',
+            doctor : {name: ".. doctor name",
+            contact: ".. contact info"}
+        };
+        this.props.dispatch(createNewPatient(newbie));
+    }
+    addOneMed(whichMeds){
+        const newMeds = Object.assign({}, whichMeds, {"token": this.props.token});
+        this.props.dispatch(createNewMeds(newMeds));
     }
     btnClicky(values){
         values.preventDefault();
@@ -81,7 +99,14 @@ class Treatment extends Component {
                     safetyTitle = this.props.currentEvent[0].title;
                 }
                 if(this.props.listOfOwnedByUser.length < 1 || this.props.manyMeds.length < 1){
-                    return (<div className='innerlist'>Please add at least 1 family member and at least 1 medicine before treatment!
+                    const addPerson = (<button title='Add New family member' onClick={()=>this.addOnePerson()}><i className="fas fa-users innerlist"></i></button>);
+                    const addMed = (<button className='center' title='add new medicine' onClick={()=>this.addOneMed(newMedsToAdd.tylenol)}><i className="fas fa-prescription-bottle-alt innerlist"></i></button>);
+                    return (<div className='list'>
+                    <p className='innerlist'>Please add at least 1 family member and at least 1 medicine before treatment!</p>
+                    <div className='innerlist'>
+                        {addPerson}
+                        {addMed}
+                    </div>
                     </div>);
                 }
                 else {
