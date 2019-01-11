@@ -62,20 +62,20 @@ but keeps the history as a record:
 
 Project Codebase:
 
-in the root:
+/
     this readme
     the package.json
     the readme pictures
 
-in ./public
+/public
     the welcome page pictures
     the main index.html file
 
-in ./src
+/src
     the redux store in store.js
     the jwt token management in local-storage.js
 
-    /actions
+    /src/actions
     actions for new accounts in register.js
     actions for login and token refreshing in auth.js
     calendar schedule events actions in events.js
@@ -83,7 +83,7 @@ in ./src
     family member actions in patients.js
     journal actions in log.js
 
-    /components
+    /src/components
     the home component in home.js
     home renders the header component from header.js
     the header renders the NavMenu component from navMenu.js
@@ -95,8 +95,8 @@ in ./src
     the nav menu Account details link shows the userinfo.js component for changing or account deletion
     the treatment nav menu link shows the treatment.js which handles showing which family members are currently scheduled for 1 or more medicines and starting and stopping new schedules
     finally the journal option on the nav menu renders the log.js component which displays the filter.js component and the log_single.js component
-    
-    /reducers
+
+    /src/reducers
     redux state reducers
     eventsReducer in events.js,
     authReducer in auth.js,
