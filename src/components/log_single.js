@@ -73,7 +73,7 @@ class LogsSingle extends Component {
                 </Field>
                 <div className='textAlignLeft'>
                     <button title='submit form' className='spacing spaceAbove' type="submit"><i className="fas fa-check"></i></button>
-                    <button title='delete this comment entry' className='right spaceAbove' type="click" onClick={()=>this.removeLogs()}><i className="far fa-trash-alt"></i></button>
+                    <button title='delete this comment entry' className='right spaceAbove' type="button" onClick={()=>this.removeLogs()}><i className="far fa-trash-alt"></i></button>
                 </div>
                 </form>
                 </div>);

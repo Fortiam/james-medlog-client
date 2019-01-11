@@ -81,7 +81,7 @@ class Treatment extends Component {
                     safetyTitle = this.props.currentEvent[0].title;
                 }
                 if(this.props.listOfOwnedByUser.length < 1 || this.props.manyMeds.length < 1){
-                    return (<div>Please add at least 1 family member and at least 1 medicine before treatment!
+                    return (<div className='innerlist'>Please add at least 1 family member and at least 1 medicine before treatment!
                     </div>);
                 }
                 else {

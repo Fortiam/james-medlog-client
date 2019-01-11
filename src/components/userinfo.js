@@ -25,7 +25,7 @@ class Userinfo extends Component {
             updateObj["useEmailForApi"] = 'false';
         }
         this.props.dispatch(editUserInfo(updateObj));
-        this.props.history.push('/main');
+        //this.props.history.push('/calendar');
     }
     removeThisUser(){
         const user = {"token": this.props.token, "id": this.props.id};
@@ -67,7 +67,7 @@ class Userinfo extends Component {
                 </div>
                 <div className='textAlignLeft'>
                 <button className='spacing spaceAbove' title='submit form with updated values' type="submit"><i className="fas fa-check"></i></button>
-                <button className='trashContainer spaceAbove' title='cancel updating form and return to menu' type="click" onClick={()=>this.props.history.push('/main')}><i className="fas fa-times"></i></button>
+                <button className='trashContainer spaceAbove' title='cancel updating form and return to menu' type="button" onClick={()=>this.props.history.push('/calendar')}><i className="fas fa-times"></i></button>
                 </div>
                 </form>
                 <p className='marginCenter smallbutton'><button title='delete this account' type="click" className="deleteAccountBtn" onClick={()=>this.removeThisUser()} ><i className="far fa-trash-alt red"></i></button></p>
