@@ -3,9 +3,9 @@
 - - -
 ## Project Links:
 
-    [Live deploy](https://james-medlog.herokuapp.com)
+<a href='https://james-medlog.herokuapp.com'>Live Deployment</a>
 
-    [Github client](https://github.com/thinkful-ei26/james-Medlog-client)
+[Github client](https://github.com/thinkful-ei26/james-Medlog-client)
 
     [Github server](https://github.com/thinkful-ei26/james-Medlog-server)
 
