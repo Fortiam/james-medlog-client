@@ -33,7 +33,16 @@ export class MedsSingle extends Component {
         this.props.dispatch(getAllLogs({"token": this.props.token}));
         this.refreshState();
     }
+    safetyMessage(){
+        if((this.props.oneMed.name === 'Enter Medicine Name..') || (this.props.oneMed.dosage === 'Enter dosage, such as 50 mL or 1 pill')){
+            return 'Please enter medicine name and dosage';
+        }
+        else {
+            return `For ${this.props.oneMed.name}, ${this.props.oneMed.doubleCheck}`
+        }
+    }
     render(){
+        let confirmationMessage = this.safetyMessage();
        return (<div className='innerlist'>
             <form id={this.props.form} onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             <Field label="Medicine Name: " type="text" component={Input} name="name" placeholder={this.props.oneMed.name} />
@@ -43,7 +52,7 @@ export class MedsSingle extends Component {
             <div className='textAlignLeft spaceAbove'>
                 <button className='spacing left' title='submit updates' type="submit"><i className="fas fa-check"></i></button>
                 <button className='trashContainer' title='delete this medicine' type="button" onClick={()=>this.removeMed()}><i className="far fa-trash-alt"></i></button>
-            <span >For {this.props.oneMed.name}, {this.props.oneMed.doubleCheck}</span>
+            <span >{confirmationMessage}</span>
             </div>
             </form>
             </div>);
