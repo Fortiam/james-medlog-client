@@ -59,3 +59,48 @@ Stopping treatment clears the future scheduled events,
 but keeps the history as a record:
 
 <img src='./med-stop-keeps-history-clear-schedule.png' alt='calendar updated' />
+
+Project Codebase:
+
+in the root:
+    this readme
+    the package.json
+    the readme pictures
+
+in ./public
+    the welcome page pictures
+    the main index.html file
+
+in ./src
+    the redux store in store.js
+    the jwt token management in local-storage.js
+
+    /actions
+    actions for new accounts in register.js
+    actions for login and token refreshing in auth.js
+    calendar schedule events actions in events.js
+    actions for medicines in meds.js
+    family member actions in patients.js
+    journal actions in log.js
+
+    /components
+    the home component in home.js
+    home renders the header component from header.js
+    the header renders the NavMenu component from navMenu.js
+    home handles routes for registering new users with FormRegister.js and registerPage.js
+    home handles logging in with formLogin.js and login.js
+    after logging in the calendar view is served with calendar.js and it's filter with filter.js
+    the navigation menu can be used to reach the family view with patient.js which gives each person a form via patientSingle.js
+    the nav menu can also be used to view the medicines in medicine.js where each medicine has its own form from meds_single.js
+    the nav menu Account details link shows the userinfo.js component for changing or account deletion
+    the treatment nav menu link shows the treatment.js which handles showing which family members are currently scheduled for 1 or more medicines and starting and stopping new schedules
+    finally the journal option on the nav menu renders the log.js component which displays the filter.js component and the log_single.js component
+    
+    /reducers
+    redux state reducers
+    eventsReducer in events.js,
+    authReducer in auth.js,
+    registerReducer in register.js,
+    patienceReducer in patients.js,
+    medsReducer in meds.js,
+    logsReducer in log.js
